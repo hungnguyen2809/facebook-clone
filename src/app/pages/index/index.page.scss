@@ -1,0 +1,43 @@
+ion-toolbar{
+  ion-title{
+    text-align: left;
+    color: blue;
+    font-weight: bold;
+    font-size: 1.8em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: 1rem;
+  }
+
+  .ios{ 
+    padding: 0px;
+  }
+
+  .md{
+    padding: 0px;
+  }
+
+  ion-button{
+    background-color: #f1f2f6;
+    border-radius: 2em;
+    margin: 0px 0.4rem;
+
+    ion-icon{
+      font-size: 1.5em;
+    }
+  }
+}
+
+ion-tabs{
+  margin-top: 12.5vw;
+}
+
+.tab-option{
+  ion-icon {
+    font-size: 2.2em;
+  }
+}
+
+.underline-btn{
+  border-bottom: 2px solid #3867d6;
+}
+
