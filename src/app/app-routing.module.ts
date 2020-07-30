@@ -14,6 +14,10 @@ const routes: Routes = [
     path: '',
     redirectTo: '/login',
     pathMatch: 'full'
+  },
+  {
+    path: 'more-actions',
+    loadChildren: () => import('./pages/more-actions/more-actions.module').then( m => m.MoreActionsPageModule)
   }
 ];
 

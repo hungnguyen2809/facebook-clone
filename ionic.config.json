@@ -1,5 +1,7 @@
 {
   "name": "FakeFacebook",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
