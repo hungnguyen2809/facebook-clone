@@ -32,6 +32,98 @@
 			<ion-icon name="globe-outline" slot="start" color="tertiary"></ion-icon>
 			<ion-label color="dark">Phòng họp mặt</ion-label>
 		</ion-button>
-  </div>
-  
+	</div>
+	
+	<div class="content-status">
+		
+		<hr class="space-card">
+		<ion-card>
+			<ion-button fill="outline" shape="round">
+				<ion-icon name="globe-outline" slot="start" color="tertiary"></ion-icon>
+				<ion-label color="primary" style="font-size: 0.8em; text-transform: initial; text-align: left; font-weight: bold;">
+					Tạo phòng <br/> họp mặt
+				</ion-label>
+			</ion-button>
+			<i class="fas fa-circle fa-xs"></i>
+		</ion-card>
+
+		<hr class="space-card">
+		<ion-card>
+			<ion-item lines="none">
+				<ion-avatar slot="start">
+					<img src="https://i.imgur.com/hiYTDLz.jpg" alt="">
+				</ion-avatar>
+				<ion-label>
+					<span>
+						<b>Tráng Nguyễn</b>
+						<small> đã cập nhật ảnh đại diện của anh ấy.</small>
+					</span>
+					<br>
+					<small>5 giờ. <i class="fas fa-globe-asia"></i></small>
+				</ion-label>
+
+				<ion-button slot="end" fill="clear" color="medium" (click)="onMoreOptions()">
+					<ion-icon name="ellipsis-horizontal"></ion-icon>
+				</ion-button>
+			</ion-item>
+
+			<ion-card-content>
+				<p style="color: black; margin-left: 0.6em; text-align: justify;">
+					Nhớ. <ion-icon name="heart" color="danger"></ion-icon>
+				</p>
+			</ion-card-content>
+
+			<ion-img src="https://i.imgur.com/hiYTDLz.jpg" style="margin-top: 0.5em;"></ion-img>
+
+			<div class="top-like-comment-share">
+				<div class="top-like">
+					<i class="far fa-thumbs-up"></i>
+					<ion-icon name="heart-circle" color="danger"></ion-icon>
+					<span style="margin-left: 5px;">300</span>
+				</div>
+				<div class="top-comment-share">
+					<p>6000 bình luận</p>
+					<p>2000 chia sẻ</p>
+				</div>
+			</div>
+
+			<ion-grid>
+				<ion-row>
+					<ion-col size="4" style="text-align: center;">
+						<ion-button fill="clear" >
+							<span>
+								<ion-label color="dark"><i class="far fa-thumbs-up" style="font-size: 1.2em;"></i></ion-label>
+								<ion-label style="text-transform: initial; margin: 0px 0.35em;" color="dark">
+									Thích
+								</ion-label>
+							</span>
+						</ion-button>
+					</ion-col>
+
+					<ion-col size="4" style="text-align: center;">
+						<ion-button fill="clear">
+							<span style="margin-left: -15px;">
+								<ion-label color="dark"><i class="far fa-comment" style="font-size: 1.2em;"></i></ion-label>
+								<ion-label style="text-transform: initial; margin: 0px 0.35em;" color="dark">
+									Bình luận
+								</ion-label>
+							</span>
+						</ion-button>
+					</ion-col>		
+
+					<ion-col size="4" style="text-align: center;">
+						<ion-button fill="clear">
+							<span>
+								<ion-label color="dark"><i class="far fa-share-square" style="font-size: 1.2em;"></i></ion-label>
+								<ion-label style="text-transform: initial; margin: 0px 0.35em; " color="dark">
+									Chia sẻ
+								</ion-label>
+							</span>
+						</ion-button>
+					</ion-col>				
+				</ion-row>
+			</ion-grid>
+		</ion-card>
+
+	</div>
 </ion-content>
