@@ -1,26 +1,38 @@
 <ion-content>
-<div>
-  <img src="../assets/imgs/anhdangnhap.jpg" alt="#">
-</div>
-<div style="text-align: center; margin-top: -5px;">
-  <a fill="clear" style="width: 100%; font-size: 13px;" (click)="language()">
-    <ion-label style="color: rgb(90, 88, 88);">English-中国-</ion-label>Thêm...
-    
-  </a>
-</div>
-<div style="margin-top: 30px; text-align: center; margin-left: 5%; margin-right: 5%;"> 
-  <ion-list>
-    <ion-item><ion-input type='text' placeholder="Số điện thoại hoặc email"></ion-input></ion-item>
-    <ion-item><ion-input type='password' placeholder="Mật khẩu"></ion-input></ion-item>
-    <ion-item lines="none"></ion-item>
-  </ion-list>
-  <ion-button  expand="block" boder class="bt">Đăng nhập</ion-button>
-  <ion-button fill="clear">Quên mật khẩu?</ion-button>
-</div>
-<div style="text-align: center; margin-top: 50px;">
-  <ion-label style="color: rgb(180, 173, 170); font-size: 13px;">HOẶC</ion-label>
-</div>
-<div style="text-align: center; margin-top: 70px;">
-  <ion-button  expand="block" boder class="bt" color="success">Tạo tài khoản facebook mới</ion-button>
-</div>
+  <div>
+    <img src="../assets/imgs/anhdangnhap.jpg" alt="#">
+  </div>
+
+  <div style="text-align: center; margin-top: -5px;">
+    <a fill="clear" style="width: 100%; font-size: 13px;" (click)="language()">
+      <ion-label style="color: rgb(90, 88, 88);">English - 中国 -</ion-label>
+      Thêm...
+    </a>
+  </div>
+
+  <div style="margin-top: 30px; text-align: center; margin-left: 5%; margin-right: 5%;"> 
+    <ion-list>
+      <ion-item>
+        <ion-input type='text' placeholder="Số điện thoại hoặc email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type='password' placeholder="Mật khẩu"></ion-input>
+      </ion-item>
+      <ion-item lines="none"></ion-item>
+    </ion-list>
+
+    <ion-button  expand="block" boder class="bt" (click)="onLogin()">
+      Đăng nhập
+    </ion-button>
+    <ion-button fill="clear">Quên mật khẩu?</ion-button>
+  </div>
+
+  <div style="text-align: center; margin-top: 50px;">
+    <ion-label style="color: rgb(180, 173, 170); font-size: 13px;">- HOẶC -</ion-label>
+  </div>
+
+  <div style="text-align: center; margin-top: 70px;">
+    <ion-button  expand="block" boder class="bt" color="success">Tạo tài khoản facebook mới</ion-button>
+  </div>
+
 </ion-content>
