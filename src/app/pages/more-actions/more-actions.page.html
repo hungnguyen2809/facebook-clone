@@ -1,11 +1,69 @@
 <ion-content>
-  <ion-list>
-    <ion-item>
-      <ion-icon name="bookmark" slot="start" size="small"></ion-icon>
-
-        <span>Lưu video</span>
+  <ion-list lines="none">
+    <ion-item button detail="false">
+      <i class="far fa-bookmark fa-lg"></i>
+      <ion-label style="margin-left: 1em;">
+        <span>Lưu bài viết</span>
         <br>
-        <small>Thêm vào danh sách video đã lưu</small>
+        <small>Thêm vào danh sách các mục đã lưu</small>
+      </ion-label>
     </ion-item>
+
+    <ion-item button detail="false">
+      <i class="far fa-window-close fa-lg"></i>
+      <ion-label style="margin-left: 1em;">
+        <span>Ẩn bài viết</span>
+        <br>
+        <small>Ẩn bớt các bài viết tương tự</small>
+      </ion-label>
+    </ion-item>
+
+    <ion-item button detail="false">
+      <i class="far fa-clock fa-lg"></i>
+      <ion-label style="margin-left: 1em;">
+        <span>Tạm ẩn Tráng Nguyễn trong 30 ngày</span>
+        <br>
+        <small>Tạm thời dừng xem bài viết</small>
+      </ion-label>
+    </ion-item>
+
+    <ion-item button detail="false">
+      <i class="far fa-calendar-times fa-lg"></i>
+      <ion-label style="margin-left: 1em;">
+        <span>Bỏ theo dõi Tráng Nguyễn</span>
+        <br>
+        <small>Không xem bài viết của Tráng Nguyễn nữa</small>
+      </ion-label>
+    </ion-item>
+
+    <ion-item button detail="false" [ngClass]="{'hidden-more-option': isShowButton}" (click)="onShowMore()">
+      <i class="fas fa-angle-down fa-lg"></i>
+      <ion-label style="margin-left: 1em;">
+        <span>Xem thêm</span>
+      </ion-label>
+    </ion-item>
+
+    <ion-item button detail="false" [ngClass]="{'hidden-more-option': isOptions1}">
+      <i class="far fa-address-card fa-lg"></i>
+      <ion-label style="margin-left: 1em;">
+        <span>Lựa chọn 1</span>
+        <br>
+        <small>title lựa chọn 1</small>
+      </ion-label>
+    </ion-item>
+
+    <ion-item button detail="false" [ngClass]="{'hidden-more-option': isOptions2}">
+      <i class="fab fa-angellist fa-lg"></i>
+      <ion-label style="margin-left: 1em;">
+        <span>Lựa chọn 2</span>
+        <br>
+        <small>title lựa chọn 2</small>
+      </ion-label>
+    </ion-item>
+
   </ion-list>
+
+  <hr class="space">
+  <actions-sheet-default></actions-sheet-default>
+  
 </ion-content>

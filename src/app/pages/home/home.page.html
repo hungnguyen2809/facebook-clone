@@ -1,38 +1,21 @@
 <ion-content>
+
 	<div class="header">
 		<ion-list lines="none">
 			<ion-item>
 				<ion-avatar style="max-width: 10vw; height: auto;">
 					<img src="../../../assets//imgs/avatar.png" alt="" />
 				</ion-avatar>
-				<ion-button
-					fill="outline"
-					shape="round"
-					color="medium"
-					class="btn-status"
-				>
-					<span class="content-btn-status">Bạn đang nghĩ gì ?</span>
+				<ion-button fill="outline" shape="round" color="medium" class="btn-status">
+					<span class="content-btn-status">
+						Bạn đang nghĩ gì ?
+					</span>
 				</ion-button>
 			</ion-item>
 		</ion-list>
 	</div>
 
-	<div class="quick-options">
-		<ion-button fill="clear">
-			<ion-icon name="radio" slot="start" color="danger"></ion-icon>
-			<ion-label color="dark">Phát trực tiếp</ion-label>
-		</ion-button>
-    <span class="line-quick-options">|</span>
-		<ion-button fill="clear">
-			<ion-icon name="aperture-outline" slot="start" color="success"></ion-icon>
-			<ion-label color="dark" >Ảnh</ion-label>
-		</ion-button>
-    <span class="line-quick-options">|</span>
-    <ion-button fill="clear">
-			<ion-icon name="globe-outline" slot="start" color="tertiary"></ion-icon>
-			<ion-label color="dark">Phòng họp mặt</ion-label>
-		</ion-button>
-	</div>
+	<quick-options></quick-options>
 	
 	<div class="content-status">
 		
@@ -51,7 +34,7 @@
 		<ion-card>
 			<ion-item lines="none">
 				<ion-avatar slot="start">
-					<img src="https://i.imgur.com/hiYTDLz.jpg" alt="">
+					<img src="https://i.imgur.com/OHF3jkZ.png" alt="">
 				</ion-avatar>
 				<ion-label>
 					<span>
@@ -69,17 +52,19 @@
 
 			<ion-card-content>
 				<p style="color: black; margin-left: 0.6em; text-align: justify;">
-					Nhớ. <ion-icon name="heart" color="danger"></ion-icon>
+					Mong thi điểm cao.
 				</p>
 			</ion-card-content>
 
-			<ion-img src="https://i.imgur.com/hiYTDLz.jpg" style="margin-top: 0.5em;"></ion-img>
+			<ion-img src="https://i.imgur.com/OHF3jkZ.png" style="margin-top: 0.5em;"></ion-img>
 
 			<div class="top-like-comment-share">
 				<div class="top-like">
 					<i class="far fa-thumbs-up"></i>
 					<ion-icon name="heart-circle" color="danger"></ion-icon>
-					<span style="margin-left: 5px;">300</span>
+					<span style="margin-left: 5px;">
+						{{ numberLike }}
+					</span>
 				</div>
 				<div class="top-comment-share">
 					<p>6000 bình luận</p>
@@ -90,39 +75,29 @@
 			<ion-grid>
 				<ion-row>
 					<ion-col size="4" style="text-align: center;">
-						<ion-button fill="clear" >
-							<span>
-								<ion-label color="dark"><i class="far fa-thumbs-up" style="font-size: 1.2em;"></i></ion-label>
-								<ion-label style="text-transform: initial; margin: 0px 0.35em;" color="dark">
-									Thích
-								</ion-label>
-							</span>
+						<ion-button 
+							fill="clear" 
+							color="{{ isLike ? 'primary': 'dark' }}" 
+							[style.font-weight]="isLike ? 'bold': 'normal' " 
+							(click)="onLike()">
+							<button-like></button-like>
 						</ion-button>
 					</ion-col>
 
 					<ion-col size="4" style="text-align: center;">
-						<ion-button fill="clear">
-							<span style="margin-left: -15px;">
-								<ion-label color="dark"><i class="far fa-comment" style="font-size: 1.2em;"></i></ion-label>
-								<ion-label style="text-transform: initial; margin: 0px 0.35em;" color="dark">
-									Bình luận
-								</ion-label>
-							</span>
+						<ion-button fill="clear" color="dark" (click)="onComment()" >
+							<button-comment></button-comment>
 						</ion-button>
 					</ion-col>		
 
 					<ion-col size="4" style="text-align: center;">
-						<ion-button fill="clear">
-							<span>
-								<ion-label color="dark"><i class="far fa-share-square" style="font-size: 1.2em;"></i></ion-label>
-								<ion-label style="text-transform: initial; margin: 0px 0.35em; " color="dark">
-									Chia sẻ
-								</ion-label>
-							</span>
+						<ion-button fill="clear" color="dark" (click)="onShare()">
+							<button-share></button-share>
 						</ion-button>
 					</ion-col>				
 				</ion-row>
 			</ion-grid>
+
 		</ion-card>
 
 	</div>

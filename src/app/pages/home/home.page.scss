@@ -22,21 +22,6 @@
 	border-bottom: 1px solid #d1d8e0;
 }
 
-.quick-options{
-  display: flex;
-  justify-content: space-evenly;
-
-  ion-button{
-    font-size: 0.8em;
-    text-transform: initial;
-  }
-
-  .line-quick-options{
-    margin-top: 0.8rem;
-    opacity: 0.5;
-  }
-}
-
 .content-status{
 	background-color: #d1d8e0;
 	
@@ -90,4 +75,5 @@
 		};
 	}
 }
+
 
