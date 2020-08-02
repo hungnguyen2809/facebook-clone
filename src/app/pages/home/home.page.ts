@@ -21,8 +21,7 @@ export class HomePage implements OnInit {
 	async onMoreOptions() {
 		const showMoreOp = await this.popoverCtrl.create({
 			component: MoreActionsPage,
-			animated: true,
-			translucent: true,
+			animated: true
 		});
 		return await showMoreOp.present();
 	}

@@ -6,17 +6,18 @@ import { Component, OnInit } from "@angular/core";
 	styleUrls: ["./more-actions.page.scss"],
 })
 export class MoreActionsPage implements OnInit {
-	public isShowButton: boolean = false;
-	public isOptions1: boolean = true;
-	public isOptions2: boolean = true;
+	public isShowButton: boolean;
+	public isShowOptions: boolean;
 
 	constructor() {}
 
-	ngOnInit() {}
+	ngOnInit() {
+		this.isShowButton = true;
+		this.isShowOptions = false;
+	}
 
 	onShowMore(): void {
-    this.isShowButton = true;
-    this.isOptions1 = false;
-    this.isOptions2 = false;
+    this.isShowButton = false;
+    this.isShowOptions = true;
   }
 }
