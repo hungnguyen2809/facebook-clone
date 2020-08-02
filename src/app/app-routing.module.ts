@@ -1,24 +1,33 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { ChitietPage } from "./pages/chitiet/chitiet.page";
+import { ProfilePage } from "./pages/profile/profile.page";
 
 const routes: Routes = [
   // {
-  //   path: 'index',
-  //   loadChildren: () => import('./pages/index/index.module').then( m => m.IndexPageModule)
+  //   path:'',
+  //   component:ProfilePage
   // },
+  
+  {
+    path: 'index',
+    loadChildren: () => import('./pages/index/index.module').then( m => m.IndexPageModule)
+  },
+  
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
   },
   {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/profile',
     pathMatch: 'full'
   },
   {
-    path: 'more-actions',
-    loadChildren: () => import('./pages/more-actions/more-actions.module').then( m => m.MoreActionsPageModule)
-  }
+    path: 'profile',
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+
 ];
 
 @NgModule({
