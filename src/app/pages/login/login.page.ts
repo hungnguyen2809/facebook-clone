@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 	constructor(
-		public aler: AlertController,
+		public alertCtl: AlertController,
     public loadingCtrl: LoadingController,
     private roter: Router
 	) {}
@@ -17,7 +17,7 @@ export class LoginPage implements OnInit {
 	ngOnInit() {}
 
 	async language() {
-		const alert = await this.aler.create({
+		const alert = await this.alertCtl.create({
 			inputs: [
 				{
 					name: "radio1",
@@ -60,6 +60,6 @@ export class LoginPage implements OnInit {
 		setTimeout(() => {
       load.dismiss();
       this.roter.navigateByUrl('index');
-		}, 1500);
+		}, 1000);
 	}
 }
