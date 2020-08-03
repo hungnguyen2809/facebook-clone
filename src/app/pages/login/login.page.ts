@@ -10,11 +10,11 @@ import { Router } from '@angular/router';
 export class LoginPage implements OnInit {
 	constructor(
 		public alertCtl: AlertController,
-    public loadingCtrl: LoadingController,
-    private roter: Router
-	) {}
+		public loadingCtrl: LoadingController,
+		private roter: Router
+	) { }
 
-	ngOnInit() {}
+	ngOnInit() { }
 
 	async language() {
 		const alert = await this.alertCtl.create({
@@ -58,8 +58,8 @@ export class LoginPage implements OnInit {
 		await load.present();
 
 		setTimeout(() => {
-      load.dismiss();
-      this.roter.navigateByUrl('index');
+			load.dismiss();
+			this.roter.navigateByUrl('index');
 		}, 1000);
 	}
 }
