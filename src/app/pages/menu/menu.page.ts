@@ -11,5 +11,7 @@ export class MenuPage implements OnInit {
 
 	ngOnInit() {}
 
-	onShowProfile(): void {}
+	onShowProfile(): void {
+		this.routerCtrl.navigateByUrl('profile');
+	}
 }
