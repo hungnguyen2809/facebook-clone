@@ -74,6 +74,66 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  --ion-color-redpink: #ff6b81;
+
+  --ion-color-greendangertail: #74b9ff;
+
+  --ion-color-heightblue: #45aaf2;
+
+  --ion-color-orange: orange;
+
+  --ion-color-beniukonbronze: #fa8231;
+
+  --ion-color-algalfuel: #20bf6b;
+
+  --ion-color-innuendo: #a5b1c2;
+
+  --ion-color-maximungreen: #2bcbba;
+
+  --ion-color-softblue: #778beb;
+
+  --ion-color-summersky: #34ace0;
+}
+
+.ion-color-summersky{
+  --ion-color-base: var(--ion-color-summersky);
+}
+
+.ion-color-softblue{
+  --ion-color-base: var(--ion-color-softblue);
+}
+
+.ion-color-maximungreen{
+  --ion-color-base: var(--ion-color-maximungreen);
+}
+
+.ion-color-innuendo{
+  --ion-color-base: var(--ion-color-innuendo);
+}
+
+.ion-color-algalfuel{
+  --ion-color-base: var(--ion-color-algalfuel);
+}
+
+.ion-color-beniukonbronze{
+  --ion-color-base: var(--ion-color-beniukonbronze);
+}
+
+.ion-color-greendangertail{
+  --ion-color-base: var(--ion-color-greendangertail);
+}
+
+.ion-color-heightblue{
+  --ion-color-base: var(--ion-color-heightblue);
+}
+
+.ion-color-orange{
+  --ion-color-base: var(--ion-color-orange);
+}
+
+.ion-color-redpink{
+  --ion-color-base: var(--ion-color-redpink);
 }
 
 @media (prefers-color-scheme: dark) {

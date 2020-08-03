@@ -6,9 +6,12 @@
     <ion-button>
       <ion-icon name="search" color="dark"></ion-icon>
     </ion-button>
-    <ion-button>
-      <ion-icon name="chatbubble-ellipses" color="dark"></ion-icon>
-    </ion-button>
+    <div>
+      <ion-button>
+        <ion-icon name="chatbubble-ellipses" color="dark"></ion-icon>
+      </ion-button>
+      <ion-badge color="danger" style="margin-left: -15px; padding: 1px;">100</ion-badge>
+    </div>
   </ion-buttons>
 </ion-toolbar>
 
@@ -24,10 +27,12 @@
 
     <ion-tab-button tab="watch" class="tab-option" [ngClass]="{ 'underline-btn' : isActiveWatch }">
       <ion-icon name="videocam"></ion-icon>
+      <ion-badge color="danger">20</ion-badge>
     </ion-tab-button>
 
     <ion-tab-button tab="notifications" class="tab-option" [ngClass]="{ 'underline-btn' : isActiveNotifi }">
       <ion-icon name="notifications"></ion-icon>
+      <ion-badge color="danger">30</ion-badge>
     </ion-tab-button>
 
     <ion-tab-button tab="menu" class="tab-option" [ngClass]="{ 'underline-btn' : isActiveMenu }">

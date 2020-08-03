@@ -1,9 +1,25 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>menu</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <div class="title-share">
+    <ion-label>
+      Menu
+    </ion-label>
+    <div class="btn-share">
+      <ion-icon name="search" slot="icon-only"></ion-icon>
+    </div>
+  </div>
+
+  <ion-item lines="none" button detail="false" (click)="onShowProfile()">
+    <ion-avatar>
+      <img src="../../../assets/imgs/Teacher.png">
+    </ion-avatar>
+    <ion-label style="margin-left: 1em">
+      <b>Tráng Nguyễn</b>
+      <br>
+      <small>Xem trang cá nhân của bạn</small>
+    </ion-label>
+  </ion-item>
+
+  <menu-card></menu-card>
+
 
 </ion-content>

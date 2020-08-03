@@ -4,6 +4,7 @@ import { ButtonLikeComponent } from './button-like/button-like.component';
 import { ButtonCommentComponent } from './button-comment/button-comment.component';
 import { ButtonShareComponent } from './button-share/button-share.component';
 import { QuickOptionsComponent } from './quick-options/quick-options.component';
+import { MenuCardComponent } from './menu-card/menu-card.component';
 
 
 @NgModule({
@@ -12,14 +13,16 @@ import { QuickOptionsComponent } from './quick-options/quick-options.component';
 		ButtonLikeComponent,
 		ButtonCommentComponent,
 		ButtonShareComponent,
-		QuickOptionsComponent
+		QuickOptionsComponent,
+		MenuCardComponent
 	],
 	exports: [
 		ActionsSheetDefaultComponent,
 		ButtonLikeComponent,
 		ButtonCommentComponent,
 		ButtonShareComponent,
-		QuickOptionsComponent
+		QuickOptionsComponent,
+		MenuCardComponent
 	]
 })
 export class ComponentsModule {}
