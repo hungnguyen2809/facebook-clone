@@ -1,11 +1,12 @@
 ion-toolbar{
   ion-title{
     text-align: left;
-    color: blue;
+    color: #0652DD;
     font-weight: bold;
-    font-size: 1.8em;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 30px;
     margin-left: 1rem;
+    font-family: 'Bree Serif';
+    text-transform: lowercase;
   }
 
   .ios{ 
@@ -16,19 +17,29 @@ ion-toolbar{
     padding: 0px;
   }
 
-  ion-button{
-    background-color: #f1f2f6;
-    border-radius: 2em;
-    margin: 0px 0.4rem;
-
-    ion-icon{
-      font-size: 1.5em;
+  .icon-message{
+    margin-right: 10px;
+    ion-badge{
+      margin-left: -13px;
+      margin-bottom: 7px;
+      padding: 3px;
+      border-radius: 10px;
+      font-size: 10px;
     }
   }
 }
 
-ion-tabs{
-  margin-top: 12.5vw;
+.header-md::after{
+  width: 0px;
+  height: 0px;
+}
+
+.header-md{
+  height: 7%;
+}
+
+.header-ios ion-toolbar:last-of-type {
+  --border-width: 0px;
 }
 
 .tab-option{

@@ -2,7 +2,7 @@ ion-content{
   --ion-background-color: #f1f2f6;
 }
 
-.title-share{
+.title-menu-page{
   display: flex;
   justify-content: space-between;
   padding-bottom: 10px;
@@ -14,13 +14,9 @@ ion-content{
     margin-left: 0.8rem;
   }
 
-  .btn-share{
-    font-size: 1.5em;
+  .btn-menu-page{
     margin-top: 0.2rem;
     margin-right: 0.8em;
-    background-color: white;
-    padding: 6px 6px 0px 6px;
-    border-radius: 50px;
   }
 }
 

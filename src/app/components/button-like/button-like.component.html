@@ -1,6 +1,8 @@
-<ion-label>
-  <i class="far fa-thumbs-up" style="font-size: 1.2em;"></i>
-  <ion-label style="text-transform: initial; margin: 0px 0.35em;">
-    Thích
-  </ion-label>
-</ion-label>
+<ion-button fill="clear" color="{{ likeStatus ? 'primary' : 'dark' }}" [style.font-weight]="likeStatus ? 'bold' : 'normal'">
+	<ion-label>
+		<i class="far fa-thumbs-up" style="font-size: 1.2em;"></i>
+		<ion-label style="text-transform: initial; margin: 0px 0.35em;">
+			Thích
+		</ion-label>
+	</ion-label>
+</ion-button>

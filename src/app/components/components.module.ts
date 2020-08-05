@@ -5,6 +5,10 @@ import { ButtonCommentComponent } from './button-comment/button-comment.componen
 import { ButtonShareComponent } from './button-share/button-share.component';
 import { QuickOptionsComponent } from './quick-options/quick-options.component';
 import { MenuCardComponent } from './menu-card/menu-card.component';
+import { SearchIconComponent } from './search-icon/search-icon.component';
+import { UserIconComponent } from './user-icon/user-icon.component';
+import { MessengerIconComponent } from './messenger-icon/messenger-icon.component';
+import { LikeCommentShareComponent } from './like-comment-share/like-comment-share.component';
 
 
 @NgModule({
@@ -14,7 +18,11 @@ import { MenuCardComponent } from './menu-card/menu-card.component';
 		ButtonCommentComponent,
 		ButtonShareComponent,
 		QuickOptionsComponent,
-		MenuCardComponent
+		MenuCardComponent,
+		SearchIconComponent,
+		UserIconComponent,
+		MessengerIconComponent,
+		LikeCommentShareComponent
 	],
 	exports: [
 		ActionsSheetDefaultComponent,
@@ -22,7 +30,11 @@ import { MenuCardComponent } from './menu-card/menu-card.component';
 		ButtonCommentComponent,
 		ButtonShareComponent,
 		QuickOptionsComponent,
-		MenuCardComponent
+		MenuCardComponent,
+		SearchIconComponent,
+		UserIconComponent,
+		MessengerIconComponent,
+		LikeCommentShareComponent
 	]
 })
 export class ComponentsModule {}
