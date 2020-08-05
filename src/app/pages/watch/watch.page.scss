@@ -1,0 +1,59 @@
+.header-watch{
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+
+  ion-label{
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-top: 0.6rem;
+    margin-left: 0.8rem;
+  }
+}
+
+.icon-header{
+  margin-top: 0.2rem;
+  margin-right: 0.8em;
+}
+
+.header-chip{
+  background-color: white;
+  padding-left: 0.5vw;
+  padding-bottom: 0.3vw;
+
+  i{
+    font-weight: bold;
+  }
+
+  ion-label{
+    font-weight: bold;
+    margin-left: 6px;
+  }
+}
+
+.content-video{
+  ion-card{
+    padding: 0px;
+    margin: 0px;
+		margin-top: 8px;
+		border-radius: 0px;
+
+		ion-card-content{
+			padding: 0px;
+			margin: 0px;
+		}
+
+		ion-grid{
+			padding: 0px;
+      margin: 0px;
+      ion-col{
+				padding: 0px;
+			}
+		}
+	}
+}
+
+.video{
+  width: 100vw;
+  height: auto;
+}

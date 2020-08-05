@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GroupPage implements OnInit {
 
+  public arr: string[] = ['aaa', 'bbb', 'ccc', 'ddd', 'eee', 'fff'];
+
   constructor() { }
 
   ngOnInit() {

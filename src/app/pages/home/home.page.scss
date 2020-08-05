@@ -4,9 +4,11 @@
 	}
 
 	.btn-status {
-		min-width: 80vw;
-		margin-left: 1em;
+		width: 100%;
+		margin-left: 0.6em;
 		min-height: 2rem;
+		border: 1px solid #a5b1c2;
+		border-radius: 1.3em;
   }
   
 	.content-btn-status {
@@ -20,15 +22,23 @@
 	}
 
 	border-bottom: 1px solid #d1d8e0;
+
+	img{
+		min-width: 40px; 
+		min-height: 40px; 
+		max-width: 40px; 
+		max-height: 40px;
+	}
 }
 
-.content-status{
+.content-home{
 	background-color: #d1d8e0;
 	
 	ion-card{
 		background-color: white;
 		padding: 0px;
 		margin: 0px;
+		margin-top: 7px;
 		border-radius: 0px;
 
 		ion-card-content{
@@ -37,16 +47,23 @@
 		}
 
 		ion-grid{
-			height: 28vw;
 			padding: 0px;
 			margin: 0px;
+			ion-col{
+				padding: 0px;
+			}
 		}
 	}
 
 	.space-card{
 		margin: 0px;
-		margin-bottom: 8px;
+		margin-bottom: 7px;
 		height: 0px;
+	}
+
+	.btn-meet-zoom{
+		border: 1px solid #74b9ff;
+		border-radius: 1.3em;
 	}
 }
 
