@@ -1,0 +1,25 @@
+<div class="notifi ion-activatable ripple-parent" 
+  [style.background-color]="notifi.status ? 'white' : '#d1d8e0'" 
+  (click)="onReadNotifi()">
+  <div class="avatar-content">
+    <div class="avartar-background" [style.background-image]="'url('+notifi.img+')'">
+      <div class="background-icon" [style.background-color]="typeIcon.color">
+        <i class="icon" [class]="typeIcon.class"></i>
+      </div>
+    </div>
+    <div class="content-noti ">
+      <p class="content">
+        {{ getContent() }}
+      </p>
+      <p class="time">
+        {{ getTime() }}
+      </p>
+    </div>
+  </div>
+  <div class="more-action">
+    <div>
+      <i class="fas fa-ellipsis-h fa-sm"></i>
+    </div>
+  </div>
+  <ion-ripple-effect></ion-ripple-effect>
+</div>

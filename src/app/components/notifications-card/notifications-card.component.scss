@@ -1,0 +1,79 @@
+.notifi{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3px;
+  padding: 5px 0px 10px 10px;
+}
+
+.avatar-content{
+  display: flex;
+}
+
+.ripple-parent {
+  position: relative;
+  overflow: hidden;
+}
+
+.avartar-background{
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  min-width: 50px;
+  min-height: 50px;
+
+  .icon{
+    color: white;
+  }
+
+  .background-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 15px;
+    margin-right: -5px;
+    margin-bottom: -5px;
+  }
+}
+
+.content-noti{
+  min-height: 55px;
+  .content{
+    margin: 0px;
+    margin-left: 12px;
+    font-size: 14px;
+    text-align: start;
+    max-height: 51px;
+    overflow: hidden;
+    word-break: keep-all;
+  }
+
+  .time{
+    margin: 0px;
+    margin-top: 5px;
+    margin-left: 12px;
+    font-size: small;
+    color: #747d8c;
+  }
+}
+
+.more-action{
+  margin: 0px 6px 6px 6px;
+
+  div{
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+}
