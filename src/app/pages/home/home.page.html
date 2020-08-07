@@ -3,10 +3,10 @@
 	<div class="header">
 		<ion-list lines="none">
 			<ion-item>
-				<ion-avatar style="max-width: 10vw; height: auto;">
-					<img src="../../../assets//imgs/avatar.png" alt="" />
+				<ion-avatar routerLink="/profile">
+					<img src="https://i.imgur.com/OHF3jkZ.png" alt="" />
 				</ion-avatar>
-				<ion-button fill="outline" shape="round" color="medium" class="btn-status">
+				<ion-button fill="clear" color="medium" class="btn-status">
 					<span class="content-btn-status">
 						Bạn đang nghĩ gì ?
 					</span>
@@ -17,20 +17,69 @@
 
 	<quick-options></quick-options>
 	
-	<div class="content-status">
-		
+	<div class="content-home">
 		<hr class="space-card">
-		<ion-card>
-			<ion-button fill="outline" shape="round">
+		
+		<ion-card style="padding: 3px; margin-top: 0px;">
+			<ion-button fill="clear" class="btn-meet-zoom">
 				<ion-icon name="globe-outline" slot="start" color="tertiary"></ion-icon>
 				<ion-label color="primary" style="font-size: 0.8em; text-transform: initial; text-align: left; font-weight: bold;">
 					Tạo phòng <br/> họp mặt
 				</ion-label>
 			</ion-button>
-			<i class="fas fa-circle fa-xs"></i>
 		</ion-card>
 
-		<hr class="space-card">
+		<ion-card>
+			<ion-item lines="none">
+				<ion-avatar slot="start">
+					<img src="https://i.imgur.com/OHF3jkZ.png" alt="">
+				</ion-avatar>
+				<ion-label>
+					<span>
+						<b>Tráng Nguyễn</b>
+						<small> đã cập nhật ảnh đại diện của anh ấy.</small>
+					</span>
+					<br>
+					<small>5 giờ. <i class="fas fa-globe-asia"></i></small>
+				</ion-label>
+				<ion-button slot="end" fill="clear" color="medium" (click)="onMoreOptions()">
+					<ion-icon name="ellipsis-horizontal"></ion-icon>
+				</ion-button>
+			</ion-item>
+
+			<ion-card-content>
+				<p style="color: black; margin-left: 0.6em; text-align: justify;">
+					Mong thi điểm cao.
+				</p>
+			</ion-card-content>
+
+			<ion-img src="https://i.imgur.com/OHF3jkZ.png" style="margin-top: 0.5em;"></ion-img>
+
+			<like-comment-share [like]="numberLike" [comment]="6000" [share]="3000"></like-comment-share>
+
+			<ion-grid>
+				<ion-row>
+					<ion-col size="4" style="text-align: center;">
+						<button-like [likeStatus]="isLike" (click)="onLike()"></button-like>
+					</ion-col>
+
+					<ion-col size="4" style="text-align: center;">
+						<ion-button fill="clear" color="dark" (click)="onComment()" >
+							<button-comment></button-comment>
+						</ion-button>
+					</ion-col>		
+
+					<ion-col size="4" style="text-align: center;">
+						<ion-button fill="clear" color="dark" (click)="onShare()">
+							<button-share></button-share>
+						</ion-button>
+					</ion-col>				
+				</ion-row>
+			</ion-grid>
+		</ion-card>
+
+		<!-- -------------------------- -->
+
 		<ion-card>
 			<ion-item lines="none">
 				<ion-avatar slot="start">
@@ -58,46 +107,24 @@
 
 			<ion-img src="https://i.imgur.com/OHF3jkZ.png" style="margin-top: 0.5em;"></ion-img>
 
-			<div class="top-like-comment-share">
-				<div class="top-like">
-					<i class="far fa-thumbs-up"></i>
-					<ion-icon name="heart-circle" color="danger"></ion-icon>
-					<span style="margin-left: 5px;">
-						{{ numberLike }}
-					</span>
-				</div>
-				<div class="top-comment-share">
-					<p>6000 bình luận</p>
-					<p>2000 chia sẻ</p>
-				</div>
-			</div>
+			<like-comment-share [like]="300" [comment]="250" [share]="0"></like-comment-share>
 
 			<ion-grid>
 				<ion-row>
 					<ion-col size="4" style="text-align: center;">
-						<ion-button 
-							fill="clear" 
-							color="{{ isLike ? 'primary': 'dark' }}" 
-							[style.font-weight]="isLike ? 'bold': 'normal' " 
-							(click)="onLike()">
-							<button-like></button-like>
-						</ion-button>
+						<button-like [likeStatus]="isLike" (click)="onLike()"></button-like>
 					</ion-col>
 
 					<ion-col size="4" style="text-align: center;">
-						<ion-button fill="clear" color="dark" (click)="onComment()" >
-							<button-comment></button-comment>
-						</ion-button>
+						<button-comment (click)="onComment()"></button-comment>
 					</ion-col>		
 
 					<ion-col size="4" style="text-align: center;">
-						<ion-button fill="clear" color="dark" (click)="onShare()">
-							<button-share></button-share>
-						</ion-button>
+						<button-share (click)="onShare()"></button-share>
 					</ion-col>				
 				</ion-row>
 			</ion-grid>
-
 		</ion-card>
 	</div>
+	
 </ion-content>

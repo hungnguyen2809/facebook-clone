@@ -1,9 +1,24 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>menu</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <div class="title-menu-page">
+    <ion-label>
+      Menu
+    </ion-label>
+    <div class="btn-menu-page">
+      <search-icon [backgroundColor]="'white'"></search-icon>
+    </div>
+  </div>
+
+  <ion-item lines="none" button detail="false" (click)="onShowProfile()">
+    <ion-avatar>
+      <img src="../../../assets/imgs/Teacher.png">
+    </ion-avatar>
+    <ion-label style="margin-left: 1em">
+      <b style="font-size: large;">Tráng Nguyễn</b>
+      <br>
+      <p>Xem trang cá nhân của bạn</p>
+    </ion-label>
+  </ion-item>
+
+  <menu-card></menu-card>
 
 </ion-content>

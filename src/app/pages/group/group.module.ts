@@ -4,13 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { GroupPageRoutingModule } from './group-routing.module';
 import { GroupPage } from './group.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    GroupPageRoutingModule
+    GroupPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [GroupPage]
 })

@@ -1,9 +1,11 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>notifications</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <div class="header-notifi">
+    <ion-label>Thông báo</ion-label>
+    <search-icon></search-icon>
+  </div>
+  
+  <ng-container *ngFor="let item of listNotifications">
+    <notifications-card [notifi]="item"></notifications-card>
+  </ng-container>
 
 </ion-content>

@@ -1,9 +1,116 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>watch</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content color="silver">
+  <div>
+    <div class="header-watch">
+      <ion-label>Watch</ion-label>
+      <div class="icon-header">
+				<user-icon></user-icon>
+				<search-icon></search-icon>
+      </div>
+    </div>
+    <div class="header-chip">
+      <ion-chip>
+        <i class="fas fa-podcast"></i>
+        <ion-label>Trực tiếp</ion-label>
+      </ion-chip>
+      <ion-chip>
+        <i class="fas fa-utensils"></i>
+        <ion-label>Ẩm thực</ion-label>
+      </ion-chip>
+      <ion-chip>
+        <i class="fas fa-gamepad"></i>
+        <ion-label>Chơi game</ion-label>
+      </ion-chip>
+    </div>
+  </div>
 
-<ion-content>
+  <div class="content-video">
+    <ion-card>
+      <ion-item lines="none">
+        <ion-avatar>
+          <img src="https://i.imgur.com/Vi1ihEw.jpg" alt="">
+        </ion-avatar>
+        <ion-label style="margin-left: 10px;">
+          <b>Cuộc sống hàng ngày</b> -
+          <small style="color:#4b7bec;">Theo dõi</small>
+          <br>
+					<small>5 giờ. <i class="fas fa-globe-asia"></i></small>
+				</ion-label>
+				<ion-button slot="end" fill="clear" color="medium" (click)="onMoreOptions()">
+					<ion-icon name="ellipsis-horizontal"></ion-icon>
+				</ion-button>
+      </ion-item>
 
+      <ion-card-content>
+				<p style="color: black; margin-left: 0.6em; text-align: justify;">
+          Công nghệ thông tin
+				</p>
+      </ion-card-content>
+
+			<div>
+				<video controls class="video">
+					<source src="">
+				</video>
+			</div>
+
+      <like-comment-share [like]="numberLike" [comment]="0" [share]="1" ></like-comment-share>
+
+			<ion-grid>
+				<ion-row>
+					<ion-col size="4" style="text-align: center;">
+						<button-like [likeStatus]="isLike" (click)="onLike()"></button-like>
+					</ion-col>
+					<ion-col size="4" style="text-align: center;">
+						<button-comment (click)="onComment()" ></button-comment>
+					</ion-col>		
+					<ion-col size="4" style="text-align: center;">
+						<button-share (click)="onShare()"></button-share>
+					</ion-col>				
+				</ion-row>
+			</ion-grid>
+
+    </ion-card>
+
+    <ion-card>
+      <ion-item lines="none">
+        <ion-avatar>
+          <img src="https://i.imgur.com/Vi1ihEw.jpg" alt="">
+        </ion-avatar>
+        <ion-label style="margin-left: 10px;">
+          <b>Cuộc sống hàng ngày</b> -
+          <small style="color:#4b7bec;">Theo dõi</small>
+          <br>
+					<small>5 giờ. <i class="fas fa-globe-asia"></i></small>
+				</ion-label>
+				<ion-button slot="end" fill="clear" color="medium" (click)="onMoreOptions()">
+					<ion-icon name="ellipsis-horizontal"></ion-icon>
+				</ion-button>
+      </ion-item>
+
+      <ion-card-content style="margin-bottom: 5px;">
+				<p style="color: black; margin-left: 0.6em; text-align: justify;">
+          Con nai vàng ngơ ngác, quật ngã bác thợ săn.
+				</p>
+      </ion-card-content>
+
+      <ion-img src="https://i.imgur.com/PfZ6kcm.jpg"></ion-img>
+
+      <like-comment-share [like]="200" [comment]="20" [share]="100" ></like-comment-share>
+
+			<ion-grid>
+				<ion-row>
+					<ion-col size="4" style="text-align: center;">
+						<button-like [likeStatus]="isLike" (click)="onLike()"></button-like>
+					</ion-col>
+					<ion-col size="4" style="text-align: center;">
+						<button-comment (click)="onComment()"></button-comment>
+					</ion-col>		
+					<ion-col size="4" style="text-align: center;">
+						<button-share (click)="onShare()"></button-share>
+					</ion-col>				
+				</ion-row>
+			</ion-grid>
+
+    </ion-card>
+  </div>
 </ion-content>
+
