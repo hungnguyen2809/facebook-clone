@@ -12,6 +12,7 @@ import { ComponentsModule } from 'src/app/components/components.module';
     FormsModule,
     IonicModule,
     GroupPageRoutingModule,
+    ComponentsModule,
     ComponentsModule
   ],
   declarations: [GroupPage]
