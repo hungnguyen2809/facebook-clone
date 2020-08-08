@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { PopoverController, ActionSheetController } from "@ionic/angular";
 import { MoreActionsPage } from "../more-actions/more-actions.page";
+import { Story } from './../../interfaces';
 
 @Component({
 	selector: "app-home",
@@ -10,13 +11,48 @@ import { MoreActionsPage } from "../more-actions/more-actions.page";
 export class HomePage implements OnInit {
 	public numberLike: number = 7999;
 	public isLike: boolean = false;
+	public img: string = 'https://i.imgur.com/vfHjMCH.jpg';
+
+	public listStory: Story[] = [];
+	public listActive: string[] = [];
 
 	constructor(
 		public popoverCtrl: PopoverController,
 		public actionsSheetCtrl: ActionSheetController
 	) {}
 
-	ngOnInit() {}
+	ngOnInit() {
+		this.listStory = [
+			{
+				content: 'https://i.imgur.com/Vi1ihEw.jpg',
+				avatar: 'https://i.imgur.com/vfHjMCH.jpg',
+				name: 'Tráng Nguyễn'
+			},
+			{
+				content: 'https://i.imgur.com/Vi1ihEw.jpg',
+				avatar: 'https://i.imgur.com/vfHjMCH.jpg',
+				name: 'Nguyễn Tiến Thành'
+			},
+			{
+				content: 'https://i.imgur.com/PfZ6kcm.jpg',
+				avatar: 'https://i.imgur.com/vfHjMCH.jpg',
+				name: 'Đức Quân'
+			},
+		];
+
+		this.listActive = [
+			'https://i.imgur.com/Vi1ihEw.jpg',
+			'https://i.imgur.com/OHF3jkZ.png',
+			'https://i.imgur.com/PfZ6kcm.jpg',
+			'https://i.imgur.com/Vi1ihEw.jpg',
+			'https://i.imgur.com/OHF3jkZ.png',
+			'https://i.imgur.com/PfZ6kcm.jpg',
+			'https://i.imgur.com/Vi1ihEw.jpg',
+			'https://i.imgur.com/OHF3jkZ.png',
+			'https://i.imgur.com/PfZ6kcm.jpg',
+			'https://i.imgur.com/vfHjMCH.jpg'
+		];
+	}
 
 	async onMoreOptions() {
 		const showMoreOp = await this.popoverCtrl.create({

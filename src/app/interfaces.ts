@@ -5,3 +5,9 @@ export interface Notifications{
   time: number;
   status: boolean;
 }
+
+export interface Story{
+  avatar: string;
+  content: string;
+  name: string;
+}

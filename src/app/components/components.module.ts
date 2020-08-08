@@ -10,6 +10,7 @@ import { UserIconComponent } from './user-icon/user-icon.component';
 import { MessengerIconComponent } from './messenger-icon/messenger-icon.component';
 import { LikeCommentShareComponent } from './like-comment-share/like-comment-share.component';
 import { NotificationsCardComponent } from './notifications-card/notifications-card.component';
+import { ComponentStoryComponent } from './component-story/component-story.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { NotificationsCardComponent } from './notifications-card/notifications-c
 		UserIconComponent,
 		MessengerIconComponent,
 		LikeCommentShareComponent,
-		NotificationsCardComponent
+		NotificationsCardComponent,
+		ComponentStoryComponent
 	],
 	exports: [
 		ActionsSheetDefaultComponent,
@@ -37,7 +39,8 @@ import { NotificationsCardComponent } from './notifications-card/notifications-c
 		UserIconComponent,
 		MessengerIconComponent,
 		LikeCommentShareComponent,
-		NotificationsCardComponent
+		NotificationsCardComponent,
+		ComponentStoryComponent
 	]
 })
 export class ComponentsModule {}
