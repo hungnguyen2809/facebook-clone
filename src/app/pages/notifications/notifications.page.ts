@@ -15,7 +15,9 @@ export class NotificationsPage implements OnInit {
     this.listNotifications = [
       {
         img: '../../../assets/imgs/Teacher.png',
-        content: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga natus dicta voluptas in distinctio, veritatis ullam quod consequuntur Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga natus dicta voluptas in distinctio, veritatis ullam quod consequuntur',
+        content: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga natus dicta voluptas in distinctio, 
+                  veritatis ullam quod consequuntur Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga natus dicta 
+                  voluptas in distinctio, veritatis ullam quod consequuntur`,
         type: 1,
         time: 30,
         status: false
@@ -49,6 +51,38 @@ export class NotificationsPage implements OnInit {
         status: false
       }
     ];
+
+  }
+
+  onionRefresh(event) : void{
+    let x = [{
+        img: 'https://i.imgur.com/Vi1ihEw.jpg',
+        content: 'Tùng đã cập nhật ảnh đại diện của cô ấy',
+        type: 2,
+        time: 1200,
+        status: false
+      },
+      {
+        img: 'https://i.imgur.com/Vi1ihEw.jpg',
+        content: 'Quân đã trọc bạn',
+        type: 4,
+        time: 5000,
+        status: false
+      },
+      {
+        img: 'https://i.imgur.com/Vi1ihEw.jpg',
+        content: 'Huyền vừa trở thành bạn bè của bạn. Nhấn đề nhắn tin',
+        type: 4,
+        time: 7200,
+        status: false
+      }
+    ];
+    setTimeout(()=>{
+      x.forEach((item) => {
+        this.listNotifications.push(item);
+      })
+      event.target.complete();
+    }, 1000);
   }
 
 }

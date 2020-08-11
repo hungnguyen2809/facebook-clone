@@ -15,6 +15,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
+    path: 'chitiet',
+    loadChildren: () => import('./pages/chitiet/chitiet.module').then( m => m.ChitietPageModule)
+  },
+  {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'

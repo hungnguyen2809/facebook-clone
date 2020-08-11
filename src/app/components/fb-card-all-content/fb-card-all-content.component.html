@@ -1,0 +1,149 @@
+<ion-card>
+  <!-- avatar and action -->
+  <div class="action-user">
+    <div class="name-avatar">
+      <div [style.background-image]="'url('+card.avartar+')'" class="avatar-user"></div>
+      <ng-container [ngSwitch]="card.typeCard">
+        <!-- status have title card -->
+        <div class="name-user" *ngSwitchCase="1">
+          <span class="name">
+            {{ card.nameUser }}
+          </span>
+          <span class="action">
+            {{ card.titleCard }}
+          </span>
+          <div class="time-privacy">
+            <p>{{ processService.getTime(card.time) }}</p>
+            <p class="dot-icon"><i class="fas fa-circle"></i></p>
+            <p><i class="fas fa-globe-asia"></i></p>
+          </div>
+        </div>
+
+        <!-- status not title card -->
+        <div class="name-user" *ngSwitchCase="2">
+          <span class="name">
+            {{ card.nameUser }}
+          </span>
+          <div class="time-privacy">
+            <p>{{ processService.getTime(card.time) }}</p>
+            <p class="dot-icon"><i class="fas fa-circle"></i></p>
+            <p><i class="fas fa-globe-asia"></i></p>
+          </div>
+        </div>
+
+        <!-- for group -->
+        <div class="name-user" *ngSwitchCase="3">
+          <span class="name">
+            {{ card.nameUser }}
+          </span>
+          <span><i class="fas fa-caret-right"></i></span>
+          <span class="name">
+            {{ card.nameGroup }}
+          </span>
+          <div class="time-privacy">
+            <p>{{ processService.getTime(card.time) }}</p>
+            <p class="dot-icon"><i class="fas fa-circle"></i></p>
+            <p><i class="fas fa-chalkboard-teacher"></i></p>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <div>
+      <more-icon [backgroundColor]="'#fff'"></more-icon>
+    </div>
+  </div>
+
+  <!-- show content status -->
+  <ion-card-content>
+    <ng-container *ngIf="card.content.length < 500; else more500">
+      <span class="content-status">{{ processService.getContentCard(card.content) }}</span>
+    </ng-container>
+    <ng-template #more500>
+      <div [ngSwitch]="showMoreContent">
+        <div *ngSwitchCase="false">
+          <span class="content-status">{{ processService.getContentCard(card.content) }}</span>
+          <span class="btn-more-content-status" (click)="onShowMoreContent()">Xem thêm</span>
+        </div>
+        <div *ngSwitchCase="true">
+          <span class="content-status">{{ card.content }}</span>
+        </div>
+      </div>
+    </ng-template>
+  </ion-card-content>
+
+  <!-- show image content -->
+  <div class="image-video-content">
+    <!-- one picture -->
+    <div *ngIf="card.images.length === 1" class="image-one">
+      <div [style.background-image]="'url('+card.images[0]+')'"></div>
+    </div>
+
+    <!-- two picture -->
+    <div *ngIf="card.images.length === 2" class="image-two" >
+      <div [style.background-image]="'url('+card.images[0]+')'" class="one"></div>
+      <div [style.background-image]="'url('+card.images[1]+')'" class="two"></div>
+    </div>
+
+    <!-- three picture -->
+    <div *ngIf="card.images.length === 3" class="image-three" >
+      <div class="one-two">
+        <div [style.background-image]="'url('+card.images[0]+')'" class="one"></div>
+        <div [style.background-image]="'url('+card.images[1]+')'" class="two"></div>
+      </div>
+      <div [style.background-image]="'url('+card.images[2]+')'" class="three"></div>
+    </div>
+
+    <!-- four picture -->
+    <div *ngIf="card.images.length === 4" class="image-four" >
+      <div class="one-two">
+        <div [style.background-image]="'url('+card.images[0]+')'" class="one"></div>
+        <div [style.background-image]="'url('+card.images[1]+')'" class="two"></div>
+      </div>
+      <div class="three-four">
+        <div [style.background-image]="'url('+card.images[2]+')'" class="three"></div>
+        <div [style.background-image]="'url('+card.images[3]+')'" class="four"></div>
+      </div>
+    </div>
+
+    <!-- more than four picture -->
+    <div *ngIf="card.images.length > 4" class="image-more" >
+      <div class="one-two">
+        <div [style.background-image]="'url('+card.images[0]+')'" class="one"></div>
+        <div [style.background-image]="'url('+card.images[1]+')'" class="two"></div>
+      </div>
+      <div class="three-four">
+        <div [style.background-image]="'url('+card.images[2]+')'" class="three"></div>
+        <div [style.background-image]="'url('+card.images[3]+')'" class="four">
+          <div class="over-clound">
+            <span> + {{card.images.length - 4}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- show number of like, comment, share -->
+  <like-comment-share [like]="card.numberLike" [comment]="card.numberComment" [share]="card.numberShare"></like-comment-share>
+
+  <!-- action button like, commnet, share -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" style="text-align: center;">
+        <button-like [likeStatus]="card.isLike" (click)="onLike()"></button-like>
+      </ion-col>
+
+      <ion-col size="4" style="text-align: center;">
+        <ion-button fill="clear" color="dark" (click)="onComment()" >
+          <button-comment></button-comment>
+        </ion-button>
+      </ion-col>		
+
+      <ion-col size="4" style="text-align: center;">
+        <ion-button fill="clear" color="dark" (click)="onShare()">
+          <button-share></button-share>
+        </ion-button>
+      </ion-col>				
+    </ion-row>
+  </ion-grid>
+
+</ion-card>

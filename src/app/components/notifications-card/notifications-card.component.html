@@ -9,10 +9,10 @@
     </div>
     <div class="content-noti ">
       <p class="content">
-        {{ getContent() }}
+        {{ processService.getContentNotifi(notifi.content) }}
       </p>
       <p class="time">
-        {{ getTime() }}
+        {{ processService.getTime(notifi.time) }}
       </p>
     </div>
   </div>
