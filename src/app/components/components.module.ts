@@ -1,4 +1,7 @@
+import { IonicModule } from '@ionic/angular';
 import { NgModule } from "@angular/core";
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { ActionsSheetDefaultComponent } from './actions-sheet-default/actions-sheet-default.component';
 import { ButtonLikeComponent } from './button-like/button-like.component';
 import { ButtonCommentComponent } from './button-comment/button-comment.component';
@@ -11,6 +14,8 @@ import { MessengerIconComponent } from './messenger-icon/messenger-icon.componen
 import { LikeCommentShareComponent } from './like-comment-share/like-comment-share.component';
 import { NotificationsCardComponent } from './notifications-card/notifications-card.component';
 import { ComponentStoryComponent } from './component-story/component-story.component';
+import { FbCardAllContentComponent } from './fb-card-all-content/fb-card-all-content.component';
+import { MoreIconComponent } from './more-icon/more-icon.component';
 
 
 @NgModule({
@@ -23,10 +28,17 @@ import { ComponentStoryComponent } from './component-story/component-story.compo
 		MenuCardComponent,
 		SearchIconComponent,
 		UserIconComponent,
+		MoreIconComponent,
 		MessengerIconComponent,
 		LikeCommentShareComponent,
 		NotificationsCardComponent,
-		ComponentStoryComponent
+		ComponentStoryComponent,
+		FbCardAllContentComponent
+	],
+	imports: [
+		IonicModule,
+		CommonModule,
+		FormsModule
 	],
 	exports: [
 		ActionsSheetDefaultComponent,
@@ -36,11 +48,13 @@ import { ComponentStoryComponent } from './component-story/component-story.compo
 		QuickOptionsComponent,
 		MenuCardComponent,
 		SearchIconComponent,
+		MoreIconComponent,
 		UserIconComponent,
 		MessengerIconComponent,
 		LikeCommentShareComponent,
 		NotificationsCardComponent,
-		ComponentStoryComponent
+		ComponentStoryComponent,
+		FbCardAllContentComponent
 	]
 })
 export class ComponentsModule {}

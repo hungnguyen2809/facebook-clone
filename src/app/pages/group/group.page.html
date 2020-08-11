@@ -1,86 +1,32 @@
 <ion-content>
-  <div style="margin-bottom: 10px; display: flex;justify-content: space-between;">
-    <div>
-      <ion-title style="font-weight: bold;font-size: 24px; margin-top: 7px;">Groups</ion-title>
-    </div>
-    <div style="margin-right: 10px;">
-      <search-icon></search-icon>
-    </div>
+  <div class="header-group">
+    <ion-label>
+      Nhóm
+    </ion-label>
+    <search-icon></search-icon>
   </div>
-  <div style="margin-left: 10px;text-align: center;">
-    <ion-chip class="chipgroup">
+
+  <div class="suggest">
+    <ion-chip>
       <ion-icon name="people"></ion-icon>
-      <strong>Your Groups</strong>
+      <ion-label>Nhóm của bạn</ion-label>
     </ion-chip>
-    <ion-chip class="chipgroup">
-      <ion-icon name="compass-sharp"></ion-icon>
-      <strong>Discover</strong>
-    </ion-chip>
-    <ion-chip class="chipgroup">
-      <ion-icon name="add-sharp"></ion-icon>
-      <strong>Create</strong>
+
+    <ion-chip>
+      <ion-icon name="compass"></ion-icon>
+      <ion-label>Khám phá</ion-label>
     </ion-chip>  
+
+    <ion-chip>
+      <ion-icon name="add-circle"></ion-icon>
+      <ion-label>Tạo mới</ion-label>
+    </ion-chip>
+
+    <ion-chip>
+      <ion-icon name="settings"></ion-icon>
+      <ion-label>Cài đặt</ion-label>
+    </ion-chip>
   </div>
-  <div style="margin-left: 20px; margin-top: 10px;border-top: rgb(242, 242, 245) 3px outset ;display: flex;width: 200%;">
-    <div style=" height: 50%; width: 15%;margin-top: 10px; margin-right: 2%;">
-      <img src="./../../assets/imgs/avata.jpg" alt="" style="border-radius:15px">
-      <p style="margin-top: 3px;margin-left: 5%;"><strong>Hội người cô đơn</strong></p>
-    </div>
-    <div style=" height: 50%; width: 15%;margin-top: 10px; margin-right: 2%;">
-      <img src="./../../assets/imgs/avata.jpg" alt="" style="border-radius:15px">
-      <p style="margin-top: 3px;margin-left: 5%;"><strong>Hội người cô đơn</strong></p>
-    </div>
-    <div style=" height: 50%; width: 15%;margin-top: 10px; margin-right: 2%;">
-      <img src="./../../assets/imgs/avata.jpg" alt="" style="border-radius:15px">
-      <p style="margin-top: 3px;margin-left: 5%;"><strong>Hội người cô đơn</strong></p>
-    </div>
 
-  </div>
-  <div style="border-top: rgb(242, 242, 245) 8px outset;">
-    <ion-card style="margin: 0px;">
-      <div>
-        <div style="display: flex;">
-          <ion-avatar>
-            <img src="./../../assets/imgs/avata.jpg" alt="">
-          </ion-avatar>
-          <div style="margin-top: -7px; margin-left: 10px;">
-            <p style="font-size: 17px;color: black;"><strong>Thành</strong><ion-icon name="caret-forward-sharp"></ion-icon><strong>Hội những người cô đơn</strong></p>
-            <ion-label style="display: flex; margin-top: -7px;">
-              2 hrs  <ion-icon name="earth-sharp" style="margin-left: 10px;"></ion-icon>
-            </ion-label>
-          </div>
-        </div>
-        
-      </div>
-      <div>
-        <p style="color: black;width: 100%;">tôi cô đơn quá</p>
-        <img src="./../../assets/imgs/avata.jpg" alt="">
-      </div>
-      <div>
-        <like-comment-share [like]="100" [comment]="1"></like-comment-share>
-      </div>
 
-      <ion-grid>
-				<ion-row>
-					<ion-col size="4" style="text-align: center;">
-						<button-like [likeStatus]="true" ></button-like>
-					</ion-col>
-
-					<ion-col size="4" style="text-align: center;">
-						<ion-button fill="clear" color="dark">
-							<button-comment></button-comment>
-						</ion-button>
-					</ion-col>		
-
-					<ion-col size="4" style="text-align: center;">
-						<ion-button fill="clear" color="dark">
-							<button-share></button-share>
-						</ion-button>
-					</ion-col>				
-				</ion-row>
-			</ion-grid>
-
-    </ion-card>
-  </div>
-  </ion-content>
-  
+</ion-content>

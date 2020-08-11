@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { PopoverController, ActionSheetController } from "@ionic/angular";
-import { MoreActionsPage } from "../more-actions/more-actions.page";
-import { Story } from './../../interfaces';
+import { Story, Card } from './../../interfaces';
 
 @Component({
 	selector: "app-home",
@@ -9,12 +8,11 @@ import { Story } from './../../interfaces';
 	styleUrls: ["./home.page.scss"],
 })
 export class HomePage implements OnInit {
-	public numberLike: number = 7999;
-	public isLike: boolean = false;
-	public img: string = 'https://i.imgur.com/vfHjMCH.jpg';
+	public avatar: string = 'https://i.imgur.com/vfHjMCH.jpg';
 
 	public listStory: Story[] = [];
 	public listActive: string[] = [];
+	public listStatusHome: Card[] = [];
 
 	constructor(
 		public popoverCtrl: PopoverController,
@@ -52,60 +50,78 @@ export class HomePage implements OnInit {
 			'https://i.imgur.com/PfZ6kcm.jpg',
 			'https://i.imgur.com/vfHjMCH.jpg'
 		];
-	}
 
-	async onMoreOptions() {
-		const showMoreOp = await this.popoverCtrl.create({
-			component: MoreActionsPage,
-			animated: true
-		});
-		return await showMoreOp.present();
-	}
+	//1. trạng thái có tiêu đề,
+	//2. trạng thái không có tiêu đề,
+	//3. Tin trong group
 
-	onLike(): void {
-		if (this.isLike) {
-			this.numberLike = this.numberLike - 1;
-			this.isLike = !this.isLike;
-		} else {
-			this.numberLike = this.numberLike + 1;
-			this.isLike = !this.isLike;
-		}
-	}
+		this.listStatusHome = [
+			{
+				typeCard: 1,
+				avartar: 'https://i.imgur.com/vfHjMCH.jpg',
+				nameUser: 'Nguyễn Thành',
+				titleCard: 'đã cập nhật ảnh đại diện của anh ấy.',
+				nameGroup: '',
+				content: '',
+				time: 130,
+				typePrivacy: '',
+				images: [
+					'https://i.imgur.com/vfHjMCH.jpg'
+				],
+				numberLike: 10,
+				isLike: false,
+				numberComment: 1,
+				numberShare: 0
+			},
+			{
+				typeCard: 2,
+				avartar: 'https://i.imgur.com/CfhGDGJ.jpg',
+				nameUser: 'Tráng Nguyễn',
+				titleCard: '',
+				nameGroup: '',
+				content: 'Chào cả nhà nhá.... Ok ok nhá.',
+				time: 6000,
+				typePrivacy: '',
+				images: [
+					'https://i.imgur.com/OHF3jkZ.png',
+					'https://i.imgur.com/T5JnQF2.jpg',
+					'https://i.imgur.com/PfZ6kcm.jpg',
+				],
+				numberLike: 100,
+				isLike: false,
+				numberComment: 50,
+				numberShare: 10
+			},
+			{
+				typeCard: 2,
+				avartar: 'https://scontent.fhan3-3.fna.fbcdn.net/v/t1.0-1/p160x160/55882048_1110466989141037_3584556447993692160_o.jpg?_nc_cat=100&_nc_sid=dbb9e7&_nc_ohc=mIgCQMmyn7UAX__qWF2&_nc_ht=scontent.fhan3-3.fna&_nc_tp=6&oh=4fdfddf303921c34cf32158dd887c9cc&oe=5F561964',
+				nameUser: 'Nguyễn Văn Hùng',
+				titleCard: '',
+				nameGroup: '',
+				content: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima vel eos velit distinctio consequuntur quod debitis ducimus odio, illum aut! Quo minima adipisci praesentium ullam dolorem blanditiis nisi laboriosam iure!
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque at harum rem quidem facere, soluta, iste maxime sunt, accusantium eum ad magni. Dolorem ipsum quod adipisci perferendis tenetur error velit.
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis tempore voluptatibus iure obcaecati similique sit quia molestiae. Labore eum modi nam cumque aut quibusdam, necessitatibus vero perferendis, possimus velit quas?
+				Lorem ipsum dolor, sit amet consectetur adipisicing elit. At repudiandae quia tempora aliquid reiciendis asperiores tenetur veritatis, dolore velit dicta similique quas nobis ratione tempore reprehenderit blanditiis labore culpa est!
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa id placeat alias iusto dolorem saepe sint, aspernatur sed delectus magnam, rerum necessitatibus error quasi voluptate! Maxime velit iste officia quas.
+				`,
+				time: 500,
+				typePrivacy: '',
+				images: [
+					'https://i.imgur.com/OHF3jkZ.png',
+					'https://i.imgur.com/T5JnQF2.jpg',
+					'https://i.imgur.com/PfZ6kcm.jpg',
+					'https://i.imgur.com/vfHjMCH.jpg',
+					'https://i.imgur.com/T5JnQF2.jpg',
+					'https://i.imgur.com/PfZ6kcm.jpg',
+					'https://i.imgur.com/Vi1ihEw.jpg',
+					'https://i.imgur.com/PfZ6kcm.jpg'
+				],
+				numberLike: 7999,
+				isLike: false,
+				numberComment: 2000,
+				numberShare: 10000
+			},
+		];
 
-	onComment(): void {}
-
-	async onShare() {
-		let showShare = await this.actionsSheetCtrl.create({
-			header: "Chia sẻ qua",
-			animated: true,
-			buttons: [
-				{
-					text: "Chia sẻ lên tin của bạn",
-					icon: "add-circle-outline",
-					handler: () => {},
-				},
-				{
-					text: "Gửi bằng Messenger",
-					icon: "logo-medium",
-					handler: () => {},
-				},
-				{
-					text: "Chia sẻ lên một nhóm",
-					icon: "people-outline",
-					handler: () => {},
-				},
-				{
-					text: "Tùy chọn khác...",
-					icon: "options-outline",
-					handler: () => {},
-				},
-				{
-					text: "Hủy bỏ",
-					role: "cancel",
-					handler: () => {},
-				},
-			],
-		});
-		return await showShare.present();
 	}
 }

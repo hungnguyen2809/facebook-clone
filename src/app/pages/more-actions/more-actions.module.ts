@@ -4,7 +4,6 @@ import { FormsModule } from "@angular/forms";
 import { IonicModule } from "@ionic/angular";
 import { MoreActionsPageRoutingModule } from "./more-actions-routing.module";
 import { MoreActionsPage } from "./more-actions.page";
-import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
 	imports: [
@@ -12,7 +11,6 @@ import { ComponentsModule } from 'src/app/components/components.module';
 		FormsModule,
 		IonicModule,
 		MoreActionsPageRoutingModule,
-		ComponentsModule,
 	],
 	declarations: [MoreActionsPage],
 })

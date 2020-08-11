@@ -1,4 +1,4 @@
-<div class="like-comment-share">
+<div class="like-comment-share" [style.justify-content]="like !== 0 ? 'space-between' : 'flex-end'">
   <div class="like" [style.display]="like !== 0 ? 'block' : 'none'">
     <i class="far fa-thumbs-up"></i>
     <i class="far fa-heart"></i>

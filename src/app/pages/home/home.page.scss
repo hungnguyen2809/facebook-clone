@@ -9,8 +9,8 @@
 		min-height: 2rem;
 		border: 1px solid #a5b1c2;
 		border-radius: 1.3em;
-  }
-  
+	}
+
 	.content-btn-status {
 		color: black;
 		text-transform: initial;
@@ -23,48 +23,35 @@
 
 	border-bottom: 1px solid #d1d8e0;
 
-	img{
-		min-width: 40px; 
-		min-height: 40px; 
-		max-width: 40px; 
+	img {
+		min-width: 40px;
+		min-height: 40px;
+		max-width: 40px;
 		max-height: 40px;
 	}
 }
 
-.content-home{
+.content-home {
 	background-color: #d1d8e0;
-	
-	ion-card{
+
+	ion-card {
 		background-color: white;
 		padding: 0px;
 		margin: 0px;
 		margin-top: 7px;
 		border-radius: 0px;
-
-		ion-card-content{
-			padding: 0px;
-			margin: 0px;
-		}
-
-		ion-grid{
-			padding: 0px;
-			margin: 0px;
-			ion-col{
-				padding: 0px;
-			}
-		}
 	}
 
-	.meet-zoom{
+	.meet-zoom {
 		display: flex;
 		overflow-x: auto;
 
-		.btn-meet-zoom{
+		.btn-meet-zoom {
 			border: 1px solid #74b9ff;
 			border-radius: 1.3em;
 		}
 
-		.people-zoom{
+		.people-zoom {
 			width: 40px;
 			height: 40px;
 			border-radius: 20px;
@@ -74,14 +61,14 @@
 			background-repeat: no-repeat;
 			background-size: cover;
 
-			.icon{
+			.icon {
 				height: 100%;
 				display: flex;
 				justify-content: flex-end;
 				align-items: flex-end;
 				font-size: 10px;
 
-				i{
+				i {
 					color: #2ecc71;
 					border: 2px solid white;
 					border-radius: 10px;
@@ -90,12 +77,12 @@
 		}
 	}
 
-	.story{
+	.story {
 		display: flex;
 		overflow-x: auto;
 	}
 
-	.overview-story{
+	.overview-story {
 		background-color: whitesmoke;
 		height: 200px;
 		width: 100px;
@@ -103,7 +90,7 @@
 		border-radius: 10px;
 		border: 1px solid #dfe4ea;
 
-		.avartar{
+		.avartar {
 			height: 100px;
 			width: 100px;
 			background-repeat: no-repeat;
@@ -113,25 +100,25 @@
 			justify-content: center;
 			align-items: flex-end;
 
-			.icon{
-				background-color: #1878F3;
+			.icon {
+				background-color: #1878f3;
 				color: white;
 				font-size: 21px;
 				border-radius: 20px;
 				margin-bottom: -15px;
 				border: 3px solid white;
-				i{
+				i {
 					margin: 4px 5px 4px 5px;
 				}
 			}
 		}
 
-		.name-story{
+		.name-story {
 			height: 50%;
 			display: flex;
 			justify-content: center;
 			align-items: flex-end;
-			span{
+			span {
 				font-size: medium;
 				font-weight: bold;
 				color: #57606f;
@@ -140,23 +127,22 @@
 		}
 	}
 
-	.space-card{
+	.space-card {
 		margin: 0px;
 		margin-bottom: 7px;
 		height: 0px;
 	}
-
 }
 
-.top-like-comment-share{
+.top-like-comment-share {
 	margin: 8px 10px 0px 10px;
 	display: flex;
 	justify-content: space-between;
 	border-bottom: 1px solid gainsboro;
 	padding-bottom: 5px;
 
-	.top-like{
-		.fa-thumbs-up{
+	.top-like {
+		.fa-thumbs-up {
 			color: #4b7bec;
 		}
 
@@ -164,14 +150,12 @@
 		align-items: flex-start;
 	}
 
-	.top-comment-share{
+	.top-comment-share {
 		display: flex;
 
-		p{
+		p {
 			margin: 0px;
 			margin-left: 10px;
 		}
 	}
 }
-
-
