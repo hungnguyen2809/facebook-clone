@@ -51,9 +51,17 @@ export class HomePage implements OnInit {
 			'https://i.imgur.com/vfHjMCH.jpg'
 		];
 
-	//1. trạng thái có tiêu đề,
-	//2. trạng thái không có tiêu đề,
-	//3. Tin trong group
+		// typeCard
+		//1. trạng thái có tiêu đề,
+		//2. trạng thái không có tiêu đề,
+		//3. Tin trong group
+
+		//statusAction
+		// 1. bình thường đủ like, comment, share,
+		// 2. có like, share,
+		// 3. có like, comment,
+		// 4. chỉ có like
+		// 5. vô hiệu hóa tính năng
 
 		this.listStatusHome = [
 			{
@@ -65,13 +73,17 @@ export class HomePage implements OnInit {
 				content: '',
 				time: 130,
 				typePrivacy: '',
-				images: [
-					'https://i.imgur.com/vfHjMCH.jpg'
+				attachments: [
+					{
+						type: 'img',
+						url: 'https://i.imgur.com/vfHjMCH.jpg'
+					}
 				],
 				numberLike: 10,
 				isLike: false,
 				numberComment: 1,
-				numberShare: 0
+				numberShare: 0,
+				statusAction: 5
 			},
 			{
 				typeCard: 2,
@@ -82,15 +94,25 @@ export class HomePage implements OnInit {
 				content: 'Chào cả nhà nhá.... Ok ok nhá.',
 				time: 6000,
 				typePrivacy: '',
-				images: [
-					'https://i.imgur.com/OHF3jkZ.png',
-					'https://i.imgur.com/T5JnQF2.jpg',
-					'https://i.imgur.com/PfZ6kcm.jpg',
+				attachments: [
+					{
+						type: 'img',
+						url: 'https://i.imgur.com/OHF3jkZ.png'
+					},
+					{
+						type: 'video',
+						url: 'https://i.imgur.com/sowixRS.mp4'
+					},
+					{
+						type: 'img',
+						url: 'https://i.imgur.com/PfZ6kcm.jpg'
+					}
 				],
 				numberLike: 100,
 				isLike: false,
 				numberComment: 50,
-				numberShare: 10
+				numberShare: 10,
+				statusAction: 2
 			},
 			{
 				typeCard: 2,
@@ -106,20 +128,41 @@ export class HomePage implements OnInit {
 				`,
 				time: 500,
 				typePrivacy: '',
-				images: [
-					'https://i.imgur.com/OHF3jkZ.png',
-					'https://i.imgur.com/T5JnQF2.jpg',
-					'https://i.imgur.com/PfZ6kcm.jpg',
-					'https://i.imgur.com/vfHjMCH.jpg',
-					'https://i.imgur.com/T5JnQF2.jpg',
-					'https://i.imgur.com/PfZ6kcm.jpg',
-					'https://i.imgur.com/Vi1ihEw.jpg',
-					'https://i.imgur.com/PfZ6kcm.jpg'
+				attachments: [
+					{
+						type: 'video',
+						url: 'https://i.imgur.com/lOZd5FV.mp4'
+					},
+					{
+						type: 'img',
+						url: 'https://i.imgur.com/T5JnQF2.jpg'
+					},
+					{
+						type: 'video',
+						url: 'https://i.imgur.com/sowixRS.mp4'
+					},
+					{
+						type: 'img',
+						url: 'https://i.imgur.com/PfZ6kcm.jpg'
+					},
+					{
+						type: 'img',
+						url: ''
+					},
+					{
+						type: 'img',
+						url: ''
+					},
+					{
+						type: 'img',
+						url: ''
+					}
 				],
 				numberLike: 7999,
 				isLike: false,
 				numberComment: 2000,
-				numberShare: 10000
+				numberShare: 10000,
+				statusAction: 1
 			},
 		];
 
