@@ -1,0 +1,51 @@
+.header-md::after{
+  width: 0px;
+  height: 0px;
+}
+
+.header-md ion-toolbar:last-of-type {
+  --border-width: 0 0 0.55px;
+}
+
+.ripple-parent {
+  position: relative;
+  overflow: hidden;
+}
+
+.header{
+  display: flex;
+  margin-top: 10px;
+  margin-left: 10px;
+  .name-option{
+    margin-left: 10px;
+    ion-label{
+      font-weight: bold;
+    }
+
+    .btn-action{
+      display: flex;
+      border: 1px solid #a4b0be;
+      padding: 2px;
+      border-radius: 6px;
+      margin: 2px 2px;
+      
+      .type-action{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        span{
+          margin: 2px;
+        }
+      }
+      
+    }
+  }
+}
+
+.write-content-status{
+  ion-textarea{
+    margin: 15px;
+    font-size: 25px;
+    height: 60vh;
+  }
+}

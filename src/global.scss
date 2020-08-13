@@ -34,3 +34,12 @@
 	.popover-arrow.sc-ion-popover-ios::after {
 	background: rgba(var(--ion-background-color-rgb, 255, 255, 255), 1);
 }
+
+
+.textarea-wrapper{
+	height: 100%;
+	textarea{
+		padding: 0px !important;
+		height: 100%;
+	}
+}

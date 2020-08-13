@@ -29,7 +29,7 @@ import { VideoCardAllComponent } from './video-card-all/video-card-all.component
 		NotificationsCardComponent,
 		ComponentStoryComponent,
 		FbCardAllContentComponent,
-		VideoCardAllComponent
+		VideoCardAllComponent,
 	],
 	imports: [
 		IonicModule,
@@ -48,7 +48,7 @@ import { VideoCardAllComponent } from './video-card-all/video-card-all.component
 		NotificationsCardComponent,
 		ComponentStoryComponent,
 		FbCardAllContentComponent,
-		VideoCardAllComponent
+		VideoCardAllComponent,
 	]
 })
 export class ComponentsModule {}

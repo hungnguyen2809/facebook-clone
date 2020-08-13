@@ -2,7 +2,7 @@ import { ProcessAllService } from "src/app/services/process-all.service";
 import { Component, OnInit, Input } from "@angular/core";
 import { VideoCard } from "src/app/interfaces";
 import { PopoverController, ActionSheetController } from "@ionic/angular";
-import { MoreActionsPage } from "src/app/pages/more-actions/more-actions.page";
+import { MoreOptionsComponent } from '../more-options/more-options.component';
 
 @Component({
 	selector: "video-card-all",
@@ -21,10 +21,17 @@ export class VideoCardAllComponent implements OnInit {
 
 	ngOnInit() {}
 
-	async onMoreOptions() {
+	async onMoreOptions(eve) {
 		const showMoreOp = await this.popoverCtrl.create({
-			component: MoreActionsPage,
+			component: MoreOptionsComponent,
 			animated: true,
+			event: eve,
+			componentProps: {
+				data: this.cardVideo
+			},
+			keyboardClose: true,
+			mode: 'md',
+			translucent: true
 		});
 		return await showMoreOp.present();
 	}

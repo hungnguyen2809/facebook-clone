@@ -4,14 +4,14 @@
 	<div class="header">
 		<ion-list lines="none">
 			<ion-item>
-				<ion-avatar routerLink="/profile">
+				<ion-avatar (click)="onProfile()">
 					<img src="{{avatar}}" alt="">
 				</ion-avatar>
-				<div class="btn-status">
-					<span class="content-btn-status">
+				<ion-button class="btn-status" fill="clear" (click)="onCreateStatus()">
+					<ion-label>
 						Bạn đang nghĩ gì ?
-					</span>
-				</div>
+					</ion-label>
+				</ion-button>
 			</ion-item>
 		</ion-list>
 	</div>
@@ -27,7 +27,7 @@
 			<div>
 				<ion-button fill="clear" class="btn-meet-zoom">
 					<ion-icon name="globe-outline" slot="start" color="tertiary"></ion-icon>
-					<ion-label color="primary" style="font-size: 0.8em; text-transform: initial; text-align: left; font-weight: bold;">
+					<ion-label color="primary" style="font-size: 12px; text-transform: initial; text-align: left; font-weight: bold;">
 						Tạo phòng <br/> họp mặt
 					</ion-label>
 				</ion-button>

@@ -15,7 +15,9 @@
           <div class="time-privacy">
             <p>{{ processService.getTime(card.time) }}</p>
             <p class="dot-icon"><i class="fas fa-circle"></i></p>
-            <p><i class="fas fa-globe-asia"></i></p>
+            <p>
+              <i class="{{ card.typePrivacy.toUpperCase() === 'PR' ? 'fas fa-lock' : card.typePrivacy.toUpperCase() === 'FR' ? 'fas fa-user-friends' : 'fas fa-globe-asia' }}"></i>
+            </p>
           </div>
         </div>
 
@@ -27,7 +29,9 @@
           <div class="time-privacy">
             <p>{{ processService.getTime(card.time) }}</p>
             <p class="dot-icon"><i class="fas fa-circle"></i></p>
-            <p><i class="fas fa-globe-asia"></i></p>
+            <p>
+              <i class="{{ card.typePrivacy.toUpperCase() === 'PR' ? 'fas fa-lock' : card.typePrivacy.toUpperCase() === 'FR' ? 'fas fa-user-friends' : 'fas fa-globe-asia' }}"></i>
+            </p>
           </div>
         </div>
 
@@ -49,7 +53,7 @@
       </ng-container>
     </div>
     <div>
-      <more-icon [backgroundColor]="'#fff'" (click)="onMoreOptions()"></more-icon>
+      <more-icon [backgroundColor]="'#fff'" (click)="onMoreOptions($event)"></more-icon>
     </div>
   </div>
 

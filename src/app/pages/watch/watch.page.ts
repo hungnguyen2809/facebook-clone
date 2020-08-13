@@ -20,17 +20,17 @@ export class WatchPage implements OnInit {
       {
         icon: 'radio',
         name: 'Trực tiếp',
-        height: 100
+        height: 120
       },
       {
         icon: 'restaurant',
         name: 'Ẩm thực',
-        height: 100
+        height: 120
       },
       {
         icon: 'game-controller',
         name: 'Chơi game',
-        height: 120
+        height: 140
       },
     ];
 

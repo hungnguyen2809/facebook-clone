@@ -1,8 +1,8 @@
-import { Card } from './../../interfaces';
 import { Component, OnInit, Input } from "@angular/core";
-import { MoreActionsPage } from "./../../pages/more-actions/more-actions.page";
 import { PopoverController, ActionSheetController } from "@ionic/angular";
 import { ProcessAllService } from 'src/app/services/process-all.service';
+import { MoreOptionsComponent } from './../more-options/more-options.component';
+import { Card } from './../../interfaces';
 
 @Component({
 	selector: "fb-card-all-content",
@@ -22,10 +22,17 @@ export class FbCardAllContentComponent implements OnInit {
 	ngOnInit() {
 	}
 
-	async onMoreOptions() {
+	async onMoreOptions(eve: any) {
 		const showMoreOp = await this.popoverCtrl.create({
-			component: MoreActionsPage,
+			component: MoreOptionsComponent,
 			animated: true,
+			event: eve,
+			componentProps: {
+				data: this.card
+			},
+			keyboardClose: true,
+			mode: 'md',
+			translucent: true
 		});
 		return await showMoreOp.present();
 	}
