@@ -1,3 +1,8 @@
+.ripple-parent {
+  position: relative;
+  overflow: hidden;
+}
+
 .header {
 	ion-list {
 		padding: 0px;
@@ -8,12 +13,14 @@
 		margin-left: 0.6em;
 		min-height: 2rem;
 		border: 1px solid #a5b1c2;
+		--border-radius: 1.3em;
 		border-radius: 1.3em;
-	}
-
-	.content-btn-status {
 		color: black;
 		text-transform: initial;
+
+		ion-label{
+			padding: 3px;
+		}
 	}
 
 	.list-ios {
@@ -48,6 +55,7 @@
 
 		.btn-meet-zoom {
 			border: 1px solid #74b9ff;
+			--border-radius: 1.3em;
 			border-radius: 1.3em;
 		}
 

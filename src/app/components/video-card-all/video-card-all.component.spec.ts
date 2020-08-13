@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ButtonCommentComponent } from './button-comment.component';
+import { VideoCardAllComponent } from './video-card-all.component';
 
-describe('ButtonCommentComponent', () => {
-  let component: ButtonCommentComponent;
-  let fixture: ComponentFixture<ButtonCommentComponent>;
+describe('VideoCardAllComponent', () => {
+  let component: VideoCardAllComponent;
+  let fixture: ComponentFixture<VideoCardAllComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ButtonCommentComponent ],
+      declarations: [ VideoCardAllComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ButtonCommentComponent);
+    fixture = TestBed.createComponent(VideoCardAllComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

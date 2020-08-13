@@ -15,7 +15,9 @@
           <div class="time-privacy">
             <p>{{ processService.getTime(card.time) }}</p>
             <p class="dot-icon"><i class="fas fa-circle"></i></p>
-            <p><i class="fas fa-globe-asia"></i></p>
+            <p>
+              <i class="{{ card.typePrivacy.toUpperCase() === 'PR' ? 'fas fa-lock' : card.typePrivacy.toUpperCase() === 'FR' ? 'fas fa-user-friends' : 'fas fa-globe-asia' }}"></i>
+            </p>
           </div>
         </div>
 
@@ -27,7 +29,9 @@
           <div class="time-privacy">
             <p>{{ processService.getTime(card.time) }}</p>
             <p class="dot-icon"><i class="fas fa-circle"></i></p>
-            <p><i class="fas fa-globe-asia"></i></p>
+            <p>
+              <i class="{{ card.typePrivacy.toUpperCase() === 'PR' ? 'fas fa-lock' : card.typePrivacy.toUpperCase() === 'FR' ? 'fas fa-user-friends' : 'fas fa-globe-asia' }}"></i>
+            </p>
           </div>
         </div>
 
@@ -49,7 +53,7 @@
       </ng-container>
     </div>
     <div>
-      <more-icon [backgroundColor]="'#fff'"></more-icon>
+      <more-icon [backgroundColor]="'#fff'" (click)="onMoreOptions($event)"></more-icon>
     </div>
   </div>
 
@@ -73,76 +77,165 @@
 
   <!-- show image content -->
   <div class="image-video-content">
-    <!-- one picture -->
-    <div *ngIf="card.images.length === 1" class="image-one">
-      <div [style.background-image]="'url('+card.images[0]+')'"></div>
+    <!-- 1  -->
+    <div *ngIf="card.attachments.length === 1" class="image-video-one">
+      <div [style.background-image]="'url('+card.attachments[0].url+')'"
+          *ngIf="card.attachments[0].type === 'img'"></div>
+      <video controls 
+          *ngIf="card.attachments[0].type === 'video'">
+        <source src="{{card.attachments[0].url}}" type="video/mp4">
+      </video>
     </div>
 
-    <!-- two picture -->
-    <div *ngIf="card.images.length === 2" class="image-two" >
-      <div [style.background-image]="'url('+card.images[0]+')'" class="one"></div>
-      <div [style.background-image]="'url('+card.images[1]+')'" class="two"></div>
+    <!-- 2  -->
+    <div *ngIf="card.attachments.length === 2" class="image-video-two">
+      <ng-container *ngFor="let item of card.attachments"> 
+        <div [style.background-image]="'url('+item.url+')'" class="image"
+          *ngIf="item.type === 'img'"></div>
+        <video controls class="video"
+            *ngIf="item.type === 'video'">
+          <source src="{{item.url}}" type="video/mp4">
+        </video>
+      </ng-container>
     </div>
 
-    <!-- three picture -->
-    <div *ngIf="card.images.length === 3" class="image-three" >
+    <!-- 3  -->
+    <div *ngIf="card.attachments.length === 3" class="image-video-three" >
       <div class="one-two">
-        <div [style.background-image]="'url('+card.images[0]+')'" class="one"></div>
-        <div [style.background-image]="'url('+card.images[1]+')'" class="two"></div>
+        <ng-container *ngFor="let item of card.attachments; let i = index"> 
+          <div [style.background-image]="'url('+item.url+')'" class="image"
+            *ngIf="item.type === 'img' && i != card.attachments.length - 1"></div>
+          <video controls class="video"
+              *ngIf="item.type === 'video' && i != card.attachments.length - 1">
+            <source src="{{item.url}}" type="video/mp4">
+          </video>
+        </ng-container>
       </div>
-      <div [style.background-image]="'url('+card.images[2]+')'" class="three"></div>
+      <div [style.background-image]="'url('+card.attachments[2].url+')'" class="image-three"
+      *ngIf="card.attachments[2].type === 'img'"></div>
+      <video controls class="video-three"
+          *ngIf="card.attachments[2].type === 'video'">
+        <source src="{{card.attachments[2].url}}" type="video/mp4">
+      </video>
     </div>
 
-    <!-- four picture -->
-    <div *ngIf="card.images.length === 4" class="image-four" >
+    <!-- 4  -->
+    <div *ngIf="card.attachments.length === 4" class="image-video-four" >
       <div class="one-two">
-        <div [style.background-image]="'url('+card.images[0]+')'" class="one"></div>
-        <div [style.background-image]="'url('+card.images[1]+')'" class="two"></div>
+        <ng-container *ngFor="let item of card.attachments; let i = index"> 
+          <div [style.background-image]="'url('+item.url+')'" class="image"
+            *ngIf="item.type === 'img' && i != 2 && i != 3 "></div>
+          <video controls class="video"
+              *ngIf="item.type === 'video' && i != 2 && i != 3">
+            <source src="{{item.url}}" type="video/mp4">
+          </video>
+        </ng-container>
       </div>
       <div class="three-four">
-        <div [style.background-image]="'url('+card.images[2]+')'" class="three"></div>
-        <div [style.background-image]="'url('+card.images[3]+')'" class="four"></div>
+        <ng-container *ngFor="let item of card.attachments; let i = index"> 
+          <div [style.background-image]="'url('+item.url+')'" class="image"
+            *ngIf="item.type === 'img' && i != 0 && i != 1"></div>
+          <video controls class="video"
+              *ngIf="item.type === 'video' && i != 0 && i != 1">
+            <source src="{{item.url}}" type="video/mp4">
+          </video>
+        </ng-container>
       </div>
     </div>
 
-    <!-- more than four picture -->
-    <div *ngIf="card.images.length > 4" class="image-more" >
+    <!-- more than 4 -->
+    <div *ngIf="card.attachments.length > 4" class="image-video-more" >
       <div class="one-two">
-        <div [style.background-image]="'url('+card.images[0]+')'" class="one"></div>
-        <div [style.background-image]="'url('+card.images[1]+')'" class="two"></div>
+        <div [style.background-image]="'url('+card.attachments[0].url+')'" class="image"
+            *ngIf="card.attachments[0].type === 'img'"></div>
+        <video controls class="video"
+            *ngIf="card.attachments[0].type === 'video'">
+          <source src="{{card.attachments[0].url}}" type="video/mp4">
+        </video>
+        <!-- -------------- -->
+        <div [style.background-image]="'url('+card.attachments[1].url+')'" class="image"
+            *ngIf="card.attachments[1].type === 'img'"></div>
+        <video controls class="video"
+            *ngIf="card.attachments[1].type === 'video'">
+          <source src="{{card.attachments[1].url}}" type="video/mp4">
+        </video>
       </div>
       <div class="three-four">
-        <div [style.background-image]="'url('+card.images[2]+')'" class="three"></div>
-        <div [style.background-image]="'url('+card.images[3]+')'" class="four">
+        <div [style.background-image]="'url('+card.attachments[2].url+')'" class="three-image"
+            *ngIf="card.attachments[2].type === 'img'"></div>
+        <video controls class="three-video"
+            *ngIf="card.attachments[2].type === 'video'">
+          <source src="{{card.attachments[2].url}}" type="video/mp4">
+        </video>
+        <div [style.background-image]="'url('+card.attachments[3].url+')'" class="four">
           <div class="over-clound">
-            <span> + {{card.images.length - 4}}</span>
+            <span> + {{card.attachments.length - 4}}</span>
           </div>
         </div>
       </div>
     </div>
+
   </div>
 
   <!-- show number of like, comment, share -->
-  <like-comment-share [like]="card.numberLike" [comment]="card.numberComment" [share]="card.numberShare"></like-comment-share>
+  <number-like-comment-share [like]="card.numberLike" 
+                            [comment]="card.numberComment" 
+                            [share]="card.numberShare"
+                            ></number-like-comment-share>
 
   <!-- action button like, commnet, share -->
   <ion-grid>
     <ion-row>
-      <ion-col size="4" style="text-align: center;">
-        <button-like [likeStatus]="card.isLike" (click)="onLike()"></button-like>
-      </ion-col>
-
-      <ion-col size="4" style="text-align: center;">
-        <ion-button fill="clear" color="dark" (click)="onComment()" >
-          <button-comment></button-comment>
-        </ion-button>
-      </ion-col>		
-
-      <ion-col size="4" style="text-align: center;">
-        <ion-button fill="clear" color="dark" (click)="onShare()">
-          <button-share></button-share>
-        </ion-button>
-      </ion-col>				
+      <ng-container *ngIf="card.statusAction != 5; else notAvailable">
+        <!-- button like -->
+        <ion-col  size="{{ card.statusAction == 4 ? '12' : card.statusAction == 1 ? '4' : '6' }}" 
+                  (click)="onLike()">
+          <div class="ion-activatable ripple-parent" >
+            <div class="btn-action" [ngClass]="{'is-like': card.isLike}">
+              <i class="{{card.isLike ? 'fas fa-thumbs-up' : 'far fa-thumbs-up'}}"></i>
+              <span style="text-transform: initial; ">
+                Thích
+              </span>
+            </div>
+            <ion-ripple-effect></ion-ripple-effect>
+          </div>
+        </ion-col>
+        <!-- button comment -->
+        <ion-col size="{{ card.statusAction == 4 ? '12' : card.statusAction == 1 ? '4' : '6' }}" 
+                (click)="onComment()"
+                *ngIf="card.statusAction == 1 || card.statusAction == 3">
+          <div class="ion-activatable ripple-parent" >
+            <div class="btn-action">
+              <i class="far fa-comment-alt"></i>
+              <span style="text-transform: initial;">
+                Bình luận
+              </span>
+            </div>
+            <ion-ripple-effect></ion-ripple-effect>
+          </div>
+        </ion-col>		
+        <!-- button share -->
+        <ion-col size="{{ card.statusAction == 4 ? '12' : card.statusAction == 1 ? '4' : '6' }}" 
+                (click)="onShare()"
+                *ngIf="card.statusAction == 1 || card.statusAction == 2">
+          <div class="ion-activatable ripple-parent" >
+            <div class="btn-action">
+              <i class="far fa-share-square"></i>
+              <span style="text-transform: initial;">
+                Chia sẻ
+              </span>
+            </div>
+            <ion-ripple-effect></ion-ripple-effect>
+          </div>
+        </ion-col>				
+      </ng-container>
+      <ng-template #notAvailable>
+        <ion-col>
+          <p>
+            Tính năng bị vô hiệu hóa.
+          </p>
+        </ion-col>
+      </ng-template>
     </ion-row>
   </ion-grid>
 
