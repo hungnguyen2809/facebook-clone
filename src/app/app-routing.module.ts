@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
   },
   {
+    path: 'editprofile',
+    loadChildren: () => import('./pages/editprofile/editprofile.module').then( m => m.EditprofilePageModule)
+  },
+  {
     path: 'index',
     loadChildren: () => import('./pages/index/index.module').then( m => m.IndexPageModule)
   },
@@ -22,11 +26,7 @@ const routes: Routes = [
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
-  },  {
-    path: 'actions-crate-status',
-    loadChildren: () => import('./pages/actions-crate-status/actions-crate-status.module').then( m => m.ActionsCrateStatusPageModule)
   },
-
 ];
 
 @NgModule({
