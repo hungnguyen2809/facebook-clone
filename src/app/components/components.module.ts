@@ -3,9 +3,6 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActionsSheetDefaultComponent } from './actions-sheet-default/actions-sheet-default.component';
-import { ButtonLikeComponent } from './button-like/button-like.component';
-import { ButtonCommentComponent } from './button-comment/button-comment.component';
-import { ButtonShareComponent } from './button-share/button-share.component';
 import { QuickOptionsComponent } from './quick-options/quick-options.component';
 import { MenuCardComponent } from './menu-card/menu-card.component';
 import { SearchIconComponent } from './search-icon/search-icon.component';
@@ -16,14 +13,12 @@ import { NotificationsCardComponent } from './notifications-card/notifications-c
 import { ComponentStoryComponent } from './component-story/component-story.component';
 import { FbCardAllContentComponent } from './fb-card-all-content/fb-card-all-content.component';
 import { MoreIconComponent } from './more-icon/more-icon.component';
+import { VideoCardAllComponent } from './video-card-all/video-card-all.component';
 
 
 @NgModule({
 	declarations: [
 		ActionsSheetDefaultComponent,
-		ButtonLikeComponent,
-		ButtonCommentComponent,
-		ButtonShareComponent,
 		QuickOptionsComponent,
 		MenuCardComponent,
 		SearchIconComponent,
@@ -33,7 +28,8 @@ import { MoreIconComponent } from './more-icon/more-icon.component';
 		LikeCommentShareComponent,
 		NotificationsCardComponent,
 		ComponentStoryComponent,
-		FbCardAllContentComponent
+		FbCardAllContentComponent,
+		VideoCardAllComponent,
 	],
 	imports: [
 		IonicModule,
@@ -42,9 +38,6 @@ import { MoreIconComponent } from './more-icon/more-icon.component';
 	],
 	exports: [
 		ActionsSheetDefaultComponent,
-		ButtonLikeComponent,
-		ButtonCommentComponent,
-		ButtonShareComponent,
 		QuickOptionsComponent,
 		MenuCardComponent,
 		SearchIconComponent,
@@ -54,7 +47,8 @@ import { MoreIconComponent } from './more-icon/more-icon.component';
 		LikeCommentShareComponent,
 		NotificationsCardComponent,
 		ComponentStoryComponent,
-		FbCardAllContentComponent
+		FbCardAllContentComponent,
+		VideoCardAllComponent,
 	]
 })
 export class ComponentsModule {}

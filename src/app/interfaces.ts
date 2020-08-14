@@ -26,9 +26,31 @@ export interface Card{
   content: string;
   time: number;
   typePrivacy: string;
-  images: string[];
+  attachments: any[];
   numberLike: number;
   isLike: boolean;
   numberComment: number;
   numberShare: number;
+  statusAction: number;
+}
+
+export interface VideoCard{
+  avartar: string;
+  nameUser: string;
+  content: string;
+  time: number;
+  typePrivacy: string;
+  urlVideo: string;
+  numberLike: number;
+  isLike: boolean;
+  numberComment: number;
+  numberShare: number;
+  statusAction: number;
+  follow: boolean;
+}
+
+export interface ButtonChip{
+  icon: string;
+  name: string;
+  height: number;
 }

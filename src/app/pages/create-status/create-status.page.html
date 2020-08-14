@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="onDismiss()" color="danger">Hủy</ion-button>
+    </ion-buttons>
+    <ion-title>Tạo bài viết</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [disabled]="disabledSubmit">Đăng</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="header">
+    <ion-avatar>
+      <img [src]="avatar" alt="">
+    </ion-avatar>
+    <div class="name-option">
+      <ion-label>
+        Nguyễn Thành
+      </ion-label>
+      <div style="display: flex;">
+        <div class="btn-action ion-activatable ripple-parent" (click)="onShowPrivacy()">
+          <div class="type-action">
+            <span><i class="{{privacyIcon}}"></i></span>
+            <span style="font-size: 14px;">{{privacyName}}</span>
+          </div>
+          <span style="margin-left: 2px;"><i class="fas fa-sort-down"></i></span>
+          <ion-ripple-effect></ion-ripple-effect>
+        </div>
+        <div class="btn-action ion-activatable ripple-parent" (click)="onShowAlbum()">
+          <div class="type-action">
+            <span><i class="fas fa-plus fa-sm"></i></span>
+            <span style="font-size: 14px;">Album</span>
+          </div>
+          <span style="margin-left: 2px;"><i class="fas fa-sort-down"></i></span>
+          <ion-ripple-effect></ion-ripple-effect>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="write-content-status">
+    <ion-textarea placeholder="Bạn đang nghĩ gì ?" autoGrow="true" (ionChange)="onSubmit($event)"></ion-textarea>
+  </div>
+</ion-content>

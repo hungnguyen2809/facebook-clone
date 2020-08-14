@@ -1,34 +1,33 @@
+import { ProcessAllService } from "src/app/services/process-all.service";
 import { Component, OnInit, Input } from "@angular/core";
+import { VideoCard } from "src/app/interfaces";
 import { PopoverController, ActionSheetController } from "@ionic/angular";
-import { ProcessAllService } from 'src/app/services/process-all.service';
-import { MoreOptionsComponent } from './../more-options/more-options.component';
-import { Card } from './../../interfaces';
+import { MoreOptionsComponent } from '../more-options/more-options.component';
 
 @Component({
-	selector: "fb-card-all-content",
-	templateUrl: "./fb-card-all-content.component.html",
-	styleUrls: ["./fb-card-all-content.component.scss"],
+	selector: "video-card-all",
+	templateUrl: "./video-card-all.component.html",
+	styleUrls: ["./video-card-all.component.scss"],
 })
-export class FbCardAllContentComponent implements OnInit {
-	@Input() card: Card;
+export class VideoCardAllComponent implements OnInit {
+	@Input() cardVideo: VideoCard;
 	public showMoreContent: boolean = false;
 
 	constructor(
+		public processService: ProcessAllService,
 		public popoverCtrl: PopoverController,
-		public actionsSheetCtrl: ActionSheetController,
-		public processService: ProcessAllService
+		public actionsSheetCtrl: ActionSheetController
 	) {}
 
-	ngOnInit() {
-	}
+	ngOnInit() {}
 
-	async onMoreOptions(eve: any) {
+	async onMoreOptions(eve) {
 		const showMoreOp = await this.popoverCtrl.create({
 			component: MoreOptionsComponent,
 			animated: true,
 			event: eve,
 			componentProps: {
-				data: this.card
+				data: this.cardVideo
 			},
 			keyboardClose: true,
 			mode: 'md',
@@ -38,12 +37,12 @@ export class FbCardAllContentComponent implements OnInit {
 	}
 
 	onLike(): void {
-		if (this.card.isLike) {
-			this.card.numberLike = this.card.numberLike - 1;
-			this.card.isLike = !this.card.isLike;
+		if (this.cardVideo.isLike) {
+			this.cardVideo.numberLike = this.cardVideo.numberLike - 1;
+			this.cardVideo.isLike = !this.cardVideo.isLike;
 		} else {
-			this.card.numberLike = this.card.numberLike + 1;
-			this.card.isLike = !this.card.isLike;
+			this.cardVideo.numberLike = this.cardVideo.numberLike + 1;
+			this.cardVideo.isLike = !this.cardVideo.isLike;
 		}
 	}
 
@@ -84,8 +83,7 @@ export class FbCardAllContentComponent implements OnInit {
 		return await showShare.present();
 	}
 
-	onShowMoreContent(): void{
+	onShowMoreContent(): void {
 		this.showMoreContent = !this.showMoreContent;
 	}
-
 }

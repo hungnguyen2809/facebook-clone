@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'like-comment-share',
+  selector: 'number-like-comment-share',
   templateUrl: './like-comment-share.component.html',
   styleUrls: ['./like-comment-share.component.scss'],
 })

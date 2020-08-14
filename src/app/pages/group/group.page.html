@@ -7,26 +7,28 @@
   </div>
 
   <div class="suggest">
-    <ion-chip>
-      <ion-icon name="people"></ion-icon>
-      <ion-label>Nhóm của bạn</ion-label>
-    </ion-chip>
-
-    <ion-chip>
-      <ion-icon name="compass"></ion-icon>
-      <ion-label>Khám phá</ion-label>
-    </ion-chip>  
-
-    <ion-chip>
-      <ion-icon name="add-circle"></ion-icon>
-      <ion-label>Tạo mới</ion-label>
-    </ion-chip>
-
-    <ion-chip>
-      <ion-icon name="settings"></ion-icon>
-      <ion-label>Cài đặt</ion-label>
-    </ion-chip>
+    <ng-container *ngFor="let element of btnChips">
+      <ion-chip [style.min-width.px]="element.height">
+        <ion-icon name="{{ element.icon }}" color="dark" ></ion-icon>
+        <ion-label>{{ element.name }}</ion-label>
+      </ion-chip>
+    </ng-container>
   </div>
 
+  <div class="suggest-group">
+    <ng-container *ngFor="let item of groups">
+      <div class="group">
+        <div class="image-group" [style.background-image]="'url('+item.image+')'"></div>
+        <div class="name-group">
+          {{ item.name }}
+        </div>
+      </div>
+    </ng-container>
+  </div>
 
+  <div class="show-content-group">
+    <ng-container *ngFor="let card of listContentGroup">
+			<fb-card-all-content [card]="card"></fb-card-all-content>
+		</ng-container>
+  </div>
 </ion-content>

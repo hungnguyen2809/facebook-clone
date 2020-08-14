@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ButtonShareComponent } from './button-share.component';
+import { CreateStatusPage } from './create-status.page';
 
-describe('ButtonShareComponent', () => {
-  let component: ButtonShareComponent;
-  let fixture: ComponentFixture<ButtonShareComponent>;
+describe('CreateStatusPage', () => {
+  let component: CreateStatusPage;
+  let fixture: ComponentFixture<CreateStatusPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ButtonShareComponent ],
+      declarations: [ CreateStatusPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ButtonShareComponent);
+    fixture = TestBed.createComponent(CreateStatusPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

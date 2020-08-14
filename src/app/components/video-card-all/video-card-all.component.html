@@ -1,0 +1,115 @@
+<ion-card>
+  <!-- avatar and action -->
+  <div class="action-user">
+    <div class="name-avatar">
+      <div [style.background-image]="'url('+cardVideo.avartar+')'" class="avatar-user"></div>
+      <div class="name-user">
+        <div style="display: flex;">
+          <span class="name">
+            {{ cardVideo.nameUser }}
+          </span>
+          <p class="dot-icon"><i class="fas fa-circle"></i></p>
+          <span class="action">
+            {{ cardVideo.follow ? 'Đã theo dõi' : 'Theo dõi' }}
+          </span>
+        </div>
+        <div class="time-privacy">
+          <p>{{ processService.getTime(cardVideo.time) }}</p>
+          <p class="dot-icon"><i class="fas fa-circle"></i></p>
+          <p><i class="fas fa-globe-asia"></i></p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <more-icon [backgroundColor]="'#fff'" (click)="onMoreOptions()"></more-icon>
+    </div>
+  </div>
+
+  <!-- show content status -->
+  <ion-card-content>
+    <ng-container *ngIf="cardVideo.content.length < 500; else more500">
+      <span class="content-status">{{ processService.getContentCard(cardVideo.content) }}</span>
+    </ng-container>
+    <ng-template #more500>
+      <div [ngSwitch]="showMoreContent">
+        <div *ngSwitchCase="false">
+          <span class="content-status">{{ processService.getContentCard(cardVideo.content) }}</span>
+          <span class="btn-more-content-status" (click)="onShowMoreContent()">Xem thêm</span>
+        </div>
+        <div *ngSwitchCase="true">
+          <span class="content-status">{{ cardVideo.content }}</span>
+        </div>
+      </div>
+    </ng-template>
+  </ion-card-content>
+
+  <!-- show image content -->
+  <div class="image-video-content">
+    <video controls class="video">
+      <source src="{{ cardVideo.urlVideo }}" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- show number of like, comment, share -->
+  <number-like-comment-share [like]="cardVideo.numberLike" 
+                            [comment]="cardVideo.numberComment" 
+                            [share]="cardVideo.numberShare"
+                            ></number-like-comment-share>
+
+  <!-- action button like, commnet, share -->
+  <ion-grid>
+    <ion-row>
+      <ng-container *ngIf="cardVideo.statusAction != 5; else notAvailable">
+        <!-- button like -->
+        <ion-col  size="{{ cardVideo.statusAction == 4 ? '12' : cardVideo.statusAction == 1 ? '4' : '6' }}" 
+                  (click)="onLike()">
+          <div class="ion-activatable ripple-parent" >
+            <div class="btn-action" [ngClass]="{'is-like': cardVideo.isLike}">
+              <i class="{{cardVideo.isLike ? 'fas fa-thumbs-up' : 'far fa-thumbs-up'}}"></i>
+              <span style="text-transform: initial; ">
+                Thích
+              </span>
+            </div>
+            <ion-ripple-effect></ion-ripple-effect>
+          </div>
+        </ion-col>
+        <!-- button comment -->
+        <ion-col size="{{ cardVideo.statusAction == 4 ? '12' : cardVideo.statusAction == 1 ? '4' : '6' }}" 
+                (click)="onComment()"
+                *ngIf="cardVideo.statusAction == 1 || cardVideo.statusAction == 3">
+          <div class="ion-activatable ripple-parent" >
+            <div class="btn-action">
+              <i class="far fa-comment-alt"></i>
+              <span style="text-transform: initial;">
+                Bình luận
+              </span>
+            </div>
+            <ion-ripple-effect></ion-ripple-effect>
+          </div>
+        </ion-col>		
+        <!-- button share -->
+        <ion-col size="{{ cardVideo.statusAction == 4 ? '12' : cardVideo.statusAction == 1 ? '4' : '6' }}" 
+                (click)="onShare()"
+                *ngIf="cardVideo.statusAction == 1 || cardVideo.statusAction == 2">
+          <div class="ion-activatable ripple-parent" >
+            <div class="btn-action">
+              <i class="far fa-share-square"></i>
+              <span style="text-transform: initial;">
+                Chia sẻ
+              </span>
+            </div>
+            <ion-ripple-effect></ion-ripple-effect>
+          </div>
+        </ion-col>				
+      </ng-container>
+      <ng-template #notAvailable>
+        <ion-col>
+          <p>
+            Tính năng bị vô hiệu hóa.
+          </p>
+        </ion-col>
+      </ng-template>
+    </ion-row>
+  </ion-grid>
+
+</ion-card>
