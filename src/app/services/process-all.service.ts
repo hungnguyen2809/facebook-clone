@@ -10,6 +10,7 @@ export interface IconNotifi {
 	providedIn: "root",
 })
 export class ProcessAllService {
+	public idCreateStatus: string = '';
 	private listIcons: IconNotifi[] = [
 		{ type: 1, color: "#2ed573", class: "fas fa-comment" }, //comment
 		{ type: 2, color: "#3867d6", class: "fas fa-thumbs-up" }, //like

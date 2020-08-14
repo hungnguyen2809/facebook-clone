@@ -30,10 +30,16 @@
         </div>
         <div class="btn-action ion-activatable ripple-parent" (click)="onShowAlbum()">
           <div class="type-action">
-            <span><i class="fas fa-plus fa-sm"></i></span>
-            <span style="font-size: 14px;">Album</span>
+            <span><i class="{{albumIcon}}"></i></span>
+            <span style="font-size: 14px;">{{albumName}}</span>
           </div>
           <span style="margin-left: 2px;"><i class="fas fa-sort-down"></i></span>
+          <ion-ripple-effect></ion-ripple-effect>
+        </div>
+        <div class="btn-setting ion-activatable ripple-parent" (click)="onShowMoreActionsCreate()">
+          <div class="type-action">
+            <span><i class="fas fa-cogs fa-lg"></i></span>
+          </div>
           <ion-ripple-effect></ion-ripple-effect>
         </div>
       </div>
@@ -41,6 +47,9 @@
   </div>
 
   <div class="write-content-status">
-    <ion-textarea placeholder="Bạn đang nghĩ gì ?" autoGrow="true" (ionChange)="onSubmit($event)"></ion-textarea>
+    <ion-textarea placeholder="Bạn đang nghĩ gì ?" 
+                  autoGrow="true" 
+                  (ionChange)="onSubmit($event)"
+                  (ionFocus)="onDisabledActions()"></ion-textarea>
   </div>
 </ion-content>

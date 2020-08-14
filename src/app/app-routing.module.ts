@@ -22,7 +22,11 @@ const routes: Routes = [
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
+  },  {
+    path: 'actions-crate-status',
+    loadChildren: () => import('./pages/actions-crate-status/actions-crate-status.module').then( m => m.ActionsCrateStatusPageModule)
   },
+
 ];
 
 @NgModule({

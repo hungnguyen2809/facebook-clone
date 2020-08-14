@@ -1,9 +1,9 @@
+import { ProcessAllService } from 'src/app/services/process-all.service';
 import { Component, OnInit } from "@angular/core";
 import { PopoverController, ActionSheetController, ModalController } from "@ionic/angular";
 import { Story, Card } from "./../../interfaces";
 import { Router } from "@angular/router";
 import { CreateStatusPage } from '../create-status/create-status.page';
-
 
 @Component({
 	selector: "app-home",
@@ -21,7 +21,8 @@ export class HomePage implements OnInit {
 		public popoverCtrl: PopoverController,
 		public actionsSheetCtrl: ActionSheetController,
 		private routerService: Router,
-		private modalCtrl: ModalController
+		private modalCtrl: ModalController,
+		private processService: ProcessAllService
 	) {}
 
 	ngOnInit() {
@@ -183,14 +184,18 @@ export class HomePage implements OnInit {
 		this.routerService.navigateByUrl("profile");
 	}
 
-	async onCreateStatus(){
-		let createStatus = await this.modalCtrl.create({
+	onCreateStatus(){
+		this.modalCtrl.create({
 			component: CreateStatusPage,
 			animated: true,
 			keyboardClose: true,
-			mode: 'ios'
+			mode: 'ios',
+			backdropDismiss: false,
+			cssClass: 'modalStatus',
+		})
+		.then(obj =>{
+			this.processService.idCreateStatus = obj.id;
+			obj.present();
 		});
-
-		await createStatus.present();
 	}
 }
