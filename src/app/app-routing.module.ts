@@ -26,7 +26,11 @@ const routes: Routes = [
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
+  },  {
+    path: 'banbe',
+    loadChildren: () => import('./pages/banbe/banbe.module').then( m => m.BanbePageModule)
   },
+
 ];
 
 @NgModule({
