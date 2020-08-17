@@ -3,173 +3,202 @@
 		<ion-buttons slot="start">
 			<ion-back-button defaultHref="/index/home"></ion-back-button>
 		</ion-buttons>
-		<ion-searchbar	placeholder="Tìm kiếm" animated="true" search-icon="search-outline"></ion-searchbar>
+		<ion-searchbar placeholder="Tìm kiếm" animated="true" search-icon="search-outline"></ion-searchbar>
 	</ion-toolbar>
 </ion-header>
 
 <ion-content>
-	<div style="z-index: 1;" id="anhbia"></div>
-	<div>
-		<div>
-			<ion-avatar id="anhdd">
-				<img src="{{ dataProfile.avatar }}" alt="#" />
+	<!-- avatar, name  -->
+	<div class="header-image">
+		<div class="overlay-background-image" [style.background-image]="'url(https://i.imgur.com/AvKE7zh.jpeg)'">
+			<div class="icon-camera"><i class="fas fa-camera "></i></div>
+		</div>
+		<div class="avartar-image">
+			<ion-avatar>
+				<img [src]="dataProfile.avatar" alt="">
+				<div class="icon-camera"><i class="fas fa-camera "></i></div>
 			</ion-avatar>
 		</div>
-	</div>
-
-	<div style="text-align: center;">
-		<h2 style="font-weight: bold; font-size: 150%;">
-			{{ dataProfile.nameUser }}
-		</h2>
-		<h5
-			style="	width: 50%;	text-align: center;	margin-left: 25%;	margin-top: -1%;	color: rgb(173, 167, 167);">
-			{{ dataProfile.subName }}
-		</h5>
-	</div>
-	<div style="height: 10%; display: flex;">
-		<div style="margin-left: 20px; width: 80%;">
-			<ion-button style="width: 100%; text-transform: initial;">
-				<ion-icon name="add-circle" style="font-size: 25px;"></ion-icon>
-				<p style="margin-left: 10px;">
+		<div class="header-name">
+			<h1>{{ dataProfile.nameUser }}</h1>
+			<p>{{ dataProfile.subName }}</p>
+			<div class="btn-create-story">
+				<ion-button class="btn-create">
+					<ion-icon name="add-circle" slot="start"></ion-icon>
 					Thêm vào tin
-				</p>
-			</ion-button>
-		</div>
-		<div style="margin-right: 20px; width: 15%; margin-left: 5%;">
-			<ion-button color="silver" style="width: 100%;" (click)="EditProfile()">
-				<ion-icon name="ellipsis-horizontal" style="color: black;"></ion-icon>
-			</ion-button>
-		</div>
-	</div>
-	<div style="border-top: rgb(214, 212, 212) 7px outset;">
-		<div style="margin-top: 10px; display: flex; justify-content: space-between;">
-			<div>
-				<ion-title style="font-weight: bold; font-size: 24px; margin-top: 7px;">Thông tin</ion-title>
-			</div>
-			<div>
-				<p style="	font-weight: bold;	font-size: 16px;	color: rgb(37, 87, 224);	margin-right: 20px;">
-					Xem tất cả
-				</p>
-			</div>
-		</div>
-		<div style="padding-bottom: 10px;">
-			<ion-list lines="none">
-				<ion-item>
-					<div>
-						<ion-icon name="briefcase" class="itempro"></ion-icon>
-					</div>
-					<div>
-						<p style="margin-left: 20px;">
-							Bán chuối ở <b>{{ dataProfile.work }}</b>
-						</p>
-					</div>
-				</ion-item>
-				<ion-item>
-          <ion-icon name="home" class="itempro"></ion-icon>
-          <p style="margin-left: 20px;">Sống tại <b>{{ dataProfile.address }}</b></p>
-				</ion-item>
-				<ion-item>
-					<div>
-						<ion-icon name="heart" class="itempro"></ion-icon>
-					</div>
-					<div>
-						<p style="margin-left: 20px;">{{ dataProfile.married }}</p>
-					</div>
-				</ion-item>
-				<ion-item>
-					<div>
-						<ion-icon name="location" class="itempro"></ion-icon>
-					</div>
-					<div>
-						<p style="margin-left: 20px;">Đến từ <b>{{ dataProfile.address }}</b></p>
-					</div>
-				</ion-item>
-
-				<ion-item>
-					<div>
-						<ion-icon name="ellipsis-horizontal" class="itempro"></ion-icon>
-					</div>
-					<div>
-						<p style="margin-left: 20px;">Xem thêm</p>
-					</div>
-				</ion-item>
-			</ion-list>
-			<div style="text-align: center; margin-left: 20px; margin-right: 20px;">
-        <ion-button color="silver" style="text-transform: initial; color: blue;" expand="full">
-          Chỉnh sửa chi tiết công khai
-        </ion-button>
-			</div>
-		</div>
-	</div>
-
-	<div style="border-top: rgb(214, 212, 212) 7px outset; padding-bottom: 10px;">
-		<div style="margin-top: 10px; display: flex; justify-content: space-between;">
-			<div>
-				<div>
-					<ion-title style="font-weight: bold; font-size: 24px; margin-top: 7px;">Bạn bè</ion-title>
-				</div>
-				<div style="margin-left: 20px;	color: rgb(117, 114, 114);	margin-top: 10px;">
-					516 Bạn bè
-				</div>
-			</div>
-			<div>
-				<p style="font-weight: bold;	font-size: 16px;	color: rgb(37, 87, 224);	margin-right: 20px;">
-					Tìm kiếm bạn bè
-				</p>
-			</div>
-		</div>
-		<div style="margin-left: 20px; margin-top: 10px; display: flex; width: 200%;">
-			<div style="height: 50%; width: 14%; margin-top: 10px; margin-right: 2%;">
-				<img	src="./../../assets/imgs/avata.jpg"	alt=""	style="border-radius: 15px;"/>
-				<p style="margin-top: 3px; margin-left: 5%;">
-					<strong>Nguyễn Tiến Thành</strong>
-				</p>
-			</div>
-		</div>
-		<div style="margin-left: 20px;	margin-top: 10px;	display: flex;	width: 200%;	margin-top: -10px;">
-			<div style="height: 50%; width: 14%; margin-top: 10px; margin-right: 2%;">
-				<img	src="./../../assets/imgs/avata.jpg"	alt=""	style="border-radius: 15px;"/>
-				<p style="margin-top: 3px; margin-left: 5%;"><strong>Bé bự</strong></p>
-			</div>
-		</div>
-
-		<div style="text-align: center; margin-left: 20px; margin-right: 20px;">
-			<ion-button color="silver"	style="text-transform: initial; color: black;" expand="full">
-        Xem tất cả bạn bè
-      </ion-button>
-		</div>
-	</div>
-	<div style="border-top: rgb(214, 212, 212) 7px outset;">
-		<div style="display: flex; justify-content: space-between;">
-			<div>
-        <ion-title style="font-weight: bold; font-size: 24px; margin-top: 7px;">
-          Bài viết
-        </ion-title>
-			</div>
-			<div>
-				<ion-button color="silver" style="margin-right: 10px;">
-					<ion-icon name="options" style="color: black;"></ion-icon>
 				</ion-button>
-				<ion-button color="silver" style="margin-right: 20px;">
-					<ion-icon name="settings" style="color: black;"></ion-icon>
+				<ion-button color="silver2" class="btn-more">
+					<ion-icon name="ellipsis-horizontal" slot="icon-only" color="dark" size="small"></ion-icon>
 				</ion-button>
 			</div>
-    </div>
-    
+		</div>
+	</div>
+
+	<!-- information -->
+	<div class="ionformation">
+		<ion-list lines="none">
+			<ion-item>
+				<ion-icon name="school" slot="start" ></ion-icon>
+				<ion-text>Đã học tại <b>Trường đại học giao thông vận tải</b></ion-text>
+			</ion-item>
+			<ion-item>
+				<ion-icon name="navigate" slot="start" ></ion-icon>
+				<ion-text>Đến từ <b>Hà Nam</b></ion-text>
+			</ion-item>
+			<ion-item>
+				<ion-icon name="location" slot="start" ></ion-icon>
+				<ion-text>Sống tại <b>Hà Nội</b></ion-text>
+			</ion-item>
+			<ion-item>
+				<ion-icon name="heart" slot="start"></ion-icon>
+				<ion-text>Đã có người yêu</ion-text>
+			</ion-item>
+			<ion-item>
+				<ion-icon name="albums" slot="start" ></ion-icon>
+				<ion-text>Có <b>1</b> người theo dõi</ion-text>
+			</ion-item>
+			<ion-item button="true" detail="false">
+				<ion-icon name="ellipsis-horizontal" slot="start"></ion-icon>
+				<ion-text>Xem thông tin giới thiệu của bạn</ion-text>
+			</ion-item>
+		</ion-list>
+		<!-- image information -->
+		<div class="image-infor">
+			<ion-grid>
+				<ion-row>
+					<ion-col size="4">
+						<ion-thumbnail>
+							<img src="https://i.imgur.com/AvKE7zh.jpeg" alt="">
+						</ion-thumbnail>
+					</ion-col>
+					<ion-col size="4">
+						<ion-thumbnail>
+							<img src="https://i.imgur.com/AvKE7zh.jpeg" alt="">
+						</ion-thumbnail>
+					</ion-col>
+					<ion-col size="4">
+						<ion-thumbnail>
+							<img src="https://i.imgur.com/AvKE7zh.jpeg" alt="">
+						</ion-thumbnail>
+					</ion-col>
+					<ion-col size="4">
+						<ion-thumbnail>
+							<img src="https://i.imgur.com/AvKE7zh.jpeg" alt="">
+						</ion-thumbnail>
+					</ion-col>
+					<ion-col size="4">
+						<ion-thumbnail>
+							<img src="https://i.imgur.com/AvKE7zh.jpeg" alt="">
+						</ion-thumbnail>
+					</ion-col>
+					<ion-col size="4">
+						<ion-thumbnail>
+							<img src="https://i.imgur.com/AvKE7zh.jpeg" alt="">
+						</ion-thumbnail>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</div>
+		<div class="btn-edit-information">
+			<ion-button expand="block" >
+				Chỉnh sửa chi tiết công khai
+			</ion-button>
+		</div>
+	</div>
+
+	<!-- friend -->
+	<div class="friend-user">
+		<div class="infor-friend">
+			<div class="title-friend">
+				<h4>Bạn bè</h4>
+				<ion-label>100 người bạn</ion-label>
+			</div>
+			<div class="search-friend">
+				<ion-label>Tìm bạn bè</ion-label>
+			</div>
+		</div>
+		<div class="list-new-friend">
+			<ion-grid>
+				<ion-row>
+					<ion-col size="4">
+						<div>
+							<ion-thumbnail>
+								<img src="https://i.imgur.com/AvKE7zh.jpeg" alt="">
+							</ion-thumbnail>
+						</div>
+						<ion-text>Nguyễn Văn Hùng</ion-text>
+					</ion-col>
+					<ion-col size="4">
+						<div>
+							<ion-thumbnail>
+								<img src="https://i.imgur.com/AvKE7zh.jpeg" alt="">
+							</ion-thumbnail>
+						</div>
+						<ion-text>Nguyễn Văn Hùng</ion-text>
+					</ion-col>
+					<ion-col size="4">
+						<div>
+							<ion-thumbnail>
+								<img src="https://i.imgur.com/AvKE7zh.jpeg" alt="">
+							</ion-thumbnail>
+						</div>
+						<ion-text>Nguyễn Văn Hùng</ion-text>
+					</ion-col>
+					<ion-col size="4">
+						<div>
+							<ion-thumbnail>
+								<img src="https://i.imgur.com/AvKE7zh.jpeg" alt="">
+							</ion-thumbnail>
+						</div>
+						<ion-text>Nguyễn Văn Hùng</ion-text>
+					</ion-col>
+					<ion-col size="4">
+						<div>
+							<ion-thumbnail>
+								<img src="https://i.imgur.com/AvKE7zh.jpeg" alt="">
+							</ion-thumbnail>
+						</div>
+						<ion-text>Nguyễn Văn Hùng</ion-text>
+					</ion-col>
+					<ion-col size="4">
+						<div>
+							<ion-thumbnail>
+								<img src="https://i.imgur.com/AvKE7zh.jpeg" alt="">
+							</ion-thumbnail>
+						</div>
+						<ion-text>Nguyễn Văn Hùng</ion-text>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</div>
+	</div>
+
+	<div class="written-area">
+		<div class="header-setting">
+			<h4>Bài viết</h4>
+			<div>
+				<ion-button color="silver2"size="small">
+					<ion-icon name="options-outline" slot="icon-only" color="dark" size="small"></ion-icon>
+				</ion-button>
+				<ion-button color="silver2" size="small">
+					<ion-icon name="settings" slot="icon-only" color="dark" size="small"></ion-icon>
+				</ion-button>
+			</div>
+		</div>
 		<div class="create-status">
 			<ion-list lines="none">
-        <ion-item button="true" detail="false" (click)="onCreateStatus()">
-          <ion-avatar class="">
-            <img src="{{ dataProfile.avatar }}" alt="">
-          </ion-avatar>
-          <ion-label style="margin-left: 10px;">Bạn đang nghĩ gì ?</ion-label>
-        </ion-item>
-      </ion-list>
-      <quick-options></quick-options>
-    </div>  
+				<ion-item button="true" detail="false" (click)="onCreateStatus()">
+					<ion-avatar class="">
+						<img src="{{ dataProfile.avatar }}" alt="">
+					</ion-avatar>
+					<ion-label style="margin-left: 10px;">Bạn đang nghĩ gì ?</ion-label>
+				</ion-item>
+			</ion-list>
+			<quick-options></quick-options>
+		</div> 
 	</div>
-	
-  <div style="border-top: rgb(214, 212, 212) 7px outset;">
+
+	<div class="btn-actions-chip">
     <div class="header-chip">
       <ng-container *ngFor="let element of btnChips">
         <ion-chip [style.min-width.px]="element.height">
@@ -178,12 +207,12 @@
         </ion-chip>
       </ng-container>
     </div>
-  </div>
-
-  <div style="background-color: rgb(214, 212, 212);">
-    <hr style="margin: 0px; margin-bottom: 7px; height: 0px;">
+	</div>
+	
+	<div class="posts-profile">
     <ng-container *ngFor="let card of dataProfile.posts">
       <fb-card-all-content [card]="card"></fb-card-all-content>
     </ng-container>
   </div>
+	
 </ion-content>

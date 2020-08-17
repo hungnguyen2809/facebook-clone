@@ -18,7 +18,7 @@ export class DataProfileService {
 			{
 				icon: "star-half",
 				name: "Sự kiện trong đời",
-				height: 200,
+				height: 190,
 			},
 			{
 				icon: "musical-notes",
