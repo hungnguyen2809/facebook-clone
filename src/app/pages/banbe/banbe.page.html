@@ -13,16 +13,16 @@
       <ion-label>Gần đây</ion-label>
     </ion-segment-button>
   </ion-segment>
+  <div style="position: relative;width: 100%;" mode="ios">
+    <ion-searchbar></ion-searchbar>
+  </div>
 </ion-header>
 
 <ion-content>
 
   <div [ngSwitch]="banbe" class="divmg">
     <div *ngSwitchCase="'tatca'" >
-      <div style="position: relative;width: 100%;" mode="ios">
-        <ion-searchbar></ion-searchbar>
-      </div>
-      
+
       <div>
         <b style="font-size: 21px;">561 người bạn</b>
       </div>
@@ -155,9 +155,7 @@
     </div>
 
     <div *ngSwitchCase="'ganday'">
-      <div style=" position: relative;width: 100%;" mode="ios">
-        <ion-searchbar></ion-searchbar>
-      </div>
+      
 
       <div style="display: flex;justify-content: space-between;height: 10%;">
         <div style="display: flex;">

@@ -1,7 +1,10 @@
 import { ProcessAllService } from "src/app/services/process-all.service";
-import { Component, OnInit } from "@angular/core";
-import { ModalController, AlertController } from "@ionic/angular";
+import { Component, OnInit, ElementRef } from "@angular/core";
+import { ModalController, AlertController, LoadingController } from "@ionic/angular";
 import { ActionsCrateStatusPage } from "../actions-crate-status/actions-crate-status.page";
+import { Card, Profile } from 'src/app/interfaces';
+import { DataProfileService } from 'src/app/services/data-profile.service';
+import { DataHomeService } from 'src/app/services/data-home.service';
 
 @Component({
 	selector: "app-create-status",
@@ -9,7 +12,7 @@ import { ActionsCrateStatusPage } from "../actions-crate-status/actions-crate-st
 	styleUrls: ["./create-status.page.scss"],
 })
 export class CreateStatusPage implements OnInit {
-	public avatar: string = "https://i.imgur.com/vfHjMCH.jpg";
+	public profile: Profile;
 	public privacysMap = new Map();
 	public albumsMap = new Map();
 	public privacyName: string = "";
@@ -21,14 +24,28 @@ export class CreateStatusPage implements OnInit {
 	private albumsAlert: any[] = [];
 	private idModalActionsCreateStatus: string = "";
 	private isLifeModalActionsCreateStatus: boolean = false;
+	private privacyChoose: string = '';
 
 	constructor(
 		private modalCtrl: ModalController,
 		private alertCtrl: AlertController,
-		private processService: ProcessAllService
+		private processService: ProcessAllService,
+		private profileService: DataProfileService,
+		private dataHomeService: DataHomeService,
+		private loadingCtrl: LoadingController
 	) {}
 
 	ngOnInit() {
+		this.initPrivacy();
+		
+		this.listAlbum = ["Album Đi chơi", "Album Công việc", "Album Bán hàng"];
+		this.initAlbum();
+
+		this.onShowMoreActionsCreate();
+		this.profile = this.profileService.getProfile();
+	}
+
+	initPrivacy(): void{
 		this.privacysMap.set("pb", {
 			name: "Công khai",
 			icon: "fas fa-globe-asia fa-sm",
@@ -43,11 +60,8 @@ export class CreateStatusPage implements OnInit {
 		});
 		this.privacyName = this.privacysMap.get("pb").name;
 		this.privacyIcon = this.privacysMap.get("pb").icon;
+		this.privacyChoose = 'pb';
 
-		this.listAlbum = ["Album Đi chơi", "Album Công việc", "Album Bán hàng"];
-		this.initAlbum();
-
-		this.onShowMoreActionsCreate();
 	}
 
 	onDismiss(): void {
@@ -75,6 +89,7 @@ export class CreateStatusPage implements OnInit {
 					handler: () => {
 						this.privacyName = this.privacysMap.get("pb").name;
 						this.privacyIcon = this.privacysMap.get("pb").icon;
+						this.privacyChoose = 'pb';
 					},
 				},
 				{
@@ -84,6 +99,7 @@ export class CreateStatusPage implements OnInit {
 					handler: () => {
 						this.privacyName = this.privacysMap.get("fr").name;
 						this.privacyIcon = this.privacysMap.get("fr").icon;
+						this.privacyChoose = 'fr';
 					},
 				},
 				{
@@ -93,6 +109,7 @@ export class CreateStatusPage implements OnInit {
 					handler: () => {
 						this.privacyName = this.privacysMap.get("pr").name;
 						this.privacyIcon = this.privacysMap.get("pr").icon;
+						this.privacyChoose = 'pr';
 					},
 				},
 			],
@@ -172,5 +189,40 @@ export class CreateStatusPage implements OnInit {
 			this.modalCtrl.dismiss(null, null, this.idModalActionsCreateStatus);
 			this.isLifeModalActionsCreateStatus = false;
 		}
+	}
+
+	async onPost(content: string){
+		let post: Card = {
+			id: null,
+			nameUser: this.profile.nameUser,
+			avartar: this.profile.avatar,
+			typeCard: 2,
+			titleCard: '',
+			nameGroup: '',
+			content: content,
+			time: 0,
+			typePrivacy: this.privacyChoose,
+			attachments: [],
+			numberLike: 0,
+			numberComment: 0,
+			isLike: false,
+			numberShare: 0,
+			statusAction: 1
+		}
+
+		this.dataHomeService.addStatus(this.processService.getIDforHomeAndProfile(), post);
+		this.profileService.addProfile(this.processService.getIDforHomeAndProfile(), post);
+
+		let createState = await this.loadingCtrl.create({
+			animated: true,
+			backdropDismiss: false,
+			message: 'Vui lòng đợi'
+		});
+		await createState.present();
+
+		setTimeout(()=>{
+			this.onDismiss();
+			createState.dismiss();
+		}, 200);
 	}
 }

@@ -1,11 +1,11 @@
 <ion-card>
   <!-- avatar and action -->
-  <div class="action-user">
+  <div class="action-user ion-activatable ripple-parent">
     <div class="name-avatar">
-      <div [style.background-image]="'url('+card.avartar+')'" class="avatar-user"></div>
+      <div [style.background-image]="'url('+card.avartar+')'" class="avatar-user ion-activatable"></div>
       <ng-container [ngSwitch]="card.typeCard">
         <!-- status have title card -->
-        <div class="name-user" *ngSwitchCase="1">
+        <div class="name-user" *ngSwitchCase="1" (click)="onDetails(card)">
           <span class="name">
             {{ card.nameUser }}
           </span>
@@ -22,7 +22,7 @@
         </div>
 
         <!-- status not title card -->
-        <div class="name-user" *ngSwitchCase="2">
+        <div class="name-user" *ngSwitchCase="2" (click)="onDetails(card)" >
           <span class="name">
             {{ card.nameUser }}
           </span>
@@ -36,7 +36,7 @@
         </div>
 
         <!-- for group -->
-        <div class="name-user" *ngSwitchCase="3">
+        <div class="name-user" *ngSwitchCase="3" (click)="onDetails(card)" >
           <span class="name">
             {{ card.nameUser }}
           </span>
@@ -55,10 +55,11 @@
     <div>
       <more-icon [backgroundColor]="'#fff'" (click)="onMoreOptions($event)"></more-icon>
     </div>
+    <ion-ripple-effect></ion-ripple-effect>
   </div>
 
   <!-- show content status -->
-  <ion-card-content>
+  <ion-card-content (click)="onShowMoreContent()">
     <ng-container *ngIf="card.content.length < 500; else more500">
       <span class="content-status">{{ processService.getContentCard(card.content) }}</span>
     </ng-container>
@@ -66,7 +67,7 @@
       <div [ngSwitch]="showMoreContent">
         <div *ngSwitchCase="false">
           <span class="content-status">{{ processService.getContentCard(card.content) }}</span>
-          <span class="btn-more-content-status" (click)="onShowMoreContent()">Xem thêm</span>
+          <span class="btn-more-content-status">Xem thêm</span>
         </div>
         <div *ngSwitchCase="true">
           <span class="content-status">{{ card.content }}</span>
@@ -80,7 +81,7 @@
     <!-- 1  -->
     <div *ngIf="card.attachments.length === 1" class="image-video-one">
       <div [style.background-image]="'url('+card.attachments[0].url+')'"
-          *ngIf="card.attachments[0].type === 'img'"></div>
+          *ngIf="card.attachments[0].type === 'img'" (click)="previewPhoto(card.attachments[0].url)"></div>
       <video controls 
           *ngIf="card.attachments[0].type === 'video'">
         <source src="{{card.attachments[0].url}}" type="video/mp4">
@@ -91,8 +92,8 @@
     <div *ngIf="card.attachments.length === 2" class="image-video-two">
       <ng-container *ngFor="let item of card.attachments"> 
         <div [style.background-image]="'url('+item.url+')'" class="image"
-          *ngIf="item.type === 'img'"></div>
-        <video controls class="video"
+          *ngIf="item.type === 'img'" (click)="previewPhoto(item.url)"></div>
+        <video controls class="video" (click)="previewVideo(item.url)"
             *ngIf="item.type === 'video'">
           <source src="{{item.url}}" type="video/mp4">
         </video>
@@ -104,18 +105,18 @@
       <div class="one-two">
         <ng-container *ngFor="let item of card.attachments; let i = index"> 
           <div [style.background-image]="'url('+item.url+')'" class="image"
-            *ngIf="item.type === 'img' && i != card.attachments.length - 1"></div>
-          <video controls class="video"
-              *ngIf="item.type === 'video' && i != card.attachments.length - 1">
+            *ngIf="item.type === 'img' && i != card.attachments.length - 1" (click)="previewPhoto(item.url)"></div>
+          <video controls class="video" (click)="previewVideo($event)"
+              *ngIf="item.type === 'video' && i != card.attachments.length - 1" >
             <source src="{{item.url}}" type="video/mp4">
           </video>
         </ng-container>
       </div>
       <div [style.background-image]="'url('+card.attachments[2].url+')'" class="image-three"
-      *ngIf="card.attachments[2].type === 'img'"></div>
-      <video controls class="video-three"
-          *ngIf="card.attachments[2].type === 'video'">
-        <source src="{{card.attachments[2].url}}" type="video/mp4">
+      *ngIf="card.attachments[2].type === 'img'" (click)="previewPhoto(card.attachments[2].url)"></div>
+      <video controls class="video-three" (click)="previewVideo(card.attachments[2].url)"
+          *ngIf="card.attachments[2].type === 'video'" >
+        <source src="{{card.attachments[2].url}}" type="video/mp4" >
       </video>
     </div>
 
@@ -124,9 +125,9 @@
       <div class="one-two">
         <ng-container *ngFor="let item of card.attachments; let i = index"> 
           <div [style.background-image]="'url('+item.url+')'" class="image"
-            *ngIf="item.type === 'img' && i != 2 && i != 3 "></div>
+            *ngIf="item.type === 'img' && i != 2 && i != 3 " (click)="previewPhoto(item.url)"></div>
           <video controls class="video"
-              *ngIf="item.type === 'video' && i != 2 && i != 3">
+              *ngIf="item.type === 'video' && i != 2 && i != 3" (click)="previewVideo(item.url)">
             <source src="{{item.url}}" type="video/mp4">
           </video>
         </ng-container>
@@ -134,9 +135,9 @@
       <div class="three-four">
         <ng-container *ngFor="let item of card.attachments; let i = index"> 
           <div [style.background-image]="'url('+item.url+')'" class="image"
-            *ngIf="item.type === 'img' && i != 0 && i != 1"></div>
+            *ngIf="item.type === 'img' && i != 0 && i != 1" (click)="previewPhoto(item.url)"></div>
           <video controls class="video"
-              *ngIf="item.type === 'video' && i != 0 && i != 1">
+              *ngIf="item.type === 'video' && i != 0 && i != 1" (click)="previewVideo(item.url)">
             <source src="{{item.url}}" type="video/mp4">
           </video>
         </ng-container>
@@ -147,27 +148,27 @@
     <div *ngIf="card.attachments.length > 4" class="image-video-more" >
       <div class="one-two">
         <div [style.background-image]="'url('+card.attachments[0].url+')'" class="image"
-            *ngIf="card.attachments[0].type === 'img'"></div>
+            *ngIf="card.attachments[0].type === 'img'" (click)="previewPhoto(card.attachments[0].url)"></div>
         <video controls class="video"
-            *ngIf="card.attachments[0].type === 'video'">
+            *ngIf="card.attachments[0].type === 'video'" (click)="previewVideo(card.attachments[0].url)">
           <source src="{{card.attachments[0].url}}" type="video/mp4">
         </video>
         <!-- -------------- -->
         <div [style.background-image]="'url('+card.attachments[1].url+')'" class="image"
-            *ngIf="card.attachments[1].type === 'img'"></div>
+            *ngIf="card.attachments[1].type === 'img'" (click)="previewPhoto(card.attachments[1].url)"></div>
         <video controls class="video"
-            *ngIf="card.attachments[1].type === 'video'">
+            *ngIf="card.attachments[1].type === 'video'" (click)="previewVideo(card.attachments[1].url)">
           <source src="{{card.attachments[1].url}}" type="video/mp4">
         </video>
       </div>
       <div class="three-four">
         <div [style.background-image]="'url('+card.attachments[2].url+')'" class="three-image"
-            *ngIf="card.attachments[2].type === 'img'"></div>
+            *ngIf="card.attachments[2].type === 'img'" (click)="previewPhoto(card.attachments[2].url)"></div>
         <video controls class="three-video"
-            *ngIf="card.attachments[2].type === 'video'">
+            *ngIf="card.attachments[2].type === 'video'" (click)="previewVideo(card.attachments[2].url)">
           <source src="{{card.attachments[2].url}}" type="video/mp4">
         </video>
-        <div [style.background-image]="'url('+card.attachments[3].url+')'" class="four">
+        <div [style.background-image]="'url('+card.attachments[3].url+')'" class="four" (click)="previewPhoto(card.attachments[3].url)">
           <div class="over-clound">
             <span> + {{card.attachments.length - 4}}</span>
           </div>
@@ -240,3 +241,4 @@
   </ion-grid>
 
 </ion-card>
+
