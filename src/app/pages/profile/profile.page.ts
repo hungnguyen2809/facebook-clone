@@ -15,5 +15,8 @@ export class ProfilePage implements OnInit {
   EditProfile(){
     this.router.navigateByUrl("editprofile");
   }
+  Banbe(){
+    this.router.navigateByUrl("banbe")
+  }
 
 }

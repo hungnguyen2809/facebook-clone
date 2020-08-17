@@ -1,0 +1,17 @@
+.BtSm{
+    text-transform: initial;
+    background-color: rgb(214, 208, 208);
+	-moz-border-radius: 100px / 50px;
+	-webkit-border-radius: 100px / 50px;
+    border-radius: 100px / 80px;
+    --ripple-color:  rgb(214, 208, 208);
+    
+}
+.divmg{
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.head::after{
+    width: 0%;
+    height: 0%;
+}
