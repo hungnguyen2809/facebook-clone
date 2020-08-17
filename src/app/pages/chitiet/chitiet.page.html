@@ -1,127 +1,208 @@
 <ion-header>
-  <ion-list lines="none" style="margin-left: -20px; margin-top: -5px;">
-    <ion-item>
-      <ion-button slot="start" fill="clear" style="margin-right: -1px;" routerLink="/index">
-        <!-- <ion-icon name="arrow-back-outline" style="font-size: 22px; color: rgb(35, 37, 35); margin-top: 5px;"></ion-icon> -->
-        <ion-icon name="chevron-back" style="font-size: 22px; color: rgb(35, 37, 35); margin-top: 5px;"></ion-icon>
-      </ion-button>
-      <h2>GOON</h2>
-      <ion-button slot="end" fill="clear">
-        <ion-icon name="search" style="font-size: 22px; color: rgb(35, 37, 35);"></ion-icon>
-      </ion-button>
-    </ion-item>
-  </ion-list>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/index/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ data.nameUser }}</ion-title>
+    <ion-buttons slot="end">
+      <search-icon [backgroundColor]="'white'"></search-icon>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content style="border-top: 7px solid rgb(208, 212, 208);">
-<div style="margin-left: -5px; margin-top: 5px; margin-top: -10px;">
-  <ion-list lines="none">
-    <ion-item>
-      <ion-avatar style="margin-top: 19px;">
-        <img src="../assets/imgs/anhdangnhap.jpg" alt="">
-      </ion-avatar>
-      <div style="margin-left: 10px;">
-        <h5 style="font-weight: bold;">GOON</h5>
-        <div style="font-size: 12px;margin-top: -10px; display: flex;color: rgb(160, 156, 156);">
-          <ion-label>Được tài trợ </ion-label>
-          <ion-icon name="earth" style="font-size: 15px; margin-left: 10px;"></ion-icon>
+<ion-content>
+  <div class="action-user">
+    <div class="name-avatar">
+      <div [style.background-image]="'url('+data.avartar+')'" class="avatar-user ion-activatable"></div>
+      <ng-container [ngSwitch]="data.typeCard">
+        <!-- status have title card -->
+        <div class="name-user" *ngSwitchCase="1">
+          <span class="name">
+            {{ data.nameUser }}
+          </span>
+          <span class="action">
+            {{ data.titleCard }}
+          </span>
+          <div class="time-privacy">
+            <p>{{ processService.getTime(data.time) }}</p>
+            <p class="dot-icon"><i class="fas fa-circle"></i></p>
+            <p>
+              <i class="{{ data.typePrivacy.toUpperCase() === 'PR' ? 'fas fa-lock' : data.typePrivacy.toUpperCase() === 'FR' ? 'fas fa-user-friends' : 'fas fa-globe-asia' }}"></i>
+            </p>
+          </div>
         </div>
-      </div>
-      <ion-button slot="end" fill="clear">
-        <ion-icon name="ellipsis-horizontal" style="font-size: 22px; color: rgb(35, 37, 35);"></ion-icon>
-        
-      </ion-button>
-    </ion-item>
-  </ion-list>
-</div>
-<div style="margin-right: 15px;margin-left: 15px;margin-top: 10px;">
-  ĐỪNG ĐỔ THỪA CHO BỐ
-Ra khỏi phòng thi, bố lẽo đẽo cầm chiếc mũ cối chạy theo cô bé, "Con làm được bài không?", "Có ôn đúng tý nào không?", "Liệu được mấy điểm"... Cô bé không nói gì, chỉ quay ngoắt lại nhìn bố, mặt nặng mày nhẹ...
-Bố im lặng...
-Lại nhớ mùa thi năm ấy, nắng cũng oi ả nhưng không gay gắt như bây giờ, bố thấp thỏm ngoài cổng trường, cố kiễng sau đoàn người tìm con. Lúc thi xong, con cũng mệt chẳng muốn trả lời, nhưng vẫn tự khích lệ mình, và cả bố: "Con làm cũng được. Chắc sẽ không trượt đâu bố!".
-Thế là bố quên hết cả lưng áo ướt sũng mồ hôi, quên hết cái nắng làm da bố đen sạm cả đi, cả nỗi lo ứa trong khóe mắt. Trên đường về, bố không nói, nhưng con lạ thừa gì, bố lo lắng hơn cả con.
-Ngồi trong phòng thi áp lực một, thì thời gian trông chờ bên ngoài của bố còn đằng đẵng gấp mười. Ai bảo chỉ có các con vất vả ôn luyện, nhiều đêm, bố cũng thức cùng ánh đèn phòng học của con, cũng nằm đọc lại bảng tích phân, bảng logarit rồi những công thức loằng ngoằng dằng dặc. Chỉ có điều, mắt bố đã mờ, trí nhớ cũng chẳng còn đủ tốt để định hình về bao nhiêu thứ ấy.
-Bố toàn tâm toàn ý lo cho con. Thế cũng đủ gian nan đoạn trường rồi.
-Vì thế, tuyệt nhiên đừng bao giờ nổi cáu với bố. Chúng ta đều chưa làm được gì cho vĩ nhân ấy.
-Nếu chúng ta có kém cỏi, đó là lỗi của chúng ta. Đừng đổ thừa cho bố đã không dành nhiều tiền của, thời gian cho mình, cũng đừng nói vì khi xưa bố cũng không tài giỏi. Bố khắc khổ mà chúng ta vẫn lớn lên. Thật ra, bố có phép màu.
-Nếu chúng ta có tài giỏi, đó là may mắn của chúng ta. Đừng tự cao Con hơn cha nhà mình có phúc. Bởi, sinh ra và nuôi lớn một người tài giỏi. Bố còn vĩ đại hơn gấp vạn lần.
-Đừng quên nhé...
-Khi chúng ta thành công, hàng trăm người tung hô cho niềm vui ấy. Đừng quên bố cũng đang khóc vì tự hào.
-Khi chúng ta thất bại, trắng tay hay cơ cực, tất cả đã rời bỏ ta. Đừng quên nhé, bố vẫn ở phía sau, quay mặt khóc vì thương con.
-Theo : Vietnamnet
-(st) ❤ Dưới đây có nhiều câu chuyện thú vị! Hãy để lại biểu cảm để tôi biết bạn đã đọc. Bạn có thể Share, mời bạn fb nếu muốn !!!
-</div>
-<div style="margin-top: 30px;">
-  <img src="../assets/imgs/anhdemo.jpg" alt="" style="width: 100%;">
-</div>
-<div>
-  <ion-button (click)="phuhop()" fill="clear" style="text-transform: initial; color: black;">Phù hợp nhất
-    <ion-icon name="chevron-down-sharp" style="font-size: 15px;margin-top: 2px;margin-left: 3px;"></ion-icon>
-  </ion-button>
-</div>
-<div>
-  <div style="display: flex;margin-left: 10px;">
-    <div style="margin-top: 10px;">
-      <ion-avatar style="width: 40px;height: 40px;">
-        <img src="../assets/imgs/anhdemo.jpg" alt="">
-      </ion-avatar>
-    </div>
-    
-    <div>
-      <div style="background-color: rgb(224, 224, 224);border-radius: 22px;margin-right: 20px;margin-left: 10px;margin-top: 10px;min-width: 80px;">
-        <div style="margin-top: 10px;margin-left: 15px;padding-top: 10px;">
-          <b style="color: black;">Thành</b>
-        </div>
-        <div style="margin-top: -10px;margin-left: 15px;margin-right: 10px;">
-          <p style="padding-bottom: 10px;">.</p>
-        </div>
-      </div>
-      <div style="margin-top: -26px;margin-right: 10px;display: flex;">
-        <div style="margin-left: 70%;"><ion-badge color="light" style="border-radius: 20px;display: flex;">
-          <ion-icon name="thumbs-up-sharp" style="color: rgb(67, 35, 212);font-size: 20px;"></ion-icon>
-          <p style="margin-top: 3px;font-size: 15px;margin-bottom: 0px;">1</p></ion-badge>
-        </div>
-      </div>
-    </div>
-    
-  </div>
-  <div style="display: flex;margin-left: 75px;margin-top: -15px;">
-    <div><p style="color: rgb(109, 105, 105);">54 phút</p></div>
-    <div style="margin-left: 25px;"><p style="color: rgb(109, 105, 105);">Like</p></div>
-    <div style="margin-left: 25px;"><p style="color: rgb(109, 105, 105);">Comment</p></div>
-  </div>
-</div>
-<div>
-  <div style="display: flex;margin-left: 10px;">
-    <div style="margin-top: 10px;">
-      <ion-avatar style="width: 40px;height: 40px;">
-        <img src="../assets/imgs/anhdemo.jpg" alt="">
-      </ion-avatar>
-    </div>
-    
-    <div>
-      <div style="background-color: rgb(224, 224, 224);border-radius: 22px;margin-right: 20px;margin-left: 10px;margin-top: 10px;min-width: 80px;">
-        <div style="margin-top: 10px;margin-left: 15px;padding-top: 10px;">
-          <b style="color: black;">Thành</b>
-        </div>
-        <div style="margin-top: -10px;margin-left: 15px;margin-right: 10px;">
-          <p style="padding-bottom: 10px;">.</p>
-        </div>
-      </div>
-      <div style="margin-top: -26px;margin-right: 10px;display: flex;">
-        <div style="margin-left: 70%;"><ion-badge color="light" style="border-radius: 20px;display: flex;"><ion-icon name="happy" style="color: yellow;font-size: 20px;"></ion-icon><p style="margin-top: 3px;font-size: 15px;margin-bottom: 0px;">1</p></ion-badge></div>
-      </div>
-    </div>
-    
-  </div>
-  <div style="display: flex;margin-left: 75px;margin-top: -15px;">
-    <div><p style="color: rgb(109, 105, 105);">54 phút</p></div>
-    <div style="margin-left: 25px;"><p style="color: rgb(109, 105, 105);">Like</p></div>
-    <div style="margin-left: 25px;"><p style="color: rgb(109, 105, 105);">Comment</p></div>
-  </div>
-</div>
 
+        <!-- status not title card -->
+        <div class="name-user" *ngSwitchCase="2" >
+          <span class="name">
+            {{ data.nameUser }}
+          </span>
+          <div class="time-privacy">
+            <p>{{ processService.getTime(data.time) }}</p>
+            <p class="dot-icon"><i class="fas fa-circle"></i></p>
+            <p>
+              <i class="{{ data.typePrivacy.toUpperCase() === 'PR' ? 'fas fa-lock' : data.typePrivacy.toUpperCase() === 'FR' ? 'fas fa-user-friends' : 'fas fa-globe-asia' }}"></i>
+            </p>
+          </div>
+        </div>
+
+        <!-- for group -->
+        <div class="name-user" *ngSwitchCase="3" >
+          <span class="name">
+            {{ data.nameUser }}
+          </span>
+          <span><i class="fas fa-caret-right"></i></span>
+          <span class="name">
+            {{ data.nameGroup }}
+          </span>
+          <div class="time-privacy">
+            <p>{{ processService.getTime(data.time) }}</p>
+            <p class="dot-icon"><i class="fas fa-circle"></i></p>
+            <p><i class="fas fa-chalkboard-teacher"></i></p>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <div>
+      <more-icon [backgroundColor]="'#fff'" (click)="onMoreOptions()"></more-icon>
+    </div>
+  </div>
+  <div style="margin-right: 15px;margin-left: 15px;margin-top: 10px;">
+    {{ data.content }}
+  </div>
+
+  <div class="attachments">
+    <ng-container *ngFor="let item of data.attachments"> 
+      <img *ngIf="item.type === 'img'" src="{{ item.url }}"/>
+      <video controls class="video" *ngIf="item.type === 'video'">
+        <source src="{{item.url}}" type="video/mp4">
+      </video>
+    </ng-container>
+  </div>
+
+  <number-like-comment-share [like]="data.numberLike" [comment]="data.numberComment" [share]="data.numberShare"></number-like-comment-share>
+
+  <ion-grid>
+    <ion-row>
+      <ng-container *ngIf="data.statusAction != 5; else notAvailable">
+        <!-- button like -->
+        <ion-col  size="{{ data.statusAction == 4 ? '12' : data.statusAction == 1 ? '4' : '6' }}" 
+                  (click)="onLike()">
+          <div class="ion-activatable ripple-parent" >
+            <div class="btn-action" [ngClass]="{'is-like': data.isLike}">
+              <i class="{{data.isLike ? 'fas fa-thumbs-up' : 'far fa-thumbs-up'}}"></i>
+              <span style="text-transform: initial; ">
+                Thích
+              </span>
+            </div>
+            <ion-ripple-effect></ion-ripple-effect>
+          </div>
+        </ion-col>
+        <!-- button comment -->
+        <ion-col size="{{ data.statusAction == 4 ? '12' : data.statusAction == 1 ? '4' : '6' }}" 
+                (click)="onComment()"
+                *ngIf="data.statusAction == 1 || data.statusAction == 3">
+          <div class="ion-activatable ripple-parent" >
+            <div class="btn-action">
+              <i class="far fa-comment-alt"></i>
+              <span style="text-transform: initial;">
+                Bình luận
+              </span>
+            </div>
+            <ion-ripple-effect></ion-ripple-effect>
+          </div>
+        </ion-col>		
+        <!-- button share -->
+        <ion-col size="{{ data.statusAction == 4 ? '12' : data.statusAction == 1 ? '4' : '6' }}" 
+                (click)="onShare()"
+                *ngIf="data.statusAction == 1 || data.statusAction == 2">
+          <div class="ion-activatable ripple-parent" >
+            <div class="btn-action">
+              <i class="far fa-share-square"></i>
+              <span style="text-transform: initial;">
+                Chia sẻ
+              </span>
+            </div>
+            <ion-ripple-effect></ion-ripple-effect>
+          </div>
+        </ion-col>				
+      </ng-container>
+      <ng-template #notAvailable>
+        <ion-col>
+          <p>
+            Tính năng bị vô hiệu hóa.
+          </p>
+        </ion-col>
+      </ng-template>
+    </ion-row>
+  </ion-grid>
+
+<!-- comment --> 
+  <div style="border-top: 5px solid rgb(214, 212, 212);">
+    <ion-button (click)="phuhop()" fill="clear" style="text-transform: initial; color: black;">Phù hợp nhất
+      <ion-icon name="chevron-down-sharp" style="font-size: 15px;margin-top: 2px;margin-left: 3px;"></ion-icon>
+    </ion-button>
+  </div>
+  <div>
+    <div style="display: flex;margin-left: 10px;">
+      <div style="margin-top: 10px;">
+        <ion-avatar style="width: 40px;height: 40px;">
+          <img src="../assets/imgs/anhdemo.jpg" alt="">
+        </ion-avatar>
+      </div>
+      <div>
+        <div style="background-color: rgb(224, 224, 224);border-radius: 22px;margin-right: 20px;margin-left: 10px;margin-top: 10px;min-width: 80px;">
+          <div style="margin-top: 10px;margin-left: 15px;padding-top: 10px;">
+            <b style="color: black;">Thành</b>
+          </div>
+          <div style="margin-top: -10px;margin-left: 15px;margin-right: 10px;">
+            <p style="padding-bottom: 10px;">.</p>
+          </div>
+        </div>
+        <div style="margin-top: -26px;margin-right: 10px;display: flex;">
+          <div style="margin-left: 70%;"><ion-badge color="light" style="border-radius: 20px;display: flex;">
+            <ion-icon name="thumbs-up-sharp" style="color: rgb(67, 35, 212);font-size: 20px;"></ion-icon>
+            <p style="margin-top: 3px;font-size: 15px;margin-bottom: 0px;">1</p></ion-badge>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex;margin-left: 75px;margin-top: -15px;">
+      <div><p style="color: rgb(109, 105, 105);">54 phút</p></div>
+      <div style="margin-left: 25px;"><p style="color: rgb(109, 105, 105);">Like</p></div>
+      <div style="margin-left: 25px;"><p style="color: rgb(109, 105, 105);">Comment</p></div>
+    </div>
+  </div>
+
+  <div>
+    <div style="display: flex;margin-left: 10px;">
+      <div style="margin-top: 10px;">
+        <ion-avatar style="width: 40px;height: 40px;">
+          <img src="../assets/imgs/anhdemo.jpg" alt="">
+        </ion-avatar>
+      </div>
+      <div>
+        <div style="background-color: rgb(224, 224, 224);border-radius: 22px;margin-right: 20px;margin-left: 10px;margin-top: 10px;min-width: 80px;">
+          <div style="margin-top: 10px;margin-left: 15px;padding-top: 10px;">
+            <b style="color: black;">Thành</b>
+          </div>
+          <div style="margin-top: -10px;margin-left: 15px;margin-right: 10px;">
+            <p style="padding-bottom: 10px;">.</p>
+          </div>
+        </div>
+        <div style="margin-top: -26px;margin-right: 10px;display: flex;">
+          <div style="margin-left: 70%;"><ion-badge color="light" style="border-radius: 20px;display: flex;"><ion-icon name="happy" style="color: yellow;font-size: 20px;"></ion-icon><p style="margin-top: 3px;font-size: 15px;margin-bottom: 0px;">1</p></ion-badge></div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex;margin-left: 75px;margin-top: -15px;">
+      <div><p style="color: rgb(109, 105, 105);">54 phút</p></div>
+      <div style="margin-left: 25px;"><p style="color: rgb(109, 105, 105);">Like</p></div>
+      <div style="margin-left: 25px;"><p style="color: rgb(109, 105, 105);">Comment</p></div>
+    </div>
+  </div>
 </ion-content>
+
 <ion-footer>
   <ion-list class="cmt">
     <ion-item>

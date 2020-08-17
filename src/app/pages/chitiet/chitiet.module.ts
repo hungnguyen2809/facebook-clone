@@ -4,13 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { ChitietPageRoutingModule } from './chitiet-routing.module';
 import { ChitietPage } from './chitiet.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ChitietPageRoutingModule
+    ChitietPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [ChitietPage]
 })

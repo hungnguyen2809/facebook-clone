@@ -1,8 +1,11 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { PopoverController, ActionSheetController } from "@ionic/angular";
-import { ProcessAllService } from 'src/app/services/process-all.service';
-import { MoreOptionsComponent } from './../more-options/more-options.component';
-import { Card } from './../../interfaces';
+import { ProcessAllService } from "src/app/services/process-all.service";
+import { MoreOptionsComponent } from "./../more-options/more-options.component";
+import { Card } from "./../../interfaces";
+import { Router, NavigationExtras } from "@angular/router";
+import { PhotoViewer } from "@ionic-native/photo-viewer/ngx";
+import { VideoPlayer } from "@ionic-native/video-player/ngx";
 
 @Component({
 	selector: "fb-card-all-content",
@@ -16,11 +19,13 @@ export class FbCardAllContentComponent implements OnInit {
 	constructor(
 		public popoverCtrl: PopoverController,
 		public actionsSheetCtrl: ActionSheetController,
-		public processService: ProcessAllService
+		public processService: ProcessAllService,
+		private routerService: Router,
+		private photoViewerCtrl: PhotoViewer,
+		private videoPlayerCtrl: VideoPlayer
 	) {}
 
-	ngOnInit() {
-	}
+	ngOnInit() {}
 
 	async onMoreOptions(eve: any) {
 		const showMoreOp = await this.popoverCtrl.create({
@@ -28,11 +33,11 @@ export class FbCardAllContentComponent implements OnInit {
 			animated: true,
 			event: eve,
 			componentProps: {
-				data: this.card
+				data: this.card,
 			},
 			keyboardClose: true,
-			mode: 'md',
-			translucent: true
+			mode: "md",
+			translucent: true,
 		});
 		return await showMoreOp.present();
 	}
@@ -84,8 +89,25 @@ export class FbCardAllContentComponent implements OnInit {
 		return await showShare.present();
 	}
 
-	onShowMoreContent(): void{
+	onShowMoreContent(): void {
 		this.showMoreContent = !this.showMoreContent;
 	}
 
+	onDetails(value: Card): void {
+		let dataExtras: NavigationExtras = {
+			state: {
+				data: value
+			}
+		}
+		this.routerService.navigate(["chitiet"], dataExtras);
+	}
+
+	previewPhoto(url) {
+		this.photoViewerCtrl.show(url);
+	}
+
+	previewVideo(url) {
+		// this.videoPlayerCtrl.play(url).then(() => {}).catch((err) => { alert(err); });
+		console.log(url);
+	}
 }

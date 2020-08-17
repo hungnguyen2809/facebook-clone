@@ -1,4 +1,5 @@
 export interface Notifications{
+  id: number;
   img: string;
   content: string;
   type: number;
@@ -17,7 +18,24 @@ export interface Story{
   name: string;
 }
 
+		// typeCard
+		//1. trạng thái có tiêu đề,
+		//2. trạng thái không có tiêu đề,
+		//3. Tin trong group
+
+		//statusAction
+		// 1. bình thường đủ like, comment, share,
+		// 2. có like, share,
+		// 3. có like, comment,
+		// 4. chỉ có like
+		// 5. vô hiệu hóa tính năng
+
+		//typePrivacy
+		// 1. PR -> private (only me)
+		// 2. FR -> friend
+		// 3. Default: PU -> public
 export interface Card{
+  id: number;
   typeCard: number;
   avartar: string;
   nameUser: string;
@@ -35,6 +53,7 @@ export interface Card{
 }
 
 export interface VideoCard{
+  id: number;
   avartar: string;
   nameUser: string;
   content: string;
@@ -53,4 +72,16 @@ export interface ButtonChip{
   icon: string;
   name: string;
   height: number;
+}
+
+export interface Profile{
+  id: number;
+  nameUser: string;
+  subName: string;
+  avatar: string;
+  married: string;
+  work: string;
+  address: string;
+  friends: Profile[];
+  posts: Card[];
 }

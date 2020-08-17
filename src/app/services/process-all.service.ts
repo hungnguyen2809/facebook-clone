@@ -1,5 +1,7 @@
-import { Icon } from './../interfaces';
+import { Icon } from "./../interfaces";
 import { Injectable } from "@angular/core";
+import { DataHomeService } from "./data-home.service";
+import { DataProfileService } from "./data-profile.service";
 
 export interface IconNotifi {
 	type: number;
@@ -10,16 +12,19 @@ export interface IconNotifi {
 	providedIn: "root",
 })
 export class ProcessAllService {
-	public idCreateStatus: string = '';
+	public idCreateStatus: string = "";
 	private listIcons: IconNotifi[] = [
 		{ type: 1, color: "#2ed573", class: "fas fa-comment" }, //comment
 		{ type: 2, color: "#3867d6", class: "fas fa-thumbs-up" }, //like
 		{ type: 3, color: "#2e86de", class: "fas fa-users" }, //group
 		{ type: 4, color: "#fa8231", class: "fas fa-id-card-alt" }, //card
 		{ type: 5, color: "#eb3b5a", class: "fas fa-heart" }, //heart tim
-  ];
-  
-	constructor() {}
+	];
+
+	constructor(
+		private dataHomeService: DataHomeService,
+		private dataProfileService: DataProfileService
+	) {}
 
 	getContentCard(value: string): string {
 		let result = "";
@@ -39,17 +44,17 @@ export class ProcessAllService {
 			result = value.substring(0, 130) + "...";
 		}
 		return result;
-  }
-  
-  getIconNotifi(typeIcon: number): Icon {
-    let classIcon = new Icon();
+	}
+
+	getIconNotifi(typeIcon: number): Icon {
+		let classIcon = new Icon();
 		for (let item of this.listIcons) {
 			if (item.type === typeIcon) {
-        classIcon.class = item.class;
+				classIcon.class = item.class;
 				classIcon.color = item.color;
 			}
 		}
-    return classIcon;
+		return classIcon;
 	}
 
 	getTime(timeSecond: number): string {
@@ -64,6 +69,16 @@ export class ProcessAllService {
 			result = Math.floor(hour) + " giờ trước";
 		}
 		return result;
-  }
-  
+	}
+
+	getIDforHomeAndProfile(): number {
+		let idHome = this.dataHomeService.getAllStatus()[
+			this.dataHomeService.getAllStatus().length - 1].id;
+		let idProfile = this.dataProfileService.getProfile().posts[
+			this.dataProfileService.getProfile().posts.length - 1].id;
+
+		let id = idHome > idProfile ? idHome : idProfile;
+
+		return id + 1;
+	}
 }

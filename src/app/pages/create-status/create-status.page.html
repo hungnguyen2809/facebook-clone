@@ -5,7 +5,7 @@
     </ion-buttons>
     <ion-title>Tạo bài viết</ion-title>
     <ion-buttons slot="end">
-      <ion-button [disabled]="disabledSubmit">Đăng</ion-button>
+      <ion-button [disabled]="disabledSubmit" (click)="onPost(contentStatus.value)">Đăng</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -13,11 +13,11 @@
 <ion-content>
   <div class="header">
     <ion-avatar>
-      <img [src]="avatar" alt="">
+      <img [src]="profile.avatar" alt="">
     </ion-avatar>
     <div class="name-option">
       <ion-label>
-        Nguyễn Thành
+        {{ profile.nameUser }}
       </ion-label>
       <div style="display: flex;">
         <div class="btn-action ion-activatable ripple-parent" (click)="onShowPrivacy()">
@@ -47,7 +47,8 @@
   </div>
 
   <div class="write-content-status">
-    <ion-textarea placeholder="Bạn đang nghĩ gì ?" 
+    <ion-textarea #contentStatus
+                  placeholder="Bạn đang nghĩ gì ?" 
                   autoGrow="true" 
                   (ionChange)="onSubmit($event)"
                   (ionFocus)="onDisabledActions()"></ion-textarea>
