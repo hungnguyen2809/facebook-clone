@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
@@ -34,7 +35,8 @@ import { VideoCardAllComponent } from './video-card-all/video-card-all.component
 	imports: [
 		IonicModule,
 		CommonModule,
-		FormsModule
+		FormsModule,
+		RouterModule
 	],
 	exports: [
 		ActionsSheetDefaultComponent,

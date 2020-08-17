@@ -87,6 +87,11 @@
   --ion-color-softblue: #778beb;
   --ion-color-summersky: #34ace0;
   --ion-color-silver: #bdc3c7;
+  --ion-color-silver2: #E5E6EB;
+}
+
+.ion-color-silver2{
+  --ion-color-base: var(--ion-color-silver2);
 }
 
 .ion-color-silver{

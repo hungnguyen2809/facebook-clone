@@ -10,10 +10,10 @@
 
   <ion-item lines="none" button detail="false" (click)="onShowProfile()">
     <ion-avatar>
-      <img src="../../../assets/imgs/Teacher.png">
+      <img [src]="profile.avatar">
     </ion-avatar>
     <ion-label style="margin-left: 1em">
-      <b style="font-size: large;">Tráng Nguyễn</b>
+      <b style="font-size: large;">{{ profile.nameUser }}</b>
       <br>
       <p>Xem trang cá nhân của bạn</p>
     </ion-label>

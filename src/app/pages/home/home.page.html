@@ -21,9 +21,8 @@
 	
 	<!-- content show on page Home -->
 	<div class="content-home">
-		<hr class="space-card">
 		<!-- zoom -->
-		<ion-card class="meet-zoom" style="padding: 3px; margin-top: 0px;">
+		<ion-card class="meet-zoom">
 			<div>
 				<ion-button fill="clear" class="btn-meet-zoom">
 					<ion-icon name="globe-outline" slot="start" color="tertiary"></ion-icon>
@@ -58,7 +57,7 @@
 
 		<!-- content status home -->
 		<ng-container *ngFor="let card of listStatusHome">
-			<fb-card-all-content [card]="card" [routerLink]="'/chitiet'"></fb-card-all-content>
+			<fb-card-all-content [card]="card" ></fb-card-all-content>
 		</ng-container>
 	</div>
 

@@ -2,7 +2,7 @@ ion-card {
 	background-color: white;
 	padding: 0px;
 	margin: 0px;
-	margin-top: 7px;
+	border-top: 10px solid #bdc3c7;
 	border-radius: 0px;
 
 	.action-user {
@@ -16,6 +16,7 @@ ion-card {
 			height: 100%;
 			display: flex;
 			margin: 10px 0px 0px 10px;
+			padding-bottom: 10px;
 
 			.avatar-user {
 				min-width: 40px;

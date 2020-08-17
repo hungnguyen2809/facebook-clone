@@ -1,25 +1,238 @@
-#anhdd {
-    width: 50% ; 
-    height : 50%  ; 
-    border:10px solid rgb(255, 253, 253);
-    margin-left: 25%;
-    margin-top: -25%;
-    background-image: url("../../../assets/imgs/demo.jpg");
+ion-toolbar.sc-ion-searchbar-ios-h, ion-toolbar .sc-ion-searchbar-ios-h{
+  padding-bottom: 1px;
+  padding-top: 1px;
+}
+
+ion-toolbar.sc-ion-searchbar-md-h, ion-toolbar .sc-ion-searchbar-md-h{
+  --border-radius: 30px;
+  --background: #F6F7F9;
+  --box-shadow: none;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.sc-ion-buttons-ios-h{
+  margin-top: 5px;
+}
+
+.header-md::after{
+  width: 0px;
+  height: 0px;
+}
+
+.header-md ion-toolbar:last-of-type {
+  --border-width: 0 0 0.55px;
+}
+
+
+.header-image{
+  width: 100vw;
+  padding: 10px 10px 0px;
+  border-bottom: 1px solid #E5E6EB;
+
+  .overlay-background-image{
+    height: 25vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    border-radius: 10px 10px 0px 0px;
+
+    .icon-camera{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px;
+      background-color: gainsboro;
+      padding: 10px;
+      border-radius: 20px;
+    }
+  }
+
+  .avartar-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -50px;
+    
+    ion-avatar{
+      min-width: 100px;
+      min-height: 100px;
+      max-width: 100px;
+      max-height: 100px;
+      border: 3px solid white;
+      position: relative;
+
+      .icon-camera{
+        position: absolute;
+        right: -20px;
+        top: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px;
+        background-color: gainsboro;
+        padding: 10px;
+        border-radius: 20px;
+      }
+    }
+  }
+
+  .header-name{
+    min-height: 130px;
+
+    h1{
+      margin: 5px 0px 0px;
+      font-weight: bold;
+      text-align: center;
+    }
+    
+    p{
+      margin-top: 8px;
+      text-align: center;
+      color: #999A9D;
+    }
+
+    .btn-create-story{
+      display: flex;
+      justify-content: center;
+
+      .btn-create{
+        min-width: 80vw;
+        margin-right: 10px;
+        text-transform: initial;
+        --box-shadow: none;
+      }
+    }
+
+    .btn-more{
+      --box-shadow: none;
+    }
+  }
 }
-#anhbia{
-    height: 33%;
-    width: 100%; 
-    background-image: url("../../../assets/imgs/demo.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+
+.ionformation{
+  margin-top: 10px;
+  padding: 10px;
+  border-bottom: 1px solid gainsboro;
+
+  .image-infor{
+    ion-grid{
+      padding: 0px;
+      ion-col{
+        display: flex;
+        justify-content: center;
+        ion-thumbnail{
+          --size: 30vw;
+        }
+      }
+    }
+  }
+
+  .btn-edit-information{
+    margin-top: 10px;
+    ion-button{
+      text-transform: inherit;
+      --background: #D8EEFF;
+      --box-shadow: none;
+      --color: #0081E6;
+    }
+  }
 }
-#circle1 {
-	border-radius: 50%;
+
+.friend-user{
+  padding: 10px;
+  .infor-friend{
+    display: flex;
+    justify-content: space-between;
+
+    .title-friend{
+      h4{
+        margin: 0px;
+        font-weight: bold;
+      }
+      ion-label{
+        color: #677580;
+      }
+    }
+
+    .search-friend{
+      ion-label{
+        color: #1D70B2;
+      }
+    }
+  }
+
+  .list-new-friend{
+    ion-grid{
+      margin-top: 5px;
+      padding: 0px;
+      ion-col{
+        div{
+          display: flex;
+          justify-content: center;
+          margin-bottom: 5px;
+          ion-thumbnail{
+            --size: 30vw;
+            --border-radius: 10px
+          }
+        }
+        ion-text{
+          font-size: 15px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
 }
-.itempro{
-    font-size: 25px;
-    color: rgb(141, 137, 132);
+
+.written-area{
+  border-top: 10px solid #bdc3c7;
+
+  .header-setting{
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+
+    h4{
+      font-weight: bold;
+    }
+
+    ion-button{
+      margin: 6px;
+      --box-shadow: none;
+    }
+  }
+  
+  .create-status{
+    ion-list{
+      padding: 0px;
+      border-bottom: 0.5px solid #dfe4ea;
+
+      ion-item{
+        --ripple-color: gainsboro;
+      }
+    }
+  }
+}
+
+.btn-actions-chip{
+  border-top: 10px solid #bdc3c7;
+
+  .header-chip{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: white;
+    padding-left: 0.5vw;
+    display: flex;
+    overflow-x: auto;
+  
+    ion-chip{
+      font-size: 16px;
+      color: black;
+      font-weight: bold;
+    }
+  }
 }

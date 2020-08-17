@@ -39,17 +39,16 @@
 }
 
 .content-home {
-	background-color: #d1d8e0;
-
 	ion-card {
 		background-color: white;
 		padding: 0px;
 		margin: 0px;
-		margin-top: 7px;
 		border-radius: 0px;
 	}
 
 	.meet-zoom {
+		border-top: 7px solid #bdc3c7;
+		padding: 3px; margin-top: 0px;
 		display: flex;
 		overflow-x: auto;
 
@@ -85,6 +84,7 @@
 	}
 
 	.story {
+		border-top: 7px solid #bdc3c7;
 		display: flex;
 		overflow-x: auto;
 	}
@@ -134,35 +134,5 @@
 		}
 	}
 
-	.space-card {
-		margin: 0px;
-		margin-bottom: 7px;
-		height: 0px;
-	}
 }
 
-.top-like-comment-share {
-	margin: 8px 10px 0px 10px;
-	display: flex;
-	justify-content: space-between;
-	border-bottom: 1px solid gainsboro;
-	padding-bottom: 5px;
-
-	.top-like {
-		.fa-thumbs-up {
-			color: #4b7bec;
-		}
-
-		display: flex;
-		align-items: flex-start;
-	}
-
-	.top-comment-share {
-		display: flex;
-
-		p {
-			margin: 0px;
-			margin-left: 10px;
-		}
-	}
-}
