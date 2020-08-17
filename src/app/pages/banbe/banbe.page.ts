@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./banbe.page.scss'],
 })
 export class BanbePage implements OnInit {
-
+  banbe: any;
+  
   constructor() { }
 
   ngOnInit() {

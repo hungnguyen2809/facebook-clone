@@ -23,14 +23,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/chitiet/chitiet.module').then( m => m.ChitietPageModule)
   },
   {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
-  },  {
     path: 'banbe',
     loadChildren: () => import('./pages/banbe/banbe.module').then( m => m.BanbePageModule)
   },
-
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({
