@@ -37,10 +37,10 @@ export class HomePage implements OnInit {
 
 	onProfile(): void {
 		let idProfileNavigationExtras: NavigationExtras = {
-			state: {
-				id: this.profileUser.id
+			queryParams: {
+				id: JSON.stringify(this.profileUser.id)
 			}
-		}
+		};
 		this.router.navigate(["profile"], idProfileNavigationExtras);
 	}
 

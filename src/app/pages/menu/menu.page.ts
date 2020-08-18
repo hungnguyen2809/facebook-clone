@@ -12,7 +12,7 @@ export class MenuPage implements OnInit {
 	public profile: Profile;
 
 	constructor(
-		public routerCtrl: Router,
+		public router: Router,
 		private dataProfileService: DataProfileService
 	) {}
 
@@ -22,10 +22,10 @@ export class MenuPage implements OnInit {
 
 	onShowProfile(): void {
 		let idProfileNavigationExtras: NavigationExtras = {
-			state: {
-				id: this.profile.id
+			queryParams: {
+				id: JSON.stringify(this.profile.id)
 			}
-		}
-		this.routerCtrl.navigate(["profile"], idProfileNavigationExtras);
+		};
+		this.router.navigate(["profile"], idProfileNavigationExtras);
 	}
 }

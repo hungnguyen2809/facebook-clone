@@ -476,7 +476,7 @@ export class DataProfileService {
     });
   }
 
-  getProfile(id: number){
+  getProfile(id){
     return this.mapfriends.get(id);
   }
 

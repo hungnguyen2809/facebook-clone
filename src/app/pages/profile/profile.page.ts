@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Router, NavigationExtras} from "@angular/router";
+import { Router, ActivatedRoute, NavigationExtras} from "@angular/router";
 import { ButtonChip, Profile } from "./../../interfaces";
 import { DataProfileService } from "src/app/services/data-profile.service";
 import { ModalController } from "@ionic/angular";
@@ -16,19 +16,21 @@ export class ProfilePage implements OnInit {
 	public dataProfile: Profile;
 
 	constructor(
-		public router: Router,
+		private router: Router,
+		private route: ActivatedRoute,
 		public dataProfileService: DataProfileService,
 		private modalCtrl: ModalController,
 		public processService: ProcessAllService
-	) {}
+	) {	}
 
 	ngOnInit() {
 		this.btnChips = this.dataProfileService.getBtnChips();
 
-		if(this.router.getCurrentNavigation().extras.state){
-			let id = this.router.getCurrentNavigation().extras.state.id;
-			this.dataProfile = this.dataProfileService.getProfile(id);
-		}
+		this.route.queryParams.subscribe((params) => {
+			if(params && params.id){
+				this.dataProfile = this.dataProfileService.getProfile(JSON.parse(params.id));
+			}
+		});
 	}
 
 	EditProfile() {
@@ -57,10 +59,10 @@ export class ProfilePage implements OnInit {
 
 	onShowProfile(idProfile){
 		let idProfileNavigationExtras: NavigationExtras = {
-			state: {
-				id: idProfile
+			queryParams: {
+				id: JSON.stringify(idProfile)
 			}
-		}
+		};
 		this.router.navigate(["profile"], idProfileNavigationExtras);
 	}
 }
