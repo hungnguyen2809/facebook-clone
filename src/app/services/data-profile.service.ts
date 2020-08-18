@@ -214,7 +214,7 @@ export class DataProfileService {
         id: 2222,
         nameUser: 'Nguyễn Văn Tráng',
         subName: 'Mãi là của C',
-        avatar: 'https://i.imgur.com/vfHjMCH.jpg',
+        avatar: 'https://i.imgur.com/CfhGDGJ.jpg',
         background: 'https://i.imgur.com/9BNGpKi.jpeg',
         numberFriend: 111,
         abouts: [
@@ -244,7 +244,7 @@ export class DataProfileService {
           {
             id: 1,
             typeCard: 2,
-            avartar: 'https://i.imgur.com/vfHjMCH.jpg',
+            avartar: 'https://i.imgur.com/CfhGDGJ.jpg',
             nameUser: 'Nguyễn Văn Tráng',
             titleCard: '',
             nameGroup: '',
@@ -269,7 +269,7 @@ export class DataProfileService {
         id: 3333,
         nameUser: 'Nguyễn Văn Hùng',
         subName: 'Vui vẻ hòa đồng',
-        avatar: 'https://i.imgur.com/vfHjMCH.jpg',
+        avatar: 'https://scontent.fhan3-3.fna.fbcdn.net/v/t1.0-1/p160x160/55882048_1110466989141037_3584556447993692160_o.jpg?_nc_cat=100&_nc_sid=dbb9e7&_nc_ohc=mIgCQMmyn7UAX__qWF2&_nc_ht=scontent.fhan3-3.fna&_nc_tp=6&oh=4fdfddf303921c34cf32158dd887c9cc&oe=5F561964',
         background: 'https://i.imgur.com/9BNGpKi.jpeg',
         numberFriend: 234,
         abouts: [
@@ -307,7 +307,7 @@ export class DataProfileService {
           {
             id: 1,
             typeCard: 2,
-            avartar: 'https://i.imgur.com/vfHjMCH.jpg',
+            avartar: 'https://scontent.fhan3-3.fna.fbcdn.net/v/t1.0-1/p160x160/55882048_1110466989141037_3584556447993692160_o.jpg?_nc_cat=100&_nc_sid=dbb9e7&_nc_ohc=mIgCQMmyn7UAX__qWF2&_nc_ht=scontent.fhan3-3.fna&_nc_tp=6&oh=4fdfddf303921c34cf32158dd887c9cc&oe=5F561964',
             nameUser: 'Nguyễn Văn Hùng',
             titleCard: '',
             nameGroup: '',
@@ -334,7 +334,7 @@ export class DataProfileService {
         id: 5555,
         nameUser: 'Nguyễn Duy Tùng',
         subName: 'Mua hành LOL',
-        avatar: 'https://i.imgur.com/vfHjMCH.jpg',
+        avatar: 'https://i.imgur.com/T5JnQF2.jpg',
         background: 'https://i.imgur.com/9BNGpKi.jpeg',
         numberFriend: 1000,
         abouts: [
@@ -360,7 +360,7 @@ export class DataProfileService {
           {
             id: 1,
             typeCard: 2,
-            avartar: 'https://i.imgur.com/vfHjMCH.jpg',
+            avartar: 'https://i.imgur.com/T5JnQF2.jpg',
             nameUser: 'Nguyễn Duy Tùng',
             titleCard: '',
             nameGroup: '',
@@ -385,7 +385,7 @@ export class DataProfileService {
         id: 6666,
         nameUser: 'Nguyễn Thị AA',
         subName: '',
-        avatar: 'https://i.imgur.com/vfHjMCH.jpg',
+        avatar: 'https://i.imgur.com/PfZ6kcm.jpg',
         background: 'https://i.imgur.com/9BNGpKi.jpeg',
         numberFriend: 1,
         abouts: [
@@ -398,7 +398,7 @@ export class DataProfileService {
           {
             id: 1,
             typeCard: 2,
-            avartar: 'https://i.imgur.com/vfHjMCH.jpg',
+            avartar: 'https://i.imgur.com/PfZ6kcm.jpg',
             nameUser: 'Nguyễn Thị AA',
             titleCard: '',
             nameGroup: '',
@@ -425,7 +425,7 @@ export class DataProfileService {
         id: 7777,
         nameUser: 'Trần Giần',
         subName: 'I have a gun',
-        avatar: 'https://i.imgur.com/vfHjMCH.jpg',
+        avatar: 'https://i.imgur.com/T5JnQF2.jpg',
         background: 'https://i.imgur.com/9BNGpKi.jpeg',
         numberFriend: 10,
         abouts: [
@@ -443,7 +443,7 @@ export class DataProfileService {
           {
             id: 1,
             typeCard: 2,
-            avartar: 'https://i.imgur.com/vfHjMCH.jpg',
+            avartar: 'https://i.imgur.com/T5JnQF2.jpg',
             nameUser: 'Trần Giần',
             titleCard: '',
             nameGroup: '',
