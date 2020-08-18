@@ -30,7 +30,7 @@ export class CreateStatusPage implements OnInit {
 		private modalCtrl: ModalController,
 		private alertCtrl: AlertController,
 		private processService: ProcessAllService,
-		private profileService: DataProfileService,
+		private dataProfileService: DataProfileService,
 		private dataHomeService: DataHomeService,
 		private loadingCtrl: LoadingController
 	) {}
@@ -42,7 +42,7 @@ export class CreateStatusPage implements OnInit {
 		this.initAlbum();
 
 		this.onShowMoreActionsCreate();
-		this.profile = this.profileService.getProfile();
+		this.profile = this.dataProfileService.getProfileCurrent();
 	}
 
 	initPrivacy(): void{
@@ -211,7 +211,7 @@ export class CreateStatusPage implements OnInit {
 		}
 
 		this.dataHomeService.addStatus(this.processService.getIDforHomeAndProfile(), post);
-		this.profileService.addProfile(this.processService.getIDforHomeAndProfile(), post);
+		this.dataProfileService.addProfile(this.processService.getIDforHomeAndProfile(), post);
 
 		let createState = await this.loadingCtrl.create({
 			animated: true,

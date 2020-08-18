@@ -118,6 +118,14 @@ ion-toolbar.sc-ion-searchbar-md-h, ion-toolbar .sc-ion-searchbar-md-h{
   padding: 10px;
   border-bottom: 1px solid gainsboro;
 
+  ion-list{
+    ion-item{
+      p{
+        margin: 10px 0px;
+      }
+    }
+  }
+
   .image-infor{
     ion-grid{
       padding: 0px;

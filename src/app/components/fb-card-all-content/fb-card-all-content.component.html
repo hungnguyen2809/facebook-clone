@@ -2,7 +2,7 @@
   <!-- avatar and action -->
   <div class="action-user ion-activatable ripple-parent">
     <div class="name-avatar">
-      <div [style.background-image]="'url('+card.avartar+')'" class="avatar-user ion-activatable"></div>
+      <div [style.background-image]="'url('+card.avartar+')'" class="avatar-user ion-activatable" (click)="onShowProfile()"></div>
       <ng-container [ngSwitch]="card.typeCard">
         <!-- status have title card -->
         <div class="name-user" *ngSwitchCase="1" (click)="onDetails(card)">

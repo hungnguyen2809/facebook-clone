@@ -6,6 +6,7 @@ import { Card } from "./../../interfaces";
 import { Router, NavigationExtras } from "@angular/router";
 import { PhotoViewer } from "@ionic-native/photo-viewer/ngx";
 import { VideoPlayer } from "@ionic-native/video-player/ngx";
+import { DataProfileService } from 'src/app/services/data-profile.service';
 
 @Component({
 	selector: "fb-card-all-content",
@@ -22,7 +23,8 @@ export class FbCardAllContentComponent implements OnInit {
 		public processService: ProcessAllService,
 		private routerService: Router,
 		private photoViewerCtrl: PhotoViewer,
-		private videoPlayerCtrl: VideoPlayer
+		private videoPlayerCtrl: VideoPlayer,
+		private dataProfileServeice: DataProfileService
 	) {}
 
 	ngOnInit() {}
@@ -100,6 +102,10 @@ export class FbCardAllContentComponent implements OnInit {
 			}
 		}
 		this.routerService.navigate(["chitiet"], dataExtras);
+	}
+
+	onShowProfile(): void{
+		console.log()
 	}
 
 	previewPhoto(url) {
