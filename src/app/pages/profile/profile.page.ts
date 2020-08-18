@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { ButtonChip, Card, Profile } from "./../../interfaces";
+import { Router, NavigationExtras} from "@angular/router";
+import { ButtonChip, Profile } from "./../../interfaces";
 import { DataProfileService } from "src/app/services/data-profile.service";
 import { ModalController } from "@ionic/angular";
 import { CreateStatusPage } from "../create-status/create-status.page";
@@ -17,14 +17,18 @@ export class ProfilePage implements OnInit {
 
 	constructor(
 		public router: Router,
-		private profileService: DataProfileService,
+		public dataProfileService: DataProfileService,
 		private modalCtrl: ModalController,
-		private processService: ProcessAllService
+		public processService: ProcessAllService
 	) {}
 
 	ngOnInit() {
-		this.btnChips = this.profileService.getBtnChips();
-		this.dataProfile = this.profileService.getProfile();
+		this.btnChips = this.dataProfileService.getBtnChips();
+
+		if(this.router.getCurrentNavigation().extras.state){
+			let id = this.router.getCurrentNavigation().extras.state.id;
+			this.dataProfile = this.dataProfileService.getProfile(id);
+		}
 	}
 
 	EditProfile() {
@@ -49,5 +53,14 @@ export class ProfilePage implements OnInit {
 				this.processService.idCreateStatus = obj.id;
 				obj.present();
 			});
+	}
+
+	onShowProfile(idProfile){
+		let idProfileNavigationExtras: NavigationExtras = {
+			state: {
+				id: idProfile
+			}
+		}
+		this.router.navigate(["profile"], idProfileNavigationExtras);
 	}
 }

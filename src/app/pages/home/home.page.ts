@@ -1,10 +1,11 @@
 import { ProcessAllService } from 'src/app/services/process-all.service';
 import { Component, OnInit } from "@angular/core";
 import { PopoverController, ActionSheetController, ModalController } from "@ionic/angular";
-import { Story, Card } from "./../../interfaces";
-import { Router } from "@angular/router";
+import { Story, Card, Profile } from "./../../interfaces";
+import { Router, NavigationExtras } from "@angular/router";
 import { CreateStatusPage } from '../create-status/create-status.page';
 import { DataHomeService } from 'src/app/services/data-home.service';
+import { DataProfileService } from 'src/app/services/data-profile.service';
 
 @Component({
 	selector: "app-home",
@@ -12,8 +13,7 @@ import { DataHomeService } from 'src/app/services/data-home.service';
 	styleUrls: ["./home.page.scss"],
 })
 export class HomePage implements OnInit {
-	public avatar: string = "https://i.imgur.com/vfHjMCH.jpg";
-
+	public profileUser: Profile;
 	public listStory: Story[] = [];
 	public listActive: string[] = [];
 	public listStatusHome: Card[] = [];
@@ -21,20 +21,27 @@ export class HomePage implements OnInit {
 	constructor(
 		public popoverCtrl: PopoverController,
 		public actionsSheetCtrl: ActionSheetController,
-		private routerService: Router,
+		private router: Router,
 		private modalCtrl: ModalController,
 		private processService: ProcessAllService,
 		private dataHomesService: DataHomeService,
+		public dataProfileService: DataProfileService
 	) {}
 
 	ngOnInit() {
 		this.listStory = this.dataHomesService.getAllStory();
 		this.listActive = this.dataHomesService.getAllPersonActive();
 		this.listStatusHome = this.dataHomesService.getAllStatus();
+		this.profileUser = this.dataProfileService.getProfileCurrent();
 	}
 
 	onProfile(): void {
-		this.routerService.navigateByUrl("profile");
+		let idProfileNavigationExtras: NavigationExtras = {
+			state: {
+				id: this.profileUser.id
+			}
+		}
+		this.router.navigate(["profile"], idProfileNavigationExtras);
 	}
 
 	onCreateStatus(){

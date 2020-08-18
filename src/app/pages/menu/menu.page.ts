@@ -1,4 +1,4 @@
-import { Router } from "@angular/router";
+import { Router, NavigationExtras } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
 import { DataProfileService } from "src/app/services/data-profile.service";
 import { Profile } from "src/app/interfaces";
@@ -17,10 +17,15 @@ export class MenuPage implements OnInit {
 	) {}
 
 	ngOnInit() {
-		this.profile = this.dataProfileService.getProfile();
+		this.profile = this.dataProfileService.getProfileCurrent();
 	}
 
 	onShowProfile(): void {
-		this.routerCtrl.navigateByUrl("profile");
+		let idProfileNavigationExtras: NavigationExtras = {
+			state: {
+				id: this.profile.id
+			}
+		}
+		this.routerCtrl.navigate(["profile"], idProfileNavigationExtras);
 	}
 }

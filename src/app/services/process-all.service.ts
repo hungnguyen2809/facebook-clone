@@ -13,6 +13,7 @@ export interface IconNotifi {
 })
 export class ProcessAllService {
 	public idCreateStatus: string = "";
+
 	private listIcons: IconNotifi[] = [
 		{ type: 1, color: "#2ed573", class: "fas fa-comment" }, //comment
 		{ type: 2, color: "#3867d6", class: "fas fa-thumbs-up" }, //like
@@ -20,11 +21,66 @@ export class ProcessAllService {
 		{ type: 4, color: "#fa8231", class: "fas fa-id-card-alt" }, //card
 		{ type: 5, color: "#eb3b5a", class: "fas fa-heart" }, //heart tim
 	];
+	private mapTypeAbouts = new Map();
+
+	private typeAbouts = [
+		{
+			type: 'school',
+			icon: 'school',
+			title: 'Đã học tại',
+			title2: ''
+		},
+		{
+			type: 'from',
+			icon: 'navigate',
+			title: 'Đến từ',
+			title2: ''
+		},
+		{
+			type: 'live',
+			icon: 'location',
+			title: 'Sống tại',
+			title2: ''
+		},
+		{
+			type: 'work',
+			icon: 'briefcase',
+			title: 'Công việc',
+			title2: ''
+		},
+		{
+			type: 'married',
+			icon: 'heart',
+			title: '',
+			title2: ''
+		},
+		{
+			type: 'follow',
+			icon: 'albums',
+			title: 'Có',
+			title2: 'người theo dõi',
+		},
+		{
+			type: 'link',
+			icon: 'link',
+			title: '',
+			title2: ''
+		}
+		
+	];
 
 	constructor(
 		private dataHomeService: DataHomeService,
 		private dataProfileService: DataProfileService
-	) {}
+	) {
+		this.initMapAbout();
+	}
+
+	initMapAbout(){
+		this.typeAbouts.forEach((element)=>{
+			this.mapTypeAbouts.set(element.type, element);
+		});
+	}
 
 	getContentCard(value: string): string {
 		let result = "";
@@ -74,11 +130,21 @@ export class ProcessAllService {
 	getIDforHomeAndProfile(): number {
 		let idHome = this.dataHomeService.getAllStatus()[
 			this.dataHomeService.getAllStatus().length - 1].id;
-		let idProfile = this.dataProfileService.getProfile().posts[
-			this.dataProfileService.getProfile().posts.length - 1].id;
+		let idProfile = this.dataProfileService.getProfileCurrent().posts[
+			this.dataProfileService.getProfileCurrent().posts.length - 1].id;
 
 		let id = idHome > idProfile ? idHome : idProfile;
-
 		return id + 1;
+	}
+
+	getListInforAbount(abouts: any[]){
+		let result = abouts.map((item)=>{
+			let typeAbout = this.mapTypeAbouts.get(item.type);
+			return {
+				icon: typeAbout.icon,
+				content: `${typeAbout.title} <b>${item.value}</b> ${typeAbout.title2}`
+			}
+		})
+		return result;
 	}
 }

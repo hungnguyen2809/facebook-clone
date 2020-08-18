@@ -1,4 +1,3 @@
-
 <ion-header>
 	<ion-toolbar>
 		<ion-buttons slot="start">
@@ -9,10 +8,8 @@
 </ion-header>
 
 <ion-content>
-
-	<!-- avatar, name  -->
 	<div class="header-image">
-		<div class="overlay-background-image" [style.background-image]="'url(https://i.imgur.com/AvKE7zh.jpeg)'">
+		<div class="overlay-background-image" [style.background-image]="'url('+dataProfile.background+')'">
 			<div class="icon-camera"><i class="fas fa-camera "></i></div>
 		</div>
 		<div class="avartar-image">
@@ -36,66 +33,23 @@
 		</div>
 	</div>
 
-	<!-- information -->
 	<div class="ionformation">
 		<ion-list lines="none">
-			<ion-item>
-				<ion-icon name="school" slot="start" ></ion-icon>
-				<ion-text>Đã học tại <b>Trường đại học giao thông vận tải</b></ion-text>
-			</ion-item>
-			<ion-item>
-				<ion-icon name="navigate" slot="start" ></ion-icon>
-				<ion-text>Đến từ <b>Hà Nam</b></ion-text>
-			</ion-item>
-			<ion-item>
-				<ion-icon name="location" slot="start" ></ion-icon>
-				<ion-text>Sống tại <b>Hà Nội</b></ion-text>
-			</ion-item>
-			<ion-item>
-				<ion-icon name="heart" slot="start"></ion-icon>
-				<ion-text>Đã có người yêu</ion-text>
-			</ion-item>
-			<ion-item>
-				<ion-icon name="albums" slot="start" ></ion-icon>
-				<ion-text>Có <b>1</b> người theo dõi</ion-text>
+			<ion-item *ngFor="let item of processService.getListInforAbount(dataProfile.abouts)">
+				<ion-icon name="{{ item.icon }}" slot="start" ></ion-icon>
+				<p [innerHTML]="item.content"></p>
 			</ion-item>
 			<ion-item button="true" detail="false">
 				<ion-icon name="ellipsis-horizontal" slot="start"></ion-icon>
-				<ion-text>Xem thông tin giới thiệu của bạn</ion-text>
+				<p>Xem thông tin giới thiệu của bạn</p>
 			</ion-item>
 		</ion-list>
-		<!-- image information -->
 		<div class="image-infor">
 			<ion-grid>
 				<ion-row>
-					<ion-col size="4">
+					<ion-col size="4" *ngFor="let url of dataProfile.imagesAbout">
 						<ion-thumbnail>
-							<img src="https://i.imgur.com/AvKE7zh.jpeg" alt="">
-						</ion-thumbnail>
-					</ion-col>
-					<ion-col size="4">
-						<ion-thumbnail>
-							<img src="https://i.imgur.com/AvKE7zh.jpeg" alt="">
-						</ion-thumbnail>
-					</ion-col>
-					<ion-col size="4">
-						<ion-thumbnail>
-							<img src="https://i.imgur.com/AvKE7zh.jpeg" alt="">
-						</ion-thumbnail>
-					</ion-col>
-					<ion-col size="4">
-						<ion-thumbnail>
-							<img src="https://i.imgur.com/AvKE7zh.jpeg" alt="">
-						</ion-thumbnail>
-					</ion-col>
-					<ion-col size="4">
-						<ion-thumbnail>
-							<img src="https://i.imgur.com/AvKE7zh.jpeg" alt="">
-						</ion-thumbnail>
-					</ion-col>
-					<ion-col size="4">
-						<ion-thumbnail>
-							<img src="https://i.imgur.com/AvKE7zh.jpeg" alt="">
+							<img src="{{ url }}" alt="">
 						</ion-thumbnail>
 					</ion-col>
 				</ion-row>
@@ -108,12 +62,11 @@
 		</div>
 	</div>
 
-	<!-- friend -->
 	<div class="friend-user">
 		<div class="infor-friend">
 			<div class="title-friend">
 				<h4>Bạn bè</h4>
-				<ion-label>100 người bạn</ion-label>
+				<ion-label>{{ dataProfile.numberFriend }} người bạn</ion-label>
 			</div>
 			<div class="search-friend">
 				<ion-label>Tìm bạn bè</ion-label>
@@ -122,53 +75,13 @@
 		<div class="list-new-friend">
 			<ion-grid>
 				<ion-row>
-					<ion-col size="4">
-						<div>
+					<ion-col size="4" *ngFor="let id of dataProfile.friends">
+						<div (click)="onShowProfile(id)">
 							<ion-thumbnail>
-								<img src="https://i.imgur.com/AvKE7zh.jpeg" alt="">
+								<img [src]="dataProfileService.getProfile(id).avatar" alt="">
 							</ion-thumbnail>
 						</div>
-						<ion-text>Nguyễn Văn Hùng</ion-text>
-					</ion-col>
-					<ion-col size="4">
-						<div>
-							<ion-thumbnail>
-								<img src="https://i.imgur.com/AvKE7zh.jpeg" alt="">
-							</ion-thumbnail>
-						</div>
-						<ion-text>Nguyễn Văn Hùng</ion-text>
-					</ion-col>
-					<ion-col size="4">
-						<div>
-							<ion-thumbnail>
-								<img src="https://i.imgur.com/AvKE7zh.jpeg" alt="">
-							</ion-thumbnail>
-						</div>
-						<ion-text>Nguyễn Văn Hùng</ion-text>
-					</ion-col>
-					<ion-col size="4">
-						<div>
-							<ion-thumbnail>
-								<img src="https://i.imgur.com/AvKE7zh.jpeg" alt="">
-							</ion-thumbnail>
-						</div>
-						<ion-text>Nguyễn Văn Hùng</ion-text>
-					</ion-col>
-					<ion-col size="4">
-						<div>
-							<ion-thumbnail>
-								<img src="https://i.imgur.com/AvKE7zh.jpeg" alt="">
-							</ion-thumbnail>
-						</div>
-						<ion-text>Nguyễn Văn Hùng</ion-text>
-					</ion-col>
-					<ion-col size="4">
-						<div>
-							<ion-thumbnail>
-								<img src="https://i.imgur.com/AvKE7zh.jpeg" alt="">
-							</ion-thumbnail>
-						</div>
-						<ion-text>Nguyễn Văn Hùng</ion-text>
+						<ion-text>{{ dataProfileService.getProfile(id).nameUser }}</ion-text>
 					</ion-col>
 				</ion-row>
       </ion-grid>
