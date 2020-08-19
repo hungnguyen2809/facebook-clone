@@ -1,11 +1,11 @@
 import { ProcessAllService } from 'src/app/services/process-all.service';
 import { Component, OnInit } from "@angular/core";
-import { PopoverController, ActionSheetController, ModalController } from "@ionic/angular";
+import { PopoverController, ActionSheetController, ModalController, NavController } from "@ionic/angular";
 import { Story, Card, Profile } from "./../../interfaces";
-import { Router, NavigationExtras } from "@angular/router";
 import { CreateStatusPage } from '../create-status/create-status.page';
 import { DataHomeService } from 'src/app/services/data-home.service';
 import { DataProfileService } from 'src/app/services/data-profile.service';
+import { NavigationOptions } from '@ionic/angular/providers/nav-controller';
 
 @Component({
 	selector: "app-home",
@@ -21,11 +21,11 @@ export class HomePage implements OnInit {
 	constructor(
 		public popoverCtrl: PopoverController,
 		public actionsSheetCtrl: ActionSheetController,
-		private router: Router,
+		public dataProfileService: DataProfileService,
+		private navCtrl: NavController,
 		private modalCtrl: ModalController,
 		private processService: ProcessAllService,
 		private dataHomesService: DataHomeService,
-		public dataProfileService: DataProfileService
 	) {}
 
 	ngOnInit() {
@@ -36,12 +36,7 @@ export class HomePage implements OnInit {
 	}
 
 	onProfile(): void {
-		let idProfileNavigationExtras: NavigationExtras = {
-			queryParams: {
-				id: JSON.stringify(this.profileUser.id)
-			}
-		};
-		this.router.navigate(["profile"], idProfileNavigationExtras);
+		this.navCtrl.navigateForward(`profile/${this.profileUser.id}`);
 	}
 
 	onCreateStatus(){

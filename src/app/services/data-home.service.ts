@@ -43,10 +43,10 @@ export class DataHomeService {
 
 		this.dataStatus = [
 			{
-				id: 1,
+				id: 1111,
 				typeCard: 1,
 				avartar: "https://i.imgur.com/vfHjMCH.jpg",
-				nameUser: "Nguyễn Thành",
+				nameUser: "Nguyễn Tiến Thành",
 				titleCard: "đã cập nhật ảnh đại diện của anh ấy.",
 				nameGroup: "",
 				content: "",
@@ -65,10 +65,10 @@ export class DataHomeService {
 				statusAction: 5,
 			},
 			{
-				id: 2,
+				id: 2222,
 				typeCard: 2,
 				avartar: "https://i.imgur.com/CfhGDGJ.jpg",
-				nameUser: "Tráng Nguyễn",
+				nameUser: "Nguyễn Văn Tráng",
 				titleCard: "",
 				nameGroup: "",
 				content: "Chào cả nhà nhá.... Ok ok nhá.",
@@ -95,7 +95,7 @@ export class DataHomeService {
 				statusAction: 2,
 			},
 			{
-				id: 3,
+				id: 3333,
 				typeCard: 2,
 				avartar:
 					"https://scontent.fhan3-3.fna.fbcdn.net/v/t1.0-1/p160x160/55882048_1110466989141037_3584556447993692160_o.jpg?_nc_cat=100&_nc_sid=dbb9e7&_nc_ohc=mIgCQMmyn7UAX__qWF2&_nc_ht=scontent.fhan3-3.fna&_nc_tp=6&oh=4fdfddf303921c34cf32158dd887c9cc&oe=5F561964",

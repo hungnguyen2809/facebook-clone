@@ -26,13 +26,15 @@ export class CreateStatusPage implements OnInit {
 	private isLifeModalActionsCreateStatus: boolean = false;
 	private privacyChoose: string = '';
 
+	list = ['Hùng', 'Huyền'];
+
 	constructor(
 		private modalCtrl: ModalController,
 		private alertCtrl: AlertController,
-		private processService: ProcessAllService,
 		private dataProfileService: DataProfileService,
 		private dataHomeService: DataHomeService,
-		private loadingCtrl: LoadingController
+		private loadingCtrl: LoadingController,
+		public processService: ProcessAllService,
 	) {}
 
 	ngOnInit() {
@@ -90,6 +92,7 @@ export class CreateStatusPage implements OnInit {
 						this.privacyName = this.privacysMap.get("pb").name;
 						this.privacyIcon = this.privacysMap.get("pb").icon;
 						this.privacyChoose = 'pb';
+						promptPrivacy.dismiss();
 					},
 				},
 				{
@@ -100,6 +103,7 @@ export class CreateStatusPage implements OnInit {
 						this.privacyName = this.privacysMap.get("fr").name;
 						this.privacyIcon = this.privacysMap.get("fr").icon;
 						this.privacyChoose = 'fr';
+						promptPrivacy.dismiss();
 					},
 				},
 				{
@@ -110,6 +114,7 @@ export class CreateStatusPage implements OnInit {
 						this.privacyName = this.privacysMap.get("pr").name;
 						this.privacyIcon = this.privacysMap.get("pr").icon;
 						this.privacyChoose = 'pr';
+						promptPrivacy.dismiss();
 					},
 				},
 			],

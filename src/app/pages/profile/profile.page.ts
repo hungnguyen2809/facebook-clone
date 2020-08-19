@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { Router, ActivatedRoute, NavigationExtras} from "@angular/router";
-import { ButtonChip, Profile } from "./../../interfaces";
+import { ActivatedRoute } from "@angular/router";
+import { ButtonChip } from "./../../interfaces";
 import { DataProfileService } from "src/app/services/data-profile.service";
-import { ModalController } from "@ionic/angular";
+import { ModalController, NavController } from "@ionic/angular";
 import { CreateStatusPage } from "../create-status/create-status.page";
 import { ProcessAllService } from "src/app/services/process-all.service";
 
@@ -13,32 +13,30 @@ import { ProcessAllService } from "src/app/services/process-all.service";
 })
 export class ProfilePage implements OnInit {
 	public btnChips: ButtonChip[] = [];
-	public dataProfile: Profile;
+	public dataProfile: any = {};
+	private idProfile: any = null;
 
 	constructor(
-		private router: Router,
+		private navCtrl: NavController,
 		private route: ActivatedRoute,
-		public dataProfileService: DataProfileService,
 		private modalCtrl: ModalController,
+		public dataProfileService: DataProfileService,
 		public processService: ProcessAllService
-	) {	}
+	) {
+		this.idProfile = route.snapshot.paramMap.get("id");
+	}
 
 	ngOnInit() {
 		this.btnChips = this.dataProfileService.getBtnChips();
-
-		this.route.queryParams.subscribe((params) => {
-			if(params && params.id){
-				this.dataProfile = this.dataProfileService.getProfile(JSON.parse(params.id));
-			}
-		});
+		this.dataProfile = this.dataProfileService.getProfile(Number(this.idProfile));
 	}
 
 	EditProfile() {
-		this.router.navigateByUrl("editprofile");
+		this.navCtrl.navigateForward("editprofile");
 	}
-	
+
 	Banbe() {
-		this.router.navigateByUrl("banbe");
+		this.navCtrl.navigateForward("banbe");
 	}
 
 	onCreateStatus() {
@@ -57,12 +55,7 @@ export class ProfilePage implements OnInit {
 			});
 	}
 
-	onShowProfile(idProfile){
-		let idProfileNavigationExtras: NavigationExtras = {
-			queryParams: {
-				id: JSON.stringify(idProfile)
-			}
-		};
-		this.router.navigate(["profile"], idProfileNavigationExtras);
+	onShowProfile(idProfile) {
+		this.navCtrl.navigateForward(`/profile/${idProfile}`);
 	}
 }

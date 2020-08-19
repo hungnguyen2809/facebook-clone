@@ -22,16 +22,16 @@
       <div style="display: flex;">
         <div class="btn-action ion-activatable ripple-parent" (click)="onShowPrivacy()">
           <div class="type-action">
-            <span><i class="{{privacyIcon}}"></i></span>
-            <span style="font-size: 14px;">{{privacyName}}</span>
+            <span><i class="{{ privacyIcon }}"></i></span>
+            <span style="font-size: 14px;">{{ privacyName }}</span>
           </div>
           <span style="margin-left: 2px;"><i class="fas fa-sort-down"></i></span>
           <ion-ripple-effect></ion-ripple-effect>
         </div>
         <div class="btn-action ion-activatable ripple-parent" (click)="onShowAlbum()">
           <div class="type-action">
-            <span><i class="{{albumIcon}}"></i></span>
-            <span style="font-size: 14px;">{{albumName}}</span>
+            <span><i class="{{ albumIcon }}"></i></span>
+            <span style="font-size: 14px;">{{ albumName }}</span>
           </div>
           <span style="margin-left: 2px;"><i class="fas fa-sort-down"></i></span>
           <ion-ripple-effect></ion-ripple-effect>
@@ -53,4 +53,13 @@
                   (ionChange)="onSubmit($event)"
                   (ionFocus)="onDisabledActions()"></ion-textarea>
   </div>
+
+  <div class="images">
+    <ion-list>
+      <ion-item *ngFor="let item of list">
+        {{ item }}
+      </ion-item>
+    </ion-list>
+  </div>
+
 </ion-content>

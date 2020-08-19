@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { AlertController, LoadingController } from "@ionic/angular";
-import { Router } from '@angular/router';
+import { AlertController, LoadingController, NavController } from "@ionic/angular";
 
 @Component({
 	selector: "app-login",
@@ -8,10 +7,11 @@ import { Router } from '@angular/router';
 	styleUrls: ["./login.page.scss"],
 })
 export class LoginPage implements OnInit {
+	public isShowPass: boolean = false;
 	constructor(
 		public alertCtl: AlertController,
 		public loadingCtrl: LoadingController,
-		private roter: Router
+		private navCrtl: NavController
 	) { }
 
 	ngOnInit() { }
@@ -59,7 +59,11 @@ export class LoginPage implements OnInit {
 
 		setTimeout(() => {
 			load.dismiss();
-			this.roter.navigateByUrl('index');
+			this.navCrtl.navigateForward("index");
 		}, 1000);
+	}
+
+	onShowPass(){
+		this.isShowPass = !this.isShowPass;
 	}
 }
