@@ -3,6 +3,10 @@
 
 /** Ionic CSS Variables **/
 :root {
+  --st-base-color-inactive: #bdc3c7;
+  --st-base-color-active: #1270FF;
+  --st-indicator-color: #1270FF;
+
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -88,6 +92,11 @@
   --ion-color-summersky: #34ace0;
   --ion-color-silver: #bdc3c7;
   --ion-color-silver2: #E5E6EB;
+  --ion-color-white: #ffffff;
+}
+
+.ion-color-white{
+  --ion-color-base: var(--ion-color-white);
 }
 
 .ion-color-silver2{

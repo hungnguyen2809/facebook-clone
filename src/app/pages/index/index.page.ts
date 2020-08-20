@@ -1,5 +1,11 @@
-import { IonTabs, NavController } from '@ionic/angular';
-import { Component, OnInit } from "@angular/core";
+import { NavController } from '@ionic/angular';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { HomePage } from '../home/home.page';
+import { GroupPage } from '../group/group.page';
+import { WatchPage } from '../watch/watch.page';
+import { NotificationsPage } from '../notifications/notifications.page';
+import { MenuPage } from '../menu/menu.page';
+import { Content } from '@angular/compiler/src/render3/r3_ast';
 
 @Component({
 	selector: "app-index",
@@ -7,61 +13,19 @@ import { Component, OnInit } from "@angular/core";
 	styleUrls: ["./index.page.scss"],
 })
 export class IndexPage implements OnInit {
-  public isActiveHome: boolean = false;
-  public isActiveGroup: boolean = false;
-  public isActiveWatch: boolean = false;
-  public isActiveNotifi: boolean = false;
-  public isActiveMenu: boolean = false;
+  homePage = HomePage;
+  groupPage = GroupPage;
+  watchPage = WatchPage;
+  notificationsPage = NotificationsPage;
+  menuPage = MenuPage;
+
+  @ViewChild('content', { static: false}) content: Content;
 
 	constructor(
     private navCtrl: NavController
   ) {}
 
 	ngOnInit() {}
-
-	onChangeTabs(tabsOptions: IonTabs): void {
-    let currentTab = tabsOptions.getSelected();
-
-    if(currentTab === 'home'){
-      this.isActiveHome = true;
-      this.isActiveGroup = false;
-      this.isActiveWatch = false;
-      this.isActiveNotifi = false;
-      this.isActiveMenu = false;
-    }
-
-    if(currentTab === 'group'){
-      this.isActiveHome = false;
-      this.isActiveGroup = true;
-      this.isActiveWatch = false;
-      this.isActiveNotifi = false;
-      this.isActiveMenu = false;
-    }
-
-    if(currentTab === 'watch'){
-      this.isActiveHome = false;
-      this.isActiveGroup = false;
-      this.isActiveWatch = true;
-      this.isActiveNotifi = false;
-      this.isActiveMenu = false;
-    }
-
-    if(currentTab === 'notifications'){
-      this.isActiveHome = false;
-      this.isActiveGroup = false;
-      this.isActiveWatch = false;
-      this.isActiveNotifi = true;
-      this.isActiveMenu = false;
-    }
-
-    if(currentTab === 'menu'){
-      this.isActiveHome = false;
-      this.isActiveGroup = false;
-      this.isActiveWatch = false;
-      this.isActiveNotifi = false;
-      this.isActiveMenu = true;
-    }
-  }
 
   onSearch(){
     this.navCtrl.navigateForward('search');

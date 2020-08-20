@@ -1,5 +1,5 @@
-<ion-header [ngClass]="{'header': !isActiveHome}">
-  <ion-toolbar [ngClass]="{'header': !isActiveHome}">
+<ion-header  class="ion-no-border">
+  <ion-toolbar>
     <ion-title>
       <span>Facebook</span>
     </ion-title>
@@ -13,35 +13,51 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [ngClass]="{'content': !isActiveHome}">
-  <ion-tabs #tabOptions (ionTabsDidChange)="onChangeTabs(tabOptions)">
-    <ion-tab-bar slot="top" >
-      <ion-tab-button tab="home" class="tab-option" 
-        [ngClass]="{ 'underline-btn' : isActiveHome, 'color-ripple-effect': isActiveHome }">
-        <ion-icon name="home"></ion-icon>
-      </ion-tab-button>
+<super-tabs>
+  <super-tabs-toolbar slot="top" color="white">
+    <super-tab-button>
+      <ion-icon name="home"></ion-icon>
+    </super-tab-button>
+    <super-tab-button>
+      <ion-icon name="people"></ion-icon>
+    </super-tab-button>
+    <super-tab-button>
+      <ion-icon name="videocam"></ion-icon>
+    </super-tab-button>
+    <super-tab-button>
+      <ion-icon name="notifications"></ion-icon>
+    </super-tab-button>
+    <super-tab-button>
+      <ion-icon name="menu"></ion-icon>
+    </super-tab-button>
+  </super-tabs-toolbar>
+
+  <super-tabs-container auto-scroll-top="true">
+    <super-tab>
+      <ion-content>
+        <ion-nav [root]="homePage"></ion-nav>
+      </ion-content>
+    </super-tab>
+    <super-tab>
+      <ion-content>
+        <ion-nav [root]="groupPage"></ion-nav>
+      </ion-content>
+    </super-tab>
+    <super-tab>
+      <ion-content>
+        <ion-nav [root]="watchPage"></ion-nav>
+      </ion-content>
+    </super-tab>
+    <super-tab>
+      <ion-content>
+        <ion-nav [root]="notificationsPage"></ion-nav>
+      </ion-content>
+    </super-tab>
+    <super-tab>
+      <ion-content>
+        <ion-nav [root]="menuPage"></ion-nav>
+      </ion-content>
+    </super-tab>
+  </super-tabs-container>
   
-      <ion-tab-button tab="group" class="tab-option" 
-        [ngClass]="{ 'underline-btn' : isActiveGroup, 'color-ripple-effect': isActiveGroup }">
-        <ion-icon name="people"></ion-icon>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="watch" class="tab-option" 
-        [ngClass]="{ 'underline-btn' : isActiveWatch, 'color-ripple-effect': isActiveWatch }">
-        <ion-icon name="videocam"></ion-icon>
-        <ion-badge color="danger" [style.display]="isActiveWatch ? 'none' : 'block'">20</ion-badge>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="notifications" class="tab-option" 
-        [ngClass]="{ 'underline-btn' : isActiveNotifi, 'color-ripple-effect': isActiveNotifi }">
-        <ion-icon name="notifications"></ion-icon>
-        <ion-badge color="danger" [style.display]="isActiveNotifi ? 'none' : 'block'">30</ion-badge>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="menu" class="tab-option" 
-        [ngClass]="{ 'underline-btn' : isActiveMenu, 'color-ripple-effect': isActiveMenu }">
-        <ion-icon name="menu"></ion-icon>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
-</ion-content>
+</super-tabs>
