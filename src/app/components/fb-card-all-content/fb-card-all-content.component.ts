@@ -67,7 +67,7 @@ export class FbCardAllContentComponent implements OnInit {
 				},
 				{
 					text: "Gửi bằng Messenger",
-					icon: "logo-medium",
+					icon: "chatbubble-ellipses-outline",
 					handler: () => {},
 				},
 				{

@@ -1,4 +1,4 @@
-import { IonTabs } from '@ionic/angular';
+import { IonTabs, NavController } from '@ionic/angular';
 import { Component, OnInit } from "@angular/core";
 
 @Component({
@@ -13,7 +13,9 @@ export class IndexPage implements OnInit {
   public isActiveNotifi: boolean = false;
   public isActiveMenu: boolean = false;
 
-	constructor() {}
+	constructor(
+    private navCtrl: NavController
+  ) {}
 
 	ngOnInit() {}
 
@@ -59,5 +61,9 @@ export class IndexPage implements OnInit {
       this.isActiveNotifi = false;
       this.isActiveMenu = true;
     }
+  }
+
+  onSearch(){
+    this.navCtrl.navigateForward('search');
   }
 }

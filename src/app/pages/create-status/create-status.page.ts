@@ -1,5 +1,5 @@
 import { ProcessAllService } from "src/app/services/process-all.service";
-import { Component, OnInit, ElementRef } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { ModalController, AlertController, LoadingController } from "@ionic/angular";
 import { ActionsCrateStatusPage } from "../actions-crate-status/actions-crate-status.page";
 import { Card, Profile } from 'src/app/interfaces';
@@ -25,8 +25,6 @@ export class CreateStatusPage implements OnInit {
 	private idModalActionsCreateStatus: string = "";
 	private isLifeModalActionsCreateStatus: boolean = false;
 	private privacyChoose: string = '';
-
-	list = ['Hùng', 'Huyền'];
 
 	constructor(
 		private modalCtrl: ModalController,

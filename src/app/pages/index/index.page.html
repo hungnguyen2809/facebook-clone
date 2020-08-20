@@ -1,10 +1,10 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header [ngClass]="{'header': !isActiveHome}">
+  <ion-toolbar [ngClass]="{'header': !isActiveHome}">
     <ion-title>
       <span>Facebook</span>
     </ion-title>
     <ion-buttons slot="end">
-      <search-icon></search-icon>
+      <search-icon (click)="onSearch()"></search-icon>
       <div class="icon-message">
         <messenger-icon></messenger-icon>
         <ion-badge color="danger">99</ion-badge>
@@ -13,7 +13,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [ngClass]="{'content': !isActiveHome}">
   <ion-tabs #tabOptions (ionTabsDidChange)="onChangeTabs(tabOptions)">
     <ion-tab-bar slot="top" >
       <ion-tab-button tab="home" class="tab-option" 

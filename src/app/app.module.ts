@@ -12,7 +12,7 @@ import { ImagePicker } from '@ionic-native/image-picker/ngx';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   entryComponents: [
 
