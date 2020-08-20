@@ -74,10 +74,10 @@ export class DataGroupService {
 
     this.dataGroup = [
       {
-        id: 1,
+        id: 1111,
 				typeCard: 3,
 				avartar: 'https://i.imgur.com/vfHjMCH.jpg',
-				nameUser: 'Nguyễn Thành',
+				nameUser: 'Nguyễn Tiến Thành',
 				titleCard: '',
 				nameGroup: 'Thành và Những người bạn',
 				content: 'Mình nè các bạn. Tối nay livestream lúc 19h30 nha.',
@@ -96,10 +96,10 @@ export class DataGroupService {
 				statusAction: 1
 			},
 			{
-        id: 2,
+        id: 2222,
 				typeCard: 3,
 				avartar: 'https://i.imgur.com/CfhGDGJ.jpg',
-				nameUser: 'Tráng Nguyễn',
+				nameUser: 'Nguyễn Văn Tráng',
 				titleCard: '',
 				nameGroup: 'Hội người chưa biết nấu cơm',
 				content: 'Chào cả nhà nhá.... Ok ok nhá. Ai chỉ mình nấu cơm với nha.',
@@ -126,7 +126,7 @@ export class DataGroupService {
 				statusAction: 1
 			},
 			{
-        id: 3,
+        id: 3333,
 				typeCard: 3,
 				avartar: 'https://scontent.fhan3-3.fna.fbcdn.net/v/t1.0-1/p160x160/55882048_1110466989141037_3584556447993692160_o.jpg?_nc_cat=100&_nc_sid=dbb9e7&_nc_ohc=mIgCQMmyn7UAX__qWF2&_nc_ht=scontent.fhan3-3.fna&_nc_tp=6&oh=4fdfddf303921c34cf32158dd887c9cc&oe=5F561964',
 				nameUser: 'Nguyễn Văn Hùng',

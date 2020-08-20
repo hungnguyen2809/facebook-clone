@@ -1,7 +1,7 @@
-import { Router, NavigationExtras } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
 import { DataProfileService } from "src/app/services/data-profile.service";
 import { Profile } from "src/app/interfaces";
+import { NavController } from '@ionic/angular';
 
 @Component({
 	selector: "app-menu",
@@ -9,23 +9,18 @@ import { Profile } from "src/app/interfaces";
 	styleUrls: ["./menu.page.scss"],
 })
 export class MenuPage implements OnInit {
-	public profile: Profile;
+	public profileUser: Profile;
 
 	constructor(
-		public router: Router,
+		public navCtrl: NavController,
 		private dataProfileService: DataProfileService
 	) {}
 
 	ngOnInit() {
-		this.profile = this.dataProfileService.getProfileCurrent();
+		this.profileUser = this.dataProfileService.getProfileCurrent();
 	}
 
 	onShowProfile(): void {
-		let idProfileNavigationExtras: NavigationExtras = {
-			queryParams: {
-				id: JSON.stringify(this.profile.id)
-			}
-		};
-		this.router.navigate(["profile"], idProfileNavigationExtras);
+		this.navCtrl.navigateForward(`/profile/${this.profileUser.id}`);
 	}
 }

@@ -8,10 +8,11 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
 import { VideoPlayer } from '@ionic-native/video-player/ngx';
+import { ImagePicker } from '@ionic-native/image-picker/ngx';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   entryComponents: [
 
@@ -26,6 +27,7 @@ import { VideoPlayer } from '@ionic-native/video-player/ngx';
     SplashScreen,
     PhotoViewer,
     VideoPlayer,
+    ImagePicker,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent]

@@ -3,7 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'profile',
+    path: 'profile/:id',
     loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
   },
   {
@@ -31,6 +31,11 @@ const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full'
   },
+  {
+    path: 'search',
+    loadChildren: () => import('./pages/search/search.module').then( m => m.SearchPageModule)
+  },
+
 ];
 
 @NgModule({

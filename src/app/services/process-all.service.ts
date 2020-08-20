@@ -13,6 +13,7 @@ export interface IconNotifi {
 })
 export class ProcessAllService {
 	public idCreateStatus: string = "";
+	public images: any[] = [];
 
 	private listIcons: IconNotifi[] = [
 		{ type: 1, color: "#2ed573", class: "fas fa-comment" }, //comment

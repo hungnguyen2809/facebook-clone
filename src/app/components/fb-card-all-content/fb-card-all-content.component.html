@@ -2,7 +2,7 @@
   <!-- avatar and action -->
   <div class="action-user ion-activatable ripple-parent">
     <div class="name-avatar">
-      <div [style.background-image]="'url('+card.avartar+')'" class="avatar-user ion-activatable" (click)="onShowProfile()"></div>
+      <div [style.background-image]="'url('+card.avartar+')'" class="avatar-user ion-activatable" (click)="onShowProfile(card)"></div>
       <ng-container [ngSwitch]="card.typeCard">
         <!-- status have title card -->
         <div class="name-user" *ngSwitchCase="1" (click)="onDetails(card)">
@@ -82,7 +82,7 @@
     <div *ngIf="card.attachments.length === 1" class="image-video-one">
       <div [style.background-image]="'url('+card.attachments[0].url+')'"
           *ngIf="card.attachments[0].type === 'img'" (click)="previewPhoto(card.attachments[0].url)"></div>
-      <video controls 
+      <video controls class="video" (click)="previewVideo(card.attachments[0].url)"
           *ngIf="card.attachments[0].type === 'video'">
         <source src="{{card.attachments[0].url}}" type="video/mp4">
       </video>
@@ -106,7 +106,7 @@
         <ng-container *ngFor="let item of card.attachments; let i = index"> 
           <div [style.background-image]="'url('+item.url+')'" class="image"
             *ngIf="item.type === 'img' && i != card.attachments.length - 1" (click)="previewPhoto(item.url)"></div>
-          <video controls class="video" (click)="previewVideo($event)"
+          <video controls class="video" (click)="previewVideo(item.url)"
               *ngIf="item.type === 'video' && i != card.attachments.length - 1" >
             <source src="{{item.url}}" type="video/mp4">
           </video>

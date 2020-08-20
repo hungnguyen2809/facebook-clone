@@ -1,12 +1,11 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { PopoverController, ActionSheetController } from "@ionic/angular";
+import { PopoverController, ActionSheetController, NavController } from "@ionic/angular";
 import { ProcessAllService } from "src/app/services/process-all.service";
 import { MoreOptionsComponent } from "./../more-options/more-options.component";
 import { Card } from "./../../interfaces";
 import { Router, NavigationExtras } from "@angular/router";
 import { PhotoViewer } from "@ionic-native/photo-viewer/ngx";
 import { VideoPlayer } from "@ionic-native/video-player/ngx";
-import { DataProfileService } from 'src/app/services/data-profile.service';
 
 @Component({
 	selector: "fb-card-all-content",
@@ -21,10 +20,10 @@ export class FbCardAllContentComponent implements OnInit {
 		public popoverCtrl: PopoverController,
 		public actionsSheetCtrl: ActionSheetController,
 		public processService: ProcessAllService,
-		private routerService: Router,
+		private navCtrl: NavController,
+		private router: Router,
 		private photoViewerCtrl: PhotoViewer,
 		private videoPlayerCtrl: VideoPlayer,
-		private dataProfileServeice: DataProfileService
 	) {}
 
 	ngOnInit() {}
@@ -68,7 +67,7 @@ export class FbCardAllContentComponent implements OnInit {
 				},
 				{
 					text: "Gửi bằng Messenger",
-					icon: "logo-medium",
+					icon: "chatbubble-ellipses-outline",
 					handler: () => {},
 				},
 				{
@@ -101,11 +100,11 @@ export class FbCardAllContentComponent implements OnInit {
 				data: value
 			}
 		}
-		this.routerService.navigate(["chitiet"], dataExtras);
+		this.router.navigate(["chitiet"], dataExtras);
 	}
 
-	onShowProfile(): void{
-		console.log()
+	onShowProfile(card): void{
+		this.navCtrl.navigateForward(`/profile/${card.id}`);
 	}
 
 	previewPhoto(url) {
@@ -113,7 +112,10 @@ export class FbCardAllContentComponent implements OnInit {
 	}
 
 	previewVideo(url) {
-		// this.videoPlayerCtrl.play(url).then(() => {}).catch((err) => { alert(err); });
-		console.log(url);
+		this.videoPlayerCtrl.play(url)
+		.then(() => {})
+		.catch((err) => { 
+			alert(err); 
+		});
 	}
 }
