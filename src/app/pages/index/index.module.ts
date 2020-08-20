@@ -5,6 +5,7 @@ import { IonicModule } from "@ionic/angular";
 import { IndexPageRoutingModule } from "./index-routing.module";
 import { IndexPage } from "./index.page";
 import { ComponentsModule } from "src/app/components/components.module";
+import { SuperTabsModule } from '@ionic-super-tabs/angular';
 
 @NgModule({
 	imports: [
@@ -13,6 +14,7 @@ import { ComponentsModule } from "src/app/components/components.module";
 		IonicModule,
 		IndexPageRoutingModule,
 		ComponentsModule,
+		SuperTabsModule
 	],
 	declarations: [IndexPage],
 })

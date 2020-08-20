@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
 import { VideoPlayer } from '@ionic-native/video-player/ngx';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
+import { SuperTabsModule } from '@ionic-super-tabs/angular';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ImagePicker } from '@ionic-native/image-picker/ngx';
   imports: [
     BrowserModule, 
     IonicModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    SuperTabsModule.forRoot(),
   ],
   providers: [
     StatusBar,

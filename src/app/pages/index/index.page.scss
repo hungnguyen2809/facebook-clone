@@ -34,11 +34,6 @@ ion-toolbar{
   height: 0px;
 }
 
-.header-md{
-  height: 7%;
-  transition: all 1s;
-}
-
 .header-ios ion-toolbar:last-of-type {
   --border-width: 0px;
 }
@@ -57,12 +52,11 @@ ion-toolbar{
   --ripple-color: #636e72;
 }
 
-// .header{
-//   transform: translate(0px, -100%);
-//   transition: all 0.5s;
-// }
+super-tabs-toolbar{
+  border-bottom: 1px solid gainsboro;
+}
 
-// .content{
-//   --offset-top: 45px !important;
-//   transition: all 1s !important;
-// }
+super-tabs-toolbar:after{
+  width: 0px;
+  height: 0px;
+}
