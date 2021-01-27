@@ -1,0 +1,15 @@
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="onionRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div class="header-notifi">
+    <ion-label>Thông báo</ion-label>
+    <search-icon></search-icon>
+  </div>
+  
+  <ng-container *ngFor="let item of listNotifications">
+    <notifications-card [notifi]="item"></notifications-card>
+  </ng-container>
+
+</ion-content>

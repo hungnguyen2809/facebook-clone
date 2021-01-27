@@ -1,0 +1,64 @@
+<ion-content>
+
+	<!-- header for page home -->
+	<div class="header">
+		<ion-list lines="none">
+			<ion-item>
+				<ion-avatar (click)="onProfile()">
+					<img src="{{ profileUser.avatar }}" alt="">
+				</ion-avatar>
+				<ion-button class="btn-status" fill="clear" (click)="onCreateStatus()">
+					<ion-label>
+						Bạn đang nghĩ gì ?
+					</ion-label>
+				</ion-button>
+			</ion-item>
+		</ion-list>
+	</div>
+
+	<!-- chosse qiuck options -->
+	<quick-options></quick-options>
+	
+	<!-- content show on page Home -->
+	<div class="content-home">
+		<!-- zoom -->
+		<ion-card class="meet-zoom">
+			<div>
+				<ion-button fill="clear" class="btn-meet-zoom">
+					<ion-icon name="globe-outline" slot="start" color="tertiary"></ion-icon>
+					<ion-label color="primary" style="font-size: 12px; text-transform: initial; text-align: left; font-weight: bold;">
+						Tạo phòng <br/> họp mặt
+					</ion-label>
+				</ion-button>
+			</div>
+			<div *ngFor="let item of listActive" style="display: flex; justify-content: center; align-items: center;">
+				<div class="people-zoom" [style.background-image]="'url('+item+')'">
+					<div class="icon"><i class="fas fa-circle"></i></div>
+				</div>
+			</div>
+		</ion-card>
+
+		<!-- story -->
+		<ion-card class="story">
+			<div>
+				<ion-card class="overview-story">
+					<div class="avartar" [style.background-image]="'url('+profileUser.avatar+')'">
+						<div class="icon"><i class="fas fa-plus"></i></div>
+					</div>
+					<div class="name-story">
+						<span>Tạo tin</span>
+					</div>
+				</ion-card>
+			</div>
+			<div *ngFor="let item of listStory">
+				<component-story [story]="item"></component-story>
+			</div>
+		</ion-card>
+
+		<!-- content status home -->
+		<ng-container *ngFor="let card of listStatusHome">
+			<fb-card-all-content [card]="card" ></fb-card-all-content>
+		</ng-container>
+	</div>
+
+</ion-content>

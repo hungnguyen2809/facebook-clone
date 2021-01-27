@@ -1,0 +1,138 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button defaultHref="/index/home"></ion-back-button>
+		</ion-buttons>
+		<ion-searchbar placeholder="Tìm kiếm" animated="true" search-icon="search-outline"></ion-searchbar>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="header-image">
+		<div class="overlay-background-image" [style.background-image]="'url('+dataProfile.background+')'">
+			<div class="icon-camera"><i class="fas fa-camera "></i></div>
+		</div>
+		<div class="avartar-image">
+			<ion-avatar>
+				<img [src]="dataProfile.avatar" alt="">
+				<div class="icon-camera"><i class="fas fa-camera "></i></div>
+			</ion-avatar>
+		</div>
+		<div class="header-name">
+			<h1>{{ dataProfile.nameUser }}</h1>
+			<p>{{ dataProfile.subName }}</p>
+			<div class="btn-create-story">
+				<ion-button class="btn-create">
+					<ion-icon name="add-circle" slot="start"></ion-icon>
+					Thêm vào tin
+				</ion-button>
+				<ion-button color="silver2" class="btn-more" (click)="EditProfile()">
+					<ion-icon name="ellipsis-horizontal" slot="icon-only" color="dark" size="small"></ion-icon>
+				</ion-button>
+			</div>
+		</div>
+	</div>
+
+	<div class="ionformation">
+		<ion-list lines="none">
+			<ion-item *ngFor="let item of processService.getListInforAbount(dataProfile.abouts)">
+				<ion-icon name="{{ item.icon }}" slot="start" ></ion-icon>
+				<p [innerHTML]="item.content"></p>
+			</ion-item>
+			<ion-item button="true" detail="false">
+				<ion-icon name="ellipsis-horizontal" slot="start"></ion-icon>
+				<p>Xem thông tin giới thiệu của bạn</p>
+			</ion-item>
+		</ion-list>
+		<div class="image-infor">
+			<ion-grid>
+				<ion-row>
+					<ion-col size="4" *ngFor="let url of dataProfile.imagesAbout">
+						<ion-thumbnail>
+							<img src="{{ url }}" alt="">
+						</ion-thumbnail>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</div>
+		<div class="btn-edit-information">
+			<ion-button expand="block" >
+				Chỉnh sửa chi tiết công khai
+			</ion-button>
+		</div>
+	</div>
+
+	<div class="friend-user">
+		<div class="infor-friend">
+			<div class="title-friend">
+				<h4>Bạn bè</h4>
+				<ion-label>{{ dataProfile.numberFriend }} người bạn</ion-label>
+			</div>
+			<div class="search-friend">
+				<ion-label>Tìm bạn bè</ion-label>
+			</div>
+		</div>
+		<div class="list-new-friend">
+			<ion-grid>
+				<ion-row>
+					<ion-col size="4" *ngFor="let id of dataProfile.friends">
+						<div (click)="onShowProfile(id)">
+							<ion-thumbnail>
+								<img [src]="dataProfileService.getProfile(id).avatar" alt="">
+							</ion-thumbnail>
+						</div>
+						<ion-text>{{ dataProfileService.getProfile(id).nameUser }}</ion-text>
+					</ion-col>
+				</ion-row>
+      </ion-grid>
+    </div>
+    <div class="btn-see-all-friend" (click)="Banbe()">
+			<ion-button expand="block" >
+				Xem tất cả bạn bè
+			</ion-button>
+		</div>
+	</div>
+
+	<div class="written-area">
+		<div class="header-setting">
+			<h4>Bài viết</h4>
+			<div>
+				<ion-button color="silver2"size="small">
+					<ion-icon name="options-outline" slot="icon-only" color="dark" size="small"></ion-icon>
+				</ion-button>
+				<ion-button color="silver2" size="small">
+					<ion-icon name="settings" slot="icon-only" color="dark" size="small"></ion-icon>
+				</ion-button>
+			</div>
+		</div>
+		<div class="create-status">
+			<ion-list lines="none">
+				<ion-item button="true" detail="false" (click)="onCreateStatus()">
+					<ion-avatar class="">
+						<img src="{{ dataProfile.avatar }}" alt="">
+					</ion-avatar>
+					<ion-label style="margin-left: 10px;">Bạn đang nghĩ gì ?</ion-label>
+				</ion-item>
+			</ion-list>
+			<quick-options></quick-options>
+		</div>
+	</div>
+
+	<div class="btn-actions-chip">
+    <div class="header-chip">
+      <ng-container *ngFor="let element of btnChips">
+        <ion-chip [style.min-width.px]="element.height">
+          <ion-icon name="{{ element.icon }}" color="dark" ></ion-icon>
+          <ion-label>{{ element.name }}</ion-label>
+        </ion-chip>
+      </ng-container>
+    </div>
+	</div>
+	
+	<div class="posts-profile">
+    <ng-container *ngFor="let card of dataProfile.posts">
+      <fb-card-all-content [card]="card"></fb-card-all-content>
+    </ng-container>
+  </div>
+	
+</ion-content>

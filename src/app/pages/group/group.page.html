@@ -1,0 +1,34 @@
+<ion-content>
+  <div class="header-group">
+    <ion-label>
+      Nhóm
+    </ion-label>
+    <search-icon></search-icon>
+  </div>
+
+  <div class="suggest">
+    <ng-container *ngFor="let element of btnChips">
+      <ion-chip [style.min-width.px]="element.height">
+        <ion-icon name="{{ element.icon }}" color="dark" ></ion-icon>
+        <ion-label>{{ element.name }}</ion-label>
+      </ion-chip>
+    </ng-container>
+  </div>
+
+  <div class="suggest-group">
+    <ng-container *ngFor="let item of groups">
+      <div class="group">
+        <div class="image-group" [style.background-image]="'url('+item.image+')'"></div>
+        <div class="name-group">
+          {{ item.name }}
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="show-content-group">
+    <ng-container *ngFor="let card of listContentGroup">
+			<fb-card-all-content [card]="card"></fb-card-all-content>
+		</ng-container>
+  </div>
+</ion-content>

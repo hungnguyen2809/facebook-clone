@@ -1,0 +1,17 @@
+<div class="like-comment-share" [style.justify-content]="like !== 0 ? 'space-between' : 'flex-end'">
+  <div class="like" [style.display]="like !== 0 ? 'block' : 'none'">
+    <i class="far fa-thumbs-up"></i>
+    <i class="far fa-heart"></i>
+    <span style="margin-left: 5px;">
+      {{ like }}
+    </span>
+  </div>
+  <div class="comment-share">
+    <p [style.display]="comment !== 0 ? 'block' : 'none'">
+      {{ comment }} bình luận
+    </p>
+    <p [style.display]="share !== 0 ? 'block' : 'none'">
+      {{ share }} chia sẻ
+    </p>
+  </div>
+</div> 

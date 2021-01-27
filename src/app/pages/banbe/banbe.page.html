@@ -1,0 +1,193 @@
+<ion-header class="head">
+  <ion-toolbar style="padding-bottom: 0px; border-bottom: rgb(224, 220, 220) 2px outset ;">
+    <ion-button slot="start" fill="clear" style="width: 10%;">
+      <ion-back-button defaultHref="/" color="dark" text=''></ion-back-button>
+    </ion-button>
+    <p style="font-size: 22px;">Nguyễn Văn Tráng</p>
+  </ion-toolbar>
+  <ion-segment style="width: 50%;margin-left: 20px;margin-top: 20px;padding-bottom: 10px; background-color: transparent;" ionSelect="none"  [(ngModel)]="banbe">
+    <ion-segment-button class="BtSm" value="tatca" checked>
+      <ion-label>Tất cả</ion-label>
+    </ion-segment-button>
+    <ion-segment-button class="BtSm" style="margin-left: 10px;" value="ganday">
+      <ion-label>Gần đây</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <div style="position: relative;width: 100%;" mode="ios">
+    <ion-searchbar></ion-searchbar>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div [ngSwitch]="banbe" class="divmg">
+    <div *ngSwitchCase="'tatca'" >
+
+      <div>
+        <b style="font-size: 21px;">561 người bạn</b>
+      </div>
+
+      <div style="display: flex;justify-content: space-between;height: 10%;">
+        <div style="display: flex;">
+          <div style="margin-top: 10%;">
+            <ion-avatar>
+              <img src="../../../assets/imgs/avata.jpg" alt="">
+            </ion-avatar>
+          </div>
+          <div style="margin-left: 10px;margin-top: 10px;">
+            <p><b>Boy cô đơn</b></p>
+            <p style="color: rgb(195, 197, 197);margin-top: -15px;">23 bạn chung</p>
+          </div>
+        </div>
+        
+        <div style="margin-top: 20px;">
+          <more-icon [backgroundColor]="'white'"></more-icon>
+        </div>
+      </div>
+
+      <div style="display: flex;justify-content: space-between;height: 10%;">
+        <div style="display: flex;">
+          <div style="margin-top: 10%;">
+            <ion-avatar>
+              <img src="../../../assets/imgs/avata.jpg" alt="">
+            </ion-avatar>
+          </div>
+          <div style="margin-left: 10px;margin-top: 10px;">
+            <p><b>Boy cô đơn</b></p>
+            <p style="color: rgb(195, 197, 197);margin-top: -15px;">23 bạn chung</p>
+          </div>
+        </div>
+        
+        <div style="margin-top: 20px;">
+          <more-icon [backgroundColor]="'white'"></more-icon>
+        </div>
+      </div>
+
+      <div style="display: flex;justify-content: space-between;height: 10%;">
+        <div style="display: flex;">
+          <div style="margin-top: 10%;">
+            <ion-avatar>
+              <img src="../../../assets/imgs/avata.jpg" alt="">
+            </ion-avatar>
+          </div>
+          <div style="margin-left: 10px;margin-top: 10px;">
+            <p><b>Boy cô đơn</b></p>
+            <p style="color: rgb(195, 197, 197);margin-top: -15px;">23 bạn chung</p>
+          </div>
+        </div>
+        
+        <div style="margin-top: 20px;">
+          <more-icon [backgroundColor]="'white'"></more-icon>
+        </div>
+      </div>
+
+      <div style="display: flex;justify-content: space-between;height: 10%;">
+        <div style="display: flex;">
+          <div style="margin-top: 10%;">
+            <ion-avatar>
+              <img src="../../../assets/imgs/avata.jpg" alt="">
+            </ion-avatar>
+          </div>
+          <div style="margin-left: 10px;margin-top: 10px;">
+            <p><b>Boy cô đơn</b></p>
+            <p style="color: rgb(195, 197, 197);margin-top: -15px;">23 bạn chung</p>
+          </div>
+        </div>
+        
+        <div style="margin-top: 20px;">
+          <more-icon [backgroundColor]="'white'"></more-icon>
+        </div>
+      </div>
+
+      <div style="display: flex;justify-content: space-between;height: 10%;">
+        <div style="display: flex;">
+          <div style="margin-top: 10%;">
+            <ion-avatar>
+              <img src="../../../assets/imgs/avata.jpg" alt="">
+            </ion-avatar>
+          </div>
+          <div style="margin-left: 10px;margin-top: 10px;">
+            <p><b>Boy cô đơn</b></p>
+            <p style="color: rgb(195, 197, 197);margin-top: -15px;">23 bạn chung</p>
+          </div>
+        </div>
+        
+        <div style="margin-top: 20px;">
+          <more-icon [backgroundColor]="'white'"></more-icon>
+        </div>
+      </div>
+
+      <div style="display: flex;justify-content: space-between;height: 10%;">
+        <div style="display: flex;">
+          <div style="margin-top: 10%;">
+            <ion-avatar>
+              <img src="../../../assets/imgs/avata.jpg" alt="">
+            </ion-avatar>
+          </div>
+          <div style="margin-left: 10px;margin-top: 10px;">
+            <p><b>Boy cô đơn</b></p>
+            <p style="color: rgb(195, 197, 197);margin-top: -15px;">23 bạn chung</p>
+          </div>
+        </div>
+        
+        <div style="margin-top: 20px;">
+          <more-icon [backgroundColor]="'white'"></more-icon>
+        </div>
+      </div>
+
+      <div style="display: flex;justify-content: space-between;height: 10%;">
+        <div style="display: flex;">
+          <div style="margin-top: 10%;">
+            <ion-avatar>
+              <img src="../../../assets/imgs/avata.jpg" alt="">
+            </ion-avatar>
+          </div>
+          <div style="margin-left: 10px;margin-top: 10px;">
+            <p><b>Boy cô đơn</b></p>
+            <p style="color: rgb(195, 197, 197);margin-top: -15px;">23 bạn chung</p>
+          </div>
+        </div>
+        
+        <div style="margin-top: 20px;">
+          <more-icon [backgroundColor]="'white'"></more-icon>
+        </div>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="'ganday'">
+      <div style="display: flex;justify-content: space-between;height: 10%;">
+        <div style="display: flex;">
+          <div style="margin-top: 10%;">
+            <ion-avatar>
+              <img src="../../../assets/imgs/avata.jpg" alt="">
+            </ion-avatar>
+          </div>
+          <div style="margin-left: 10px;margin-top: 10px;">
+            <p><b>Boy cô đơn</b></p>
+            <p style="color: rgb(195, 197, 197);margin-top: -15px;">23 bạn chung</p>
+          </div>
+        </div>
+        
+        <div style="margin-top: 20px;">
+          <more-icon [backgroundColor]="'white'"></more-icon>
+        </div>
+      </div>
+
+      <div style="display: flex;justify-content: space-between;height: 10%;">
+        <div style="display: flex;">
+          <div style="margin-top: 10%;">
+            <ion-avatar>
+              <img src="../../../assets/imgs/avata.jpg" alt="">
+            </ion-avatar>
+          </div>
+          <div style="margin-left: 10px;margin-top: 10px;">
+            <p><b>Boy cô đơn</b></p>
+            <p style="color: rgb(195, 197, 197);margin-top: -15px;">23 bạn chung</p>
+          </div>
+        </div>
+        <div style="margin-top: 20px;">
+          <more-icon [backgroundColor]="'white'"></more-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

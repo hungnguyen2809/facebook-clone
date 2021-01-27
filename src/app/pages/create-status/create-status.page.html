@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-button (click)="onDismiss()" color="danger">Hủy</ion-button>
+    </ion-buttons>
+    <ion-title>Tạo bài viết</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [disabled]="disabledSubmit" (click)="onPost(contentStatus.value)">Đăng</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="header">
+    <ion-avatar>
+      <img [src]="profile.avatar" alt="">
+    </ion-avatar>
+    <div class="name-option">
+      <ion-label>
+        {{ profile.nameUser }}
+      </ion-label>
+      <div style="display: flex;">
+        <div class="btn-action ion-activatable ripple-parent" (click)="onShowPrivacy()">
+          <div class="type-action">
+            <span><i class="{{ privacyIcon }}"></i></span>
+            <span style="font-size: 14px;">{{ privacyName }}</span>
+          </div>
+          <span style="margin-left: 2px;"><i class="fas fa-sort-down"></i></span>
+          <ion-ripple-effect></ion-ripple-effect>
+        </div>
+        <div class="btn-action ion-activatable ripple-parent" (click)="onShowAlbum()">
+          <div class="type-action">
+            <span><i class="{{ albumIcon }}"></i></span>
+            <span style="font-size: 14px;">{{ albumName }}</span>
+          </div>
+          <span style="margin-left: 2px;"><i class="fas fa-sort-down"></i></span>
+          <ion-ripple-effect></ion-ripple-effect>
+        </div>
+        <div class="btn-setting ion-activatable ripple-parent" (click)="onShowMoreActionsCreate()">
+          <div class="type-action">
+            <span><i class="fas fa-cogs fa-lg"></i></span>
+          </div>
+          <ion-ripple-effect></ion-ripple-effect>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="write-content-status">
+    <ion-textarea #contentStatus
+                  placeholder="Bạn đang nghĩ gì ?" 
+                  autoGrow="true" 
+                  (ionChange)="onSubmit($event)"
+                  (ionFocus)="onDisabledActions()"></ion-textarea>
+  </div>
+
+</ion-content>

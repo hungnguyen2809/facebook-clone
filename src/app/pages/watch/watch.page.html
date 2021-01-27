@@ -1,0 +1,26 @@
+<ion-content color="silver">
+  <div class="header">
+    <div class="header-watch">
+      <ion-label>Watch</ion-label>
+      <div class="icon-header">
+				<user-icon></user-icon>
+				<search-icon></search-icon>
+      </div>
+    </div>
+    <div class="header-chip">
+      <ng-container *ngFor="let element of btnChips">
+        <ion-chip [style.min-width.px]="element.height">
+          <ion-icon name="{{ element.icon }}" color="dark" ></ion-icon>
+          <ion-label>{{ element.name }}</ion-label>
+        </ion-chip>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="content-video">
+    <ng-container *ngFor="let item of listVideoCard">
+      <video-card-all [cardVideo]="item"></video-card-all>
+    </ng-container>
+  </div>
+</ion-content>
+

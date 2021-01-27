@@ -1,0 +1,215 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/index/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ data.nameUser }}</ion-title>
+    <ion-buttons slot="end">
+      <search-icon [backgroundColor]="'white'"></search-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="action-user">
+    <div class="name-avatar">
+      <div [style.background-image]="'url('+data.avartar+')'" class="avatar-user ion-activatable"></div>
+      <ng-container [ngSwitch]="data.typeCard">
+        <!-- status have title card -->
+        <div class="name-user" *ngSwitchCase="1">
+          <span class="name">
+            {{ data.nameUser }}
+          </span>
+          <span class="action">
+            {{ data.titleCard }}
+          </span>
+          <div class="time-privacy">
+            <p>{{ processService.getTime(data.time) }}</p>
+            <p class="dot-icon"><i class="fas fa-circle"></i></p>
+            <p>
+              <i class="{{ data.typePrivacy.toUpperCase() === 'PR' ? 'fas fa-lock' : data.typePrivacy.toUpperCase() === 'FR' ? 'fas fa-user-friends' : 'fas fa-globe-asia' }}"></i>
+            </p>
+          </div>
+        </div>
+
+        <!-- status not title card -->
+        <div class="name-user" *ngSwitchCase="2" >
+          <span class="name">
+            {{ data.nameUser }}
+          </span>
+          <div class="time-privacy">
+            <p>{{ processService.getTime(data.time) }}</p>
+            <p class="dot-icon"><i class="fas fa-circle"></i></p>
+            <p>
+              <i class="{{ data.typePrivacy.toUpperCase() === 'PR' ? 'fas fa-lock' : data.typePrivacy.toUpperCase() === 'FR' ? 'fas fa-user-friends' : 'fas fa-globe-asia' }}"></i>
+            </p>
+          </div>
+        </div>
+
+        <!-- for group -->
+        <div class="name-user" *ngSwitchCase="3" >
+          <span class="name">
+            {{ data.nameUser }}
+          </span>
+          <span><i class="fas fa-caret-right"></i></span>
+          <span class="name">
+            {{ data.nameGroup }}
+          </span>
+          <div class="time-privacy">
+            <p>{{ processService.getTime(data.time) }}</p>
+            <p class="dot-icon"><i class="fas fa-circle"></i></p>
+            <p><i class="fas fa-chalkboard-teacher"></i></p>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <div>
+      <more-icon [backgroundColor]="'#fff'" (click)="onMoreOptions()"></more-icon>
+    </div>
+  </div>
+  <div style="margin-right: 15px;margin-left: 15px;margin-top: 10px;">
+    {{ data.content }}
+  </div>
+
+  <div class="attachments">
+    <ng-container *ngFor="let item of data.attachments"> 
+      <img *ngIf="item.type === 'img'" src="{{ item.url }}"/>
+      <video controls class="video" *ngIf="item.type === 'video'">
+        <source src="{{item.url}}" type="video/mp4">
+      </video>
+    </ng-container>
+  </div>
+
+  <number-like-comment-share [like]="data.numberLike" [comment]="data.numberComment" [share]="data.numberShare"></number-like-comment-share>
+
+  <ion-grid>
+    <ion-row>
+      <ng-container *ngIf="data.statusAction != 5; else notAvailable">
+        <!-- button like -->
+        <ion-col  size="{{ data.statusAction == 4 ? '12' : data.statusAction == 1 ? '4' : '6' }}" 
+                  (click)="onLike()">
+          <div class="ion-activatable ripple-parent" >
+            <div class="btn-action" [ngClass]="{'is-like': data.isLike}">
+              <i class="{{data.isLike ? 'fas fa-thumbs-up' : 'far fa-thumbs-up'}}"></i>
+              <span style="text-transform: initial; ">
+                Thích
+              </span>
+            </div>
+            <ion-ripple-effect></ion-ripple-effect>
+          </div>
+        </ion-col>
+        <!-- button comment -->
+        <ion-col size="{{ data.statusAction == 4 ? '12' : data.statusAction == 1 ? '4' : '6' }}" 
+                (click)="onComment()"
+                *ngIf="data.statusAction == 1 || data.statusAction == 3">
+          <div class="ion-activatable ripple-parent" >
+            <div class="btn-action">
+              <i class="far fa-comment-alt"></i>
+              <span style="text-transform: initial;">
+                Bình luận
+              </span>
+            </div>
+            <ion-ripple-effect></ion-ripple-effect>
+          </div>
+        </ion-col>		
+        <!-- button share -->
+        <ion-col size="{{ data.statusAction == 4 ? '12' : data.statusAction == 1 ? '4' : '6' }}" 
+                (click)="onShare()"
+                *ngIf="data.statusAction == 1 || data.statusAction == 2">
+          <div class="ion-activatable ripple-parent" >
+            <div class="btn-action">
+              <i class="far fa-share-square"></i>
+              <span style="text-transform: initial;">
+                Chia sẻ
+              </span>
+            </div>
+            <ion-ripple-effect></ion-ripple-effect>
+          </div>
+        </ion-col>				
+      </ng-container>
+      <ng-template #notAvailable>
+        <ion-col>
+          <p>
+            Tính năng bị vô hiệu hóa.
+          </p>
+        </ion-col>
+      </ng-template>
+    </ion-row>
+  </ion-grid>
+
+<!-- comment --> 
+  <div style="border-top: 5px solid rgb(214, 212, 212);">
+    <ion-button (click)="phuhop()" fill="clear" style="text-transform: initial; color: black;">Phù hợp nhất
+      <ion-icon name="chevron-down-sharp" style="font-size: 15px;margin-top: 2px;margin-left: 3px;"></ion-icon>
+    </ion-button>
+  </div>
+  <div>
+    <div style="display: flex;margin-left: 10px;">
+      <div style="margin-top: 10px;">
+        <ion-avatar style="width: 40px;height: 40px;">
+          <img src="../assets/imgs/anhdemo.jpg" alt="">
+        </ion-avatar>
+      </div>
+      <div>
+        <div style="background-color: rgb(224, 224, 224);border-radius: 22px;margin-right: 20px;margin-left: 10px;margin-top: 10px;min-width: 80px;">
+          <div style="margin-top: 10px;margin-left: 15px;padding-top: 10px;">
+            <b style="color: black;">Thành</b>
+          </div>
+          <div style="margin-top: -10px;margin-left: 15px;margin-right: 10px;">
+            <p style="padding-bottom: 10px;">.</p>
+          </div>
+        </div>
+        <div style="margin-top: -26px;margin-right: 10px;display: flex;">
+          <div style="margin-left: 70%;"><ion-badge color="light" style="border-radius: 20px;display: flex;">
+            <ion-icon name="thumbs-up-sharp" style="color: rgb(67, 35, 212);font-size: 20px;"></ion-icon>
+            <p style="margin-top: 3px;font-size: 15px;margin-bottom: 0px;">1</p></ion-badge>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex;margin-left: 75px;margin-top: -15px;">
+      <div><p style="color: rgb(109, 105, 105);">54 phút</p></div>
+      <div style="margin-left: 25px;"><p style="color: rgb(109, 105, 105);">Like</p></div>
+      <div style="margin-left: 25px;"><p style="color: rgb(109, 105, 105);">Comment</p></div>
+    </div>
+  </div>
+
+  <div>
+    <div style="display: flex;margin-left: 10px;">
+      <div style="margin-top: 10px;">
+        <ion-avatar style="width: 40px;height: 40px;">
+          <img src="../assets/imgs/anhdemo.jpg" alt="">
+        </ion-avatar>
+      </div>
+      <div>
+        <div style="background-color: rgb(224, 224, 224);border-radius: 22px;margin-right: 20px;margin-left: 10px;margin-top: 10px;min-width: 80px;">
+          <div style="margin-top: 10px;margin-left: 15px;padding-top: 10px;">
+            <b style="color: black;">Thành</b>
+          </div>
+          <div style="margin-top: -10px;margin-left: 15px;margin-right: 10px;">
+            <p style="padding-bottom: 10px;">.</p>
+          </div>
+        </div>
+        <div style="margin-top: -26px;margin-right: 10px;display: flex;">
+          <div style="margin-left: 70%;"><ion-badge color="light" style="border-radius: 20px;display: flex;"><ion-icon name="happy" style="color: yellow;font-size: 20px;"></ion-icon><p style="margin-top: 3px;font-size: 15px;margin-bottom: 0px;">1</p></ion-badge></div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex;margin-left: 75px;margin-top: -15px;">
+      <div><p style="color: rgb(109, 105, 105);">54 phút</p></div>
+      <div style="margin-left: 25px;"><p style="color: rgb(109, 105, 105);">Like</p></div>
+      <div style="margin-left: 25px;"><p style="color: rgb(109, 105, 105);">Comment</p></div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-list class="cmt">
+    <ion-item>
+      <ion-input placeholder="Viết bình luận..." ></ion-input>
+      <ion-icon name="camera-outline" style="font-size: 25px;color: rgb(112, 105, 105);margin-right: 10px;"></ion-icon>
+      <ion-icon name="gift-outline" style="font-size: 25px;color: rgb(112, 105, 105);margin-right: 10px;"></ion-icon>
+      <ion-icon name="happy-outline" style="font-size: 25px;color: rgb(112, 105, 105);"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-footer>

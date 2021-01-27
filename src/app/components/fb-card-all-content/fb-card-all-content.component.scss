@@ -1,0 +1,273 @@
+ion-card {
+	background-color: white;
+	padding: 0px;
+	margin: 0px;
+	border-top: 10px solid #bdc3c7;
+	border-radius: 0px;
+
+	.action-user {
+		min-height: 50px;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 10px;
+
+		.name-avatar {
+			height: 100%;
+			display: flex;
+			margin: 10px 0px 0px 10px;
+			padding-bottom: 10px;
+
+			.avatar-user {
+				min-width: 40px;
+				min-height: 40px;
+				width: 40px;
+				height: 40px;
+				border-radius: 20px;
+				background-position: center;
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+
+			.name-user {
+				margin-left: 10px;
+
+				.name {
+					font-size: 15.5px;
+					font-weight: bold;
+					color: #000;
+				}
+
+				.action {
+					text-transform: lowercase;
+				}
+
+				.time-privacy {
+					margin: 6px 0px 0px 0px;
+					font-size: 12.5px;
+					display: flex;
+
+					p {
+						margin: 0px;
+					}
+
+					.dot-icon {
+						font-size: 3px;
+						margin: 5px;
+					}
+				}
+
+				.fa-caret-right {
+					font-weight: bold;
+					color: black;
+					margin: 0px 2px;
+				}
+			}
+		}
+	}
+
+	ion-card-content {
+		padding: 1px 10px;
+		margin: 0px;
+		color: #000;
+
+		.content-status {
+			font-size: 15px;
+		}
+
+		.btn-more-content-status {
+			color: #3867d6;
+			text-decoration: underline;
+		}
+	}
+
+	.image-video-content {
+		.image-video-one {
+			div {
+				height: 50vh;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+
+			.video {
+				width: 100%;
+				height: auto;
+				background-color: #000;
+			}
+		}
+
+		.image-video-two {
+			display: flex;
+			.image {
+				height: 60vh;
+				width: 50%;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+				margin: 1px;
+			}
+			.video {
+				width: 50%;
+				margin: 1px;
+				background-color: #000;
+			}
+		}
+
+		.image-video-three {
+			.one-two {
+				display: flex;
+
+				.image {
+					height: 30vh;
+					width: 50%;
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: cover;
+					margin: 1px;
+				}
+				.video {
+					width: 50%;
+					margin: 1px;
+					background-color: #000;
+				}
+			}
+
+			.image-three {
+				height: 30vh;
+				width: 100%;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+				margin: 1px;
+			}
+			.video-three {
+				height: 30vh;
+				width: 100%;
+				background-color: #000;
+			}
+		}
+
+		.image-video-four {
+			.one-two,
+			.three-four {
+				display: flex;
+
+				.image {
+					height: 30vh;
+					width: 50%;
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: cover;
+					margin: 1px;
+				}
+				.video {
+					width: 50%;
+					margin: 1px;
+					background-color: #000;
+				}
+			}
+		}
+
+		.image-video-more {
+			.one-two{
+				display: flex;
+				.image {
+					height: 30vh;
+					width: 50%;
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: cover;
+					margin: 1px;
+				}
+				.video {
+					width: 50%;
+					margin: 1px;
+					background-color: #000;
+				}
+			}
+
+			.three-four {
+				display: flex;
+				.three-image {
+					height: 30vh;
+					width: 50%;
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: cover;
+					margin: 2px;
+				}
+				.three-video {
+					width: 50%;
+					margin: 1px;
+					background-color: #000;
+				}
+
+				.four {
+					height: 30vh;
+					width: 50%;
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: cover;
+					margin: 2px;
+
+					.over-clound {
+						height: 100%;
+						background-color: #485460;
+						opacity: 0.6;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						span {
+							color: #ffffff;
+							font-size: 20px;
+							font-weight: 600;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	ion-grid {
+		padding: 0px;
+		margin: 0px;
+		ion-col {
+			padding: 0px;
+
+			.btn-action {
+				height: 40px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				i {
+					font-size: 18px;
+				}
+
+				span {
+					margin: 0px 5px;
+					font-size: 14px;
+				}
+			}
+
+			p {
+				margin: 12px 0px;
+				color: #000;
+				font-style: italic;
+				text-align: center;
+				text-transform: initial;
+			}
+		}
+	}
+}
+
+.ripple-parent {
+	position: relative;
+	overflow: hidden;
+}
+
+.is-like {
+	font-weight: bold;
+	color: #4b7bec;
+}

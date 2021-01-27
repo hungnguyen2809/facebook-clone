@@ -1,9 +1,63 @@
-<ion-header>
+<ion-header  class="ion-no-border">
   <ion-toolbar>
-    <ion-title>Index</ion-title>
+    <ion-title>
+      <span>Facebook</span>
+    </ion-title>
+    <ion-buttons slot="end">
+      <search-icon (click)="onSearch()"></search-icon>
+      <div class="icon-message">
+        <messenger-icon></messenger-icon>
+        <ion-badge color="danger">99</ion-badge>
+      </div>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <h1>This is Index Page</h1>
-</ion-content>
+<super-tabs>
+  <super-tabs-toolbar slot="top" color="white">
+    <super-tab-button>
+      <ion-icon name="home"></ion-icon>
+    </super-tab-button>
+    <super-tab-button>
+      <ion-icon name="people"></ion-icon>
+    </super-tab-button>
+    <super-tab-button>
+      <ion-icon name="videocam"></ion-icon>
+    </super-tab-button>
+    <super-tab-button>
+      <ion-icon name="notifications"></ion-icon>
+    </super-tab-button>
+    <super-tab-button>
+      <ion-icon name="menu"></ion-icon>
+    </super-tab-button>
+  </super-tabs-toolbar>
+
+  <super-tabs-container auto-scroll-top="true">
+    <super-tab>
+      <ion-content>
+        <ion-nav [root]="homePage"></ion-nav>
+      </ion-content>
+    </super-tab>
+    <super-tab>
+      <ion-content>
+        <ion-nav [root]="groupPage"></ion-nav>
+      </ion-content>
+    </super-tab>
+    <super-tab>
+      <ion-content>
+        <ion-nav [root]="watchPage"></ion-nav>
+      </ion-content>
+    </super-tab>
+    <super-tab>
+      <ion-content>
+        <ion-nav [root]="notificationsPage"></ion-nav>
+      </ion-content>
+    </super-tab>
+    <super-tab>
+      <ion-content>
+        <ion-nav [root]="menuPage"></ion-nav>
+      </ion-content>
+    </super-tab>
+  </super-tabs-container>
+  
+</super-tabs>

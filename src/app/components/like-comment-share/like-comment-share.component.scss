@@ -1,0 +1,28 @@
+.like-comment-share{
+	margin: 8px 10px 0px 10px;
+	display: flex;
+	border-bottom: 1px solid gainsboro;
+	padding-bottom: 5px;
+
+	.like{
+		.fa-thumbs-up{
+			color: #4b7bec;
+		}
+
+		.fa-heart{
+			color: red;
+		}
+
+		display: flex;
+		align-items: flex-start;
+	}
+
+	.comment-share{
+		display: flex;
+
+		p{
+			margin: 0px;
+			margin-left: 10px;
+		};
+	}
+}

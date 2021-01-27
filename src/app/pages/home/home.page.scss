@@ -1,0 +1,139 @@
+
+.ripple-parent {
+  position: relative;
+  overflow: hidden;
+}
+
+.header {
+	ion-list {
+		padding: 0px;
+	}
+
+	.btn-status {
+		width: 100%;
+		margin-left: 0.6em;
+		min-height: 2rem;
+		border: 1px solid #a5b1c2;
+		--border-radius: 1.3em;
+		border-radius: 1.3em;
+		color: black;
+		text-transform: initial;
+
+		ion-label{
+			padding: 3px;
+		}
+	}
+
+	.list-ios {
+		margin-top: 0.5rem;
+		margin-bottom: 0.5rem;
+	}
+
+	border-bottom: 1px solid #d1d8e0;
+
+	img {
+		min-width: 40px;
+		min-height: 40px;
+		max-width: 40px;
+		max-height: 40px;
+	}
+}
+
+.content-home {
+	ion-card {
+		background-color: white;
+		padding: 0px;
+		margin: 0px;
+		border-radius: 0px;
+	}
+
+	.meet-zoom {
+		border-top: 7px solid #bdc3c7;
+		padding: 3px; margin-top: 0px;
+		display: flex;
+		overflow-x: auto;
+
+		.btn-meet-zoom {
+			border: 1px solid #74b9ff;
+			--border-radius: 1.3em;
+			border-radius: 1.3em;
+		}
+
+		.people-zoom {
+			width: 40px;
+			height: 40px;
+			border-radius: 20px;
+			margin-left: 10px;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+
+			.icon {
+				height: 100%;
+				display: flex;
+				justify-content: flex-end;
+				align-items: flex-end;
+				font-size: 10px;
+
+				i {
+					color: #2ecc71;
+					border: 2px solid white;
+					border-radius: 10px;
+				}
+			}
+		}
+	}
+
+	.story {
+		border-top: 7px solid #bdc3c7;
+		display: flex;
+		overflow-x: auto;
+	}
+
+	.overview-story {
+		background-color: whitesmoke;
+		height: 200px;
+		width: 100px;
+		margin: 10px 6px;
+		border-radius: 10px;
+		border: 1px solid #dfe4ea;
+
+		.avartar {
+			height: 100px;
+			width: 100px;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			display: flex;
+			justify-content: center;
+			align-items: flex-end;
+
+			.icon {
+				background-color: #1878f3;
+				color: white;
+				font-size: 21px;
+				border-radius: 20px;
+				margin-bottom: -15px;
+				border: 3px solid white;
+				i {
+					margin: 4px 5px 4px 5px;
+				}
+			}
+		}
+
+		.name-story {
+			height: 50%;
+			display: flex;
+			justify-content: center;
+			align-items: flex-end;
+			span {
+				font-size: medium;
+				font-weight: bold;
+				color: #57606f;
+				margin-bottom: 10px;
+			}
+		}
+	}
+
+}
+

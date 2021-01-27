@@ -1,0 +1,35 @@
+.overview-story{
+  height: 200px;
+  width: 100px;
+  margin: 10px 6px;
+  border-radius: 10px;
+  border: 1px solid #dfe4ea;
+
+  .content-story{
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    .avatar{
+      width: 35px;
+      height: 35px;
+      border-radius: 20px;
+      border: 2px solid #1e90ff;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .name{
+      height: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      color: white;
+      font-size: small;
+      padding-bottom: 5px;
+      text-align: center;
+    }
+  }
+}
